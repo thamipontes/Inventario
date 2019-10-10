@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	  
+	  
+	<head>
+		<title>Inventario</title>	
+	</head>
+	<body>
+	
+		<h1>Cadastro de Inventário:</h1>
+		<form method="post">
+			Servidor: <input type="text" value ="" name="servidor"/>
+			Ambiente: <input type="text" value ="" name="ambiente"/>
+			
+			<button type="submit">Salvar</button>
+		
+		</form>
+	
+	
+	
+	</body> 
+	  
+	  
+	  
+	  
+	  
+</html>

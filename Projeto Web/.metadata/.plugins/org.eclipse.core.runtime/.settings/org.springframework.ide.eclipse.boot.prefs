@@ -1,0 +1,14 @@
+eclipse.preferences.version=1
+org.springframework.ide.eclipse.boot.wizard.PopularityTracker.data-jpa=1
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.artifactId=inventario
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.bootVersion=2.1.9.RELEASE
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.description=Demo project for Spring Boot
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.groupId=com.prf
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.javaVersion=1.8
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.language=java
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.name=inventario
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.packageName=com.prf.inventario
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.packaging=jar
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.type=GRADLE-Buildship 3.x
+org.springframework.ide.eclipse.boot.wizard.PreferredSelections.version=0.0.1-SNAPSHOT
+org.springframework.ide.eclipse.boot.wizard.initializr.url=https\://start.spring.io\n
