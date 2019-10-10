@@ -1,2 +1,2 @@
-# Invent-rio
+# Inventário
 Inventário (Banco de Dados)
