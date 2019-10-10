@@ -1670,3 +1670,8 @@ org.eclipse.core.runtime.CoreException: Could not resolve artifact mysql:mysql-c
 2019-10-10 12:38:44,630 [Worker-157: Launching inventario - InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 38 resources
 2019-10-10 12:38:44,632 [Worker-157: Launching inventario - InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2019-10-10 12:38:44,632 [Worker-157: Launching inventario - InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/thamiresdepontesdasilva/Documentos/Projeto Web/inventario/src/test/resources
+2019-10-10 16:11:47,561 [Worker-178: Launching inventario - InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-10 16:11:47,577 [Worker-178: Launching inventario - InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-10-10 16:11:47,587 [Worker-178: Launching inventario - InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 38 resources
+2019-10-10 16:11:47,589 [Worker-178: Launching inventario - InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-10-10 16:11:47,589 [Worker-178: Launching inventario - InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/thamiresdepontesdasilva/Documentos/Projeto Web/inventario/src/test/resources

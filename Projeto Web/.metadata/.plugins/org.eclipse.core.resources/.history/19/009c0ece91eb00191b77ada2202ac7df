@@ -1,6 +1,7 @@
 package com.prf.inventario.model;
 
 import java.io.Serializable;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,17 +15,17 @@ public class Inventario implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long codigo;	
-	
-	private String servidor;
-	private String ambiente;
-	
-	
+		
 	public long getCodigo() {
 		return codigo;
 	}
 	public void setCodigo(long codigo) {
 		this.codigo = codigo;
 	}
+	
+	private String servidor;
+	private String ambiente;
+	
 	public String getServidor() {
 		return servidor;
 	}
@@ -36,14 +37,7 @@ public class Inventario implements Serializable{
 	}
 	public void setAmbiente(String ambiente) {
 		this.ambiente = ambiente;
-	}	
+	}
+	
 
 }
-
-
-
-
-
-
-
-
