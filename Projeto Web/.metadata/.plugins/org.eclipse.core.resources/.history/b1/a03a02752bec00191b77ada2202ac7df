@@ -1,0 +1,87 @@
+package com.prf.inventario.model;
+
+import java.io.Serializable;
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+@Entity
+public class T002_BASE implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long T002_ID_BASE;	
+	
+	private String T002_NO_BASE;
+	private String T002_DE_BASE;
+	private Date T002_DT_CRIACAO;
+	private Date T002_DT_INATIVACAO;
+	private boolean T002_IS_ATIVO;
+	
+	@ManyToOne
+	@JoinColumn(name = "T005_INSTANCIA")
+	private T005_INSTANCIA t005_instancia;
+	
+	@OneToMany(mappedBy = "t002_base")
+	private List <T009_SCHEMA> schema=new ArrayList<>();
+	
+	
+	public long getT002_ID_BASE() {
+		return T002_ID_BASE;
+	}
+	public void setT002_ID_BASE(long t002_ID_BASE) {
+		T002_ID_BASE = t002_ID_BASE;
+	}
+	public String getT002_NO_BASE() {
+		return T002_NO_BASE;
+	}
+	public void setT002_NO_BASE(String t002_NO_BASE) {
+		T002_NO_BASE = t002_NO_BASE;
+	}
+	public String getT002_DE_BASE() {
+		return T002_DE_BASE;
+	}
+	public void setT002_DE_BASE(String t002_DE_BASE) {
+		T002_DE_BASE = t002_DE_BASE;
+	}
+	public Date getT002_DT_CRIACAO() {
+		return T002_DT_CRIACAO;
+	}
+	public void setT002_DT_CRIACAO(Date t002_DT_CRIACAO) {
+		T002_DT_CRIACAO = t002_DT_CRIACAO;
+	}
+	public Date getT002_DT_INATIVACAO() {
+		return T002_DT_INATIVACAO;
+	}
+	public void setT002_DT_INATIVACAO(Date t002_DT_INATIVACAO) {
+		T002_DT_INATIVACAO = t002_DT_INATIVACAO;
+	}
+	public boolean isT002_IS_ATIVO() {
+		return T002_IS_ATIVO;
+	}
+	public void setT002_IS_ATIVO(boolean t002_IS_ATIVO) {
+		T002_IS_ATIVO = t002_IS_ATIVO;
+	}
+	public T005_INSTANCIA getT005_instancia() {
+		return t005_instancia;
+	}
+	public void setT005_instancia(T005_INSTANCIA t005_instancia) {
+		this.t005_instancia = t005_instancia;
+	}	
+	
+	
+	
+	
+	
+
+}

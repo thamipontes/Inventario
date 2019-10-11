@@ -1,0 +1,5 @@
+package com.prf.inventario.repository;
+
+public interface T011_DISCOS_SERVIDORRepository {
+
+}

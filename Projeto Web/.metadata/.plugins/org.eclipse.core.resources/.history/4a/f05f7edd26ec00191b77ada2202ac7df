@@ -1,0 +1,43 @@
+package com.prf.inventario.model;
+
+import java.io.Serializable;
+import java.sql.Date;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
+public class T011_DISCOS_SERVIDOR implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long T011_ID_DISCOS_SERVIDOR;	
+	
+	private String T011_PARTICAO_SERVIDOR;
+	private int T011_TAMANHO_MB;
+	
+	public long getT011_ID_DISCOS_SERVIDOR() {
+		return T011_ID_DISCOS_SERVIDOR;
+	}
+	public void setT011_ID_DISCOS_SERVIDOR(long t011_ID_DISCOS_SERVIDOR) {
+		T011_ID_DISCOS_SERVIDOR = t011_ID_DISCOS_SERVIDOR;
+	}
+	public String getT011_PARTICAO_SERVIDOR() {
+		return T011_PARTICAO_SERVIDOR;
+	}
+	public void setT011_PARTICAO_SERVIDOR(String t011_PARTICAO_SERVIDOR) {
+		T011_PARTICAO_SERVIDOR = t011_PARTICAO_SERVIDOR;
+	}
+	public int getT011_TAMANHO_MB() {
+		return T011_TAMANHO_MB;
+	}
+	public void setT011_TAMANHO_MB(int t011_TAMANHO_MB) {
+		T011_TAMANHO_MB = t011_TAMANHO_MB;
+	}
+		
+
+}
