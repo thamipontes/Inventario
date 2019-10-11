@@ -4,9 +4,9 @@ package com.prf.inventario.repository;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
-import com.prf.inventario.model.T012_AMBIENTE;
+import com.prf.inventario.model.Ambiente;
 
 @Repository
-public interface T012_AMBIENTERepository extends CrudRepository <T012_AMBIENTE, Integer>{
+public interface AmbienteRepository extends CrudRepository <Ambiente, Integer>{
 
 }
