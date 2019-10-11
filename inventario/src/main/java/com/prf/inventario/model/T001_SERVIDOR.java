@@ -1,0 +1,153 @@
+package com.prf.inventario.model;
+
+import java.io.Serializable;
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+
+@Entity
+public class T001_SERVIDOR implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private long T001_ID_SERVIDOR;
+	
+	private String T001_NO_SERVIDOR;
+	private Date T001_DT_CRIACAO;
+	private Date T001_DT_INATIVACAO;
+	private boolean T001_IS_ATIVO;
+	private String T001_IP_HOST;
+	private String T001_NU_VERSAO_SO;
+	private String T001_NU_VERSAO_KERNEL;
+	private int T001_NU_CPU;
+	private int T001_NU_NUCLEOS;
+	private int T001_NU_CORES;
+	private int T001_MEMORIA_MB;	
+	
+	@ManyToOne
+	@JoinColumn(name = "T010_SISTEMA_OPERACIONAL")
+	private T010_SISTEMA_OPERACIONAL t010_sistema_operacional;
+	
+	@ManyToOne
+	@JoinColumn(name = "T011_DISCOS_SERVIDOR")
+	private T011_DISCOS_SERVIDOR t011_discos_servidor;
+	
+	@ManyToOne
+	@JoinColumn(name = "T012_AMBIENTE")
+	private T012_AMBIENTE t012_ambiente;
+	
+	
+	@OneToMany(mappedBy = "t001_servidor")
+	private List <T005_INSTANCIA> instancias=new ArrayList<>();
+	
+	
+	public long getT001_ID_SERVIDOR() {
+		return T001_ID_SERVIDOR;
+	}
+	public void setT001_ID_SERVIDOR(long t001_ID_SERVIDOR) {
+		T001_ID_SERVIDOR = t001_ID_SERVIDOR;
+	}
+	public String getT001_NO_SERVIDOR() {
+		return T001_NO_SERVIDOR;
+	}
+	public void setT001_NO_SERVIDOR(String t001_NO_SERVIDOR) {
+		T001_NO_SERVIDOR = t001_NO_SERVIDOR;
+	}
+	public Date getT001_DT_CRIACAO() {
+		return T001_DT_CRIACAO;
+	}
+	public void setT001_DT_CRIACAO(Date t001_DT_CRIACAO) {
+		T001_DT_CRIACAO = t001_DT_CRIACAO;
+	}
+	public Date getT001_DT_INATIVACAO() {
+		return T001_DT_INATIVACAO;
+	}
+	public void setT001_DT_INATIVACAO(Date t001_DT_INATIVACAO) {
+		T001_DT_INATIVACAO = t001_DT_INATIVACAO;
+	}
+	public String getT001_IP_HOST() {
+		return T001_IP_HOST;
+	}
+	public void setT001_IP_HOST(String t001_IP_HOST) {
+		T001_IP_HOST = t001_IP_HOST;
+	}
+	public String getT001_NU_VERSAO_SO() {
+		return T001_NU_VERSAO_SO;
+	}
+	public void setT001_NU_VERSAO_SO(String t001_NU_VERSAO_SO) {
+		T001_NU_VERSAO_SO = t001_NU_VERSAO_SO;
+	}
+	public boolean isT001_IS_ATIVO() {
+		return T001_IS_ATIVO;
+	}
+	public void setT001_IS_ATIVO(boolean t001_IS_ATIVO) {
+		T001_IS_ATIVO = t001_IS_ATIVO;
+	}
+	public int getT001_NU_CORES() {
+		return T001_NU_CORES;
+	}
+	public void setT001_NU_CORES(int t001_NU_CORES) {
+		T001_NU_CORES = t001_NU_CORES;
+	}
+	public String getT001_NU_VERSAO_KERNEL() {
+		return T001_NU_VERSAO_KERNEL;
+	}
+	public void setT001_NU_VERSAO_KERNEL(String t001_NU_VERSAO_KERNEL) {
+		T001_NU_VERSAO_KERNEL = t001_NU_VERSAO_KERNEL;
+	}
+	public int getT001_NU_CPU() {
+		return T001_NU_CPU;
+	}
+	public void setT001_NU_CPU(int t001_NU_CPU) {
+		T001_NU_CPU = t001_NU_CPU;
+	}
+	public int getT001_NU_NUCLEOS() {
+		return T001_NU_NUCLEOS;
+	}
+	public void setT001_NU_NUCLEOS(int t001_NU_NUCLEOS) {
+		T001_NU_NUCLEOS = t001_NU_NUCLEOS;
+	}
+	public int getT001_MEMORIA_MB() {
+		return T001_MEMORIA_MB;
+	}
+	public void setT001_MEMORIA_MB(int t001_MEMORIA_MB) {
+		T001_MEMORIA_MB = t001_MEMORIA_MB;
+	}
+	public T010_SISTEMA_OPERACIONAL getT010_sistema_operacional() {
+		return t010_sistema_operacional;
+	}
+	public void setT010_sistema_operacional(T010_SISTEMA_OPERACIONAL t010_sistema_operacional) {
+		this.t010_sistema_operacional = t010_sistema_operacional;
+	}
+	public T011_DISCOS_SERVIDOR getT011_discos_servidor() {
+		return t011_discos_servidor;
+	}
+	public void setT011_discos_servidor(T011_DISCOS_SERVIDOR t011_discos_servidor) {
+		this.t011_discos_servidor = t011_discos_servidor;
+	}
+	public T012_AMBIENTE getT012_ambiente() {
+		return t012_ambiente;
+	}
+	public void setT012_ambiente(T012_AMBIENTE t012_ambiente) {
+		this.t012_ambiente = t012_ambiente;
+	}
+	public List<T005_INSTANCIA> getInstancias() {
+		return instancias;
+	}
+	public void setInstancias(List<T005_INSTANCIA> instancias) {
+		this.instancias = instancias;
+	}
+	
+	
+	
+}
