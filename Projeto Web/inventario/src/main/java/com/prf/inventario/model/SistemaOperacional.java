@@ -19,12 +19,12 @@ public class SistemaOperacional implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="T010_ID_SISTEMA_OPERACIONAL")
 	private int idSistemaOperacional;	
 	
 	@Column(name="T010_NO_SISTEMA_OPERACIONAL")
-	private String noSistemaOperacioanl;
+	private String nomeSistemaOperacional;
 	
 	@OneToMany(mappedBy = "sistemaOperacional")
 	private List <Servidor> servidores = new ArrayList<>();
@@ -33,26 +33,27 @@ public class SistemaOperacional implements Serializable{
 		
 	}
 
-	public SistemaOperacional(int id_sistema_operacional, String no_sistema_operacioanl) {
+	public SistemaOperacional(int idSistemaOperacional, String nomeSistemaOperacional) {
 		super();
-		this.idSistemaOperacional = id_sistema_operacional;
-		this.noSistemaOperacioanl = no_sistema_operacioanl;
+		this.idSistemaOperacional = idSistemaOperacional;
+		this.nomeSistemaOperacional = nomeSistemaOperacional;
 	}
 
-	public int getId_sistema_operacional() {
+
+	public int getIdSistemaOperacional() {
 		return idSistemaOperacional;
 	}
 
-	public void setId_sistema_operacional(int id_sistema_operacional) {
-		this.idSistemaOperacional = id_sistema_operacional;
+	public void setIdSistemaOperacional(int idSistemaOperacional) {
+		this.idSistemaOperacional = idSistemaOperacional;
 	}
 
-	public String getNo_sistema_operacioanl() {
-		return noSistemaOperacioanl;
+	public String getNomeSistemaOperacional() {
+		return nomeSistemaOperacional;
 	}
 
-	public void setNo_sistema_operacioanl(String no_sistema_operacioanl) {
-		this.noSistemaOperacioanl = no_sistema_operacioanl;
+	public void setNomeSistemaOperacional(String nomeSistemaOperacional) {
+		this.nomeSistemaOperacional = nomeSistemaOperacional;
 	}
 
 	public List<Servidor> getServidores() {

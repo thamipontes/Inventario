@@ -22,7 +22,7 @@ public class AmbienteService {
 		return ar.findById(id);
 	}
 	
-	public Ambiente SalvarAmbiente(Ambiente ambiente) {
+	public Ambiente salvarAmbiente(Ambiente ambiente) {
 		return ar.save(ambiente);
 	}
 	

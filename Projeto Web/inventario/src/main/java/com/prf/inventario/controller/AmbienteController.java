@@ -43,7 +43,7 @@ public class AmbienteController {
 		if(result.hasErrors()) {
 			return novoAmbiente(ambiente);
 		}
-		ambienteService.SalvarAmbiente(ambiente);
+		ambienteService.salvarAmbiente(ambiente);
 		return listaInventario();
 	}
 	
@@ -54,16 +54,5 @@ public class AmbienteController {
 		mv.addObject("ambiente", ambiente); 
 		return mv;
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+
 }
