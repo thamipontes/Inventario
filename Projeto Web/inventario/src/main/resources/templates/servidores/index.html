@@ -17,6 +17,8 @@
                 <th>nucleos</th>
                 <th>cores</th>
                 <th>memoriaMb</th>
+                <th>ambiente</th>
+                <th>S.O</th>
                 <th>Editar</th>
                 <th>Deletar</th>
             </tr>
@@ -35,6 +37,8 @@
                 <td th:text="${servidor.nucleos}"></td>
                 <td th:text="${servidor.cores}"></td>
                 <td th:text="${servidor.memoriaMb}"></td>
+                <td th:text="${servidor.ambiente.nomeAmbiente}"></td>
+                <td th:text="${servidor.sistemaOperacional.nomeSistemaOperacional}"></td>
                 <td><a th:href="editar">Edit</a></td>
                 <td><a th:href="apagar">Delete</a></td>
             </tr>
