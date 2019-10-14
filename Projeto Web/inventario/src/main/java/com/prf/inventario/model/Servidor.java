@@ -51,17 +51,16 @@ public class Servidor implements Serializable{
 	@ManyToOne
 	@JoinColumn(name = "T010_ID_SISTEMA_OPERACIONAL")
 	private SistemaOperacional sistemaOperacional;
-	
-	@ManyToOne
-	@JoinColumn(name = "T011_ID_DISCOS_SERVIDOR")
-	private DiscosServidor discosServidor;
-	
+		
 	@ManyToOne
 	@JoinColumn(name = "T012_ID_AMBIENTE")
 	private Ambiente ambiente;
 	
 	@OneToMany(mappedBy = "servidor")
 	private List <Instancia> instancias = new ArrayList<>();
+	
+	@OneToMany(mappedBy = "servidor")
+	private List <DiscosServidor> discosServidor=new ArrayList<>();
 	
 	public Servidor () {
 		
@@ -188,11 +187,11 @@ public class Servidor implements Serializable{
 		this.sistemaOperacional = sistemaOperacional;
 	}
 
-	public DiscosServidor getDiscosServidor() {
+	public List<DiscosServidor> getDiscosServidor() {
 		return discosServidor;
 	}
 
-	public void setDiscosServidor(DiscosServidor discosServidor) {
+	public void setDiscosServidor(List<DiscosServidor> discosServidor) {
 		this.discosServidor = discosServidor;
 	}
 

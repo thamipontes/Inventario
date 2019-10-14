@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -29,8 +31,9 @@ public class DiscosServidor implements Serializable{
 	@Column(name="T011_TAMANHO_MB")
 	private int tamanhoMB;
 	
-	@OneToMany(mappedBy = "discosServidor")
-	private List <Servidor> servidores=new ArrayList<>();
+	@ManyToOne
+	@JoinColumn(name = "T001_ID_SERVIDOR")
+	private Servidor servidor;
 
 	public DiscosServidor () {
 		
@@ -67,12 +70,12 @@ public class DiscosServidor implements Serializable{
 		this.tamanhoMB = tamanho_MB;
 	}
 
-	public List<Servidor> getServidores() {
-		return servidores;
+	public Servidor getServidor() {
+		return servidor;
 	}
 
-	public void setServidores(List<Servidor> servidores) {
-		this.servidores = servidores;
+	public void setServidor(Servidor servidor) {
+		this.servidor = servidor;
 	}
 
 	@Override

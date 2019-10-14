@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 import com.prf.inventario.model.Schema;
 
 @Repository
-public interface T009_SCHEMARepository extends CrudRepository <Schema, Integer>{
+public interface SchemaRepository extends CrudRepository <Schema, Integer>{
 
 }
