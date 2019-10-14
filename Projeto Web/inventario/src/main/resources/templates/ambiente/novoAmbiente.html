@@ -1,6 +1,0 @@
-<form action="#" th:action="@{/addAmbiente}" th:object="${Ambiente}" method="post">
-    <label for="name">Name</label>
-    <input type="text" th:field="*{nome_ambiente}" id="name" placeholder="Name">
-    <span th:if="${#fields.hasErrors('name')}" th:errors="*{nome_ambiente}"></span>
-    <input type="submit" value="Add User">   
-</form>

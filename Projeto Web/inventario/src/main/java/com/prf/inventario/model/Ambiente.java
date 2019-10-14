@@ -20,7 +20,7 @@ public class Ambiente implements Serializable{
 	
 	// Atributos
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="T012_ID_AMBIENTE")
 	private int idAmbiente;	
 	
@@ -35,28 +35,28 @@ public class Ambiente implements Serializable{
 		
 	}
 	
-	public Ambiente(int id_ambiente, String nome_ambiente) {
+	public Ambiente(int idAmbiente, String nomeAmbiente) {
 		super();
-		this.idAmbiente = id_ambiente;
-		this.nomeAmbiente = nome_ambiente;
+		this.idAmbiente = idAmbiente;
+		this.nomeAmbiente = nomeAmbiente;
 	}
 
 	// Métodos
 	
-	public int getId_ambiente() {
+	public int getIdAmbiente() {
 		return idAmbiente;
 	}
 
-	public void setId_ambiente(int id_ambiente) {
-		this.idAmbiente = id_ambiente;
+	public void setIdAmbiente(int idAmbiente) {
+		this.idAmbiente = idAmbiente;
 	}
 
-	public String getNome_ambiente() {
+	public String getNomeAmbiente() {
 		return nomeAmbiente;
 	}
 
-	public void setNome_ambiente(String nome_ambiente) {
-		this.nomeAmbiente = nome_ambiente;
+	public void setNomeAmbiente(String nomeAmbiente) {
+		this.nomeAmbiente = nomeAmbiente;
 	}
 
 	public List<Servidor> getServidores() {
