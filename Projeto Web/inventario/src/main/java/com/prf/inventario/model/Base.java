@@ -22,7 +22,7 @@ public class Base implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="T002_ID_BASE")
 	private int idBase;	
 	

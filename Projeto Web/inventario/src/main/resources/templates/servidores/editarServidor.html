@@ -126,8 +126,50 @@
 					<a th:href="@{/servidores}" class="btn btn-sm btn-default">Cancelar</a>
 				</div>
 			</form>
+			<div>
+				<h2> Discos </h2>
+				    <table class="table" id="tblInstancias">
+				        <thead>
+							 <tr>
+								<th>idDiscosServidor</th>		
+								<th>particaoServidor</th>
+								<th>tamanhoMB</th>
+							</tr>
+				        </thead>
+				        <tbody>
+				            <tr th:each="disco : ${discos}">
+								<td th:text="${disco.idDiscosServidor}"></td>		
+								<td th:text="${disco.particaoServidor}"></td>
+								<td th:text="${disco.tamanhoMB}"></td>
+				                <td><a th:href="editar">Edit</a></td>
+				                <td><a th:href="apagar">Delete</a></td>
+				            </tr>
+				        </tbody>
+				    </table>  
+			</div>
+			<div class="form-group row">
+			<form class="form-horizontal" th:object="${discoServidor}" th:action="@{/servidores/salvarDisco}" method="POST" style="margin: 10px">
+				<div class="col-md-4">
+					<label>ID Servidor</label>
+					<input type="text" class="form-control input-sm" th:field="*{servidor}"  maxlength="50">
+				</div>
+				<div class="col-md-4">
+					<label>Partição</label>
+					<input type="text" class="form-control input-sm" th:field="*{particaoServidor}" autofocus="autofocus"  placeholder="Ex.:/opt" maxlength="50"/>
+				</div>
+				<div class="col-md-4">
+					<label>Tamanho</label>
+					<input type="number" class="form-control input-sm" th:field="*{tamanhoMB}" autofocus="autofocus"  maxlength="50"/>
+				</div>
+				<div class="col-md-4">
+					<br/>
+					<button type="submit" class="btn btn-sm btn-primary">Adicionar</button>
+				</div>
+			</form>	
+			</div>
 		</div>
 	</div>
+
 </body>
 <script type="text/javascript" src="/jquery/jquery-3.4.1.min.js"></script>
 <script type="text/javascript" src="/moment-with-locales/js/moment.js"></script>

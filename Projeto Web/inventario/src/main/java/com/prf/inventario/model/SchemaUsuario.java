@@ -19,6 +19,7 @@ import javax.persistence.Table;
 public class SchemaUsuario implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
+	
 	@Id
 	@Column(name="T008_DT_CRIACAO")
 	private Date dataCriacao;
@@ -28,7 +29,8 @@ public class SchemaUsuario implements Serializable{
 	private boolean ativo;
 	@Column(name="T008_NU_CHAMADO_SOLICITANTE")
 	private String chamadoSolicitante;
-
+	
+	
 	@ManyToOne
 	@JoinColumn(name = "T007_ID_USUARIO")
 	private Usuario usuario;

@@ -22,7 +22,7 @@ public class Instancia implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="T005_ID_INSTANCIA")
 	private int idInstancia;		
 	@Column(name="T005_NO_INSTANCIA")
@@ -43,11 +43,11 @@ public class Instancia implements Serializable{
 	private String localInstalacao;
 	
 	@ManyToOne
-	@JoinColumn(name = "T006_SGBD")
+	@JoinColumn(name = "T006_ID_SGBD")
 	private Sgbd sgbd;
 	
 	@ManyToOne
-	@JoinColumn(name = "T001_SERVIDOR")
+	@JoinColumn(name = "T001_ID_SERVIDOR")
 	private Servidor servidor;
 	
 	@OneToMany(mappedBy = "instancia")

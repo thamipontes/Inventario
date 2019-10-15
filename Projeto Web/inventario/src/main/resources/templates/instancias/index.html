@@ -1,50 +1,42 @@
 <link rel="stylesheet" type="text/css" href="bootstrap-4.3.1-dist/css/bootstrap.min.css"/>
 <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
 <div class="container">
-    <h2>Servidores</h2>
-    <table class="table" id="tblServidores">
+    <h2>Instancias</h2>
+    <table class="table" id="tblInstancias">
         <thead>
-            <tr>
-                <th>idServidor</th>
-                <th>nomeServidor</th>
-                <th>dataCriacao</th>
-                <th>dataInativacao</th>
-                <th>ativo</th>
-                <th>ipHost</th>
-                <th>versaoSo</th>
-                <th>versaoKernel</th>
-                <th>cpus</th>
-                <th>nucleos</th>
-                <th>cores</th>
-                <th>memoriaMb</th>
-                <th>ambiente</th>
-                <th>S.O</th>
-                <th>Editar</th>
-                <th>Deletar</th>
-            </tr>
+			 <tr>
+				<th>idInstancia</th>		
+				<th>nomeInstancia</th>
+				<th>descricaoInstancia</th>
+				<th>dataCriacao</th>
+				<th>dataInativacao</th>
+				<th>ativo</th>
+				<th>versaoSgbd</th>
+				<th>porta</th>
+				<th>localInstalacao</th>
+				<th>Editar</th>
+			    <th>Deletar</th>
+			</tr>
         </thead>
         <tbody>
-            <tr th:each="servidor : ${servidores}">
-                <td th:text="${servidor.idServidor}"></td>
-                <td th:text="${servidor.nomeServidor}"></td>
-                <td th:text="${servidor.dataCriacao}"></td>
-                <td th:text="${servidor.dataInativacao}"></td>
-                <td th:text="${servidor.ativo ? 'Sim' : 'Não'}"></td>
-                <td th:text="${servidor.ipHost}"></td>
-                <td th:text="${servidor.versaoSo}"></td>
-                <td th:text="${servidor.versaoKernel}"></td>
-                <td th:text="${servidor.cpus}"></td>
-                <td th:text="${servidor.nucleos}"></td>
-                <td th:text="${servidor.cores}"></td>
-                <td th:text="${servidor.memoriaMb}"></td>
-                <td th:text="${servidor.ambiente.nomeAmbiente}"></td>
-                <td th:text="${servidor.sistemaOperacional.nomeSistemaOperacional}"></td>
+            <tr th:each="instancia : ${instancias}">
+				<td th:text="${instancia.idInstancia}"></td>		
+				<td th:text="${instancia.nomeInstancia}"></td>
+				<td th:text="${instancia.descricaoInstancia}"></td>
+				<td th:text="${instancia.dataCriacao}"></td>
+				<td th:text="${instancia.dataInativacao}"></td>
+				<td th:text="${instancia.ativo}"></td>
+				<td th:text="${instancia.versaoSgbd}"></td>
+				<td th:text="${instancia.porta}"></td>
+				<td th:text="${instancia.localInstalacao}"></td>
+				<td th:text="${instancia.sgbd.nomeSgbd}"></td>
+				<td th:text="${instancia.servidor.nomeServidor}"></td>
                 <td><a th:href="editar">Edit</a></td>
                 <td><a th:href="apagar">Delete</a></td>
             </tr>
         </tbody>
     </table>    
-    <p><a href="/servidores/novoServidor">Cadastrar Servidor</a></p>
+    <p><a href="/instancias/novaInstancia">Cadastrar Instancia</a></p>
 </div>
 
 <script type="text/javascript" src="jquery/jquery-3.4.1.min.js"></script>
@@ -52,7 +44,7 @@
 <script type="text/javascript" src="DataTables/datatables.min.js"></script>
 <script type=text/javascript>
 $(function () {
-    $("#tblServidores").DataTable({
+    $("#tblInstancias").DataTable({
         dom: 'Bfrtip',
         buttons: ['excel'],
         language: {

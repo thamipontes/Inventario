@@ -12,8 +12,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import org.hibernate.validator.constraints.Length;
+
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
 @Entity
@@ -23,26 +25,127 @@ public class Sistema implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
-	@Column(name="T004_ID_SISTEMA")
-	private long T004_ID_SISTEMA;	
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="T004_ID_SISTEMA", nullable = false, length = 100)
+	private long idSistema;	
 	
+	@NotBlank(message = "O campo nome do sistema não pode ser vazio.")
+	@Length(min = 2)
 	@Column(name="T004_NO_SISTEMA")
-	private String T004_NO_SISTEMA;
-	@Column(name="T004_DE_SISTEMA")
-	private String T004_DE_SISTEMA;
+	private String nomeSistema;
+	
+	@Column(name="T004_DE_SISTEMA",  nullable = false, length = 100)
+	@NotBlank(message = "O campo descrição do sistema não pode ser vazio")
+	@Length(min = 10, max = 255)
+	private String descricaoSistema;
+	
 	@Column(name="T004_DT_PRODUCAO")
-	private Date T004_DT_PRODUCAO;
+	private Date dataCriacao;
+	
 	@Column(name="T004_DT_DESATIVACAO")
-	private Date T004_DT_DESATIVACAO;
+	private Date dataInativacao;
+	
 	@Column(name="T004_IS_ATIVO")
-	private boolean T004_IS_ATIVO;
+	private boolean ativo;
 	
 	@JsonManagedReference
 	@ManyToMany(mappedBy = "sistemas")
 	private List<Schema> schemas = new ArrayList<>();
 	
+	public Sistema () {
+		
+	}
 
+	public Sistema(long idSistema, String nomeSistema, String descricaoSistema, Date dataCriacao, Date dataInativacao,
+			boolean ativo) {
+		super();
+		this.idSistema = idSistema;
+		this.nomeSistema = nomeSistema;
+		this.descricaoSistema = descricaoSistema;
+		this.dataCriacao = dataCriacao;
+		this.dataInativacao = dataInativacao;
+		this.ativo = ativo;
+	}
+
+	public long getIdSistema() {
+		return idSistema;
+	}
+
+	public void setIdSistema(long idSistema) {
+		this.idSistema = idSistema;
+	}
+
+	public String getNomeSistema() {
+		return nomeSistema;
+	}
+
+	public void setNomeSistema(String nomeSistema) {
+		this.nomeSistema = nomeSistema;
+	}
+
+	public String getDescricaoSistema() {
+		return descricaoSistema;
+	}
+
+	public void setDescricaoSistema(String descricaoSistema) {
+		this.descricaoSistema = descricaoSistema;
+	}
+
+	public Date getDataCriacao() {
+		return dataCriacao;
+	}
+
+	public void setDataCriacao(Date dataCriacao) {
+		this.dataCriacao = dataCriacao;
+	}
+
+	public Date getDataInativacao() {
+		return dataInativacao;
+	}
+
+	public void setDataInativacao(Date dataInativacao) {
+		this.dataInativacao = dataInativacao;
+	}
+
+	public boolean isAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(boolean ativo) {
+		this.ativo = ativo;
+	}
+
+	public List<Schema> getSchemas() {
+		return schemas;
+	}
+
+	public void setSchemas(List<Schema> schemas) {
+		this.schemas = schemas;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (idSistema ^ (idSistema >>> 32));
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Sistema other = (Sistema) obj;
+		if (idSistema != other.idSistema)
+			return false;
+		return true;
+	}
+	
+	
 	
 	
 }

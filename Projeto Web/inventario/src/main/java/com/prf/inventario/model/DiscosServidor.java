@@ -18,7 +18,7 @@ public class DiscosServidor implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="T011_ID_DISCOS_SERVIDOR")
 	private int idDiscosServidor;	
 	
@@ -36,35 +36,35 @@ public class DiscosServidor implements Serializable{
 		
 	}
 	
-	public DiscosServidor(int id_discos_servidor, String particao_servidor, int tamanho_MB) {
+	public DiscosServidor(int idDiscosServidor, String particaoServidor, int tamanhoMB) {
 		super();
-		this.idDiscosServidor = id_discos_servidor;
-		this.particaoServidor = particao_servidor;
-		this.tamanhoMB = tamanho_MB;
+		this.idDiscosServidor = idDiscosServidor;
+		this.particaoServidor = particaoServidor;
+		this.tamanhoMB = tamanhoMB;
 	}
 
-	public int getId_discos_servidor() {
+	public int getIdDiscosServidor() {
 		return idDiscosServidor;
 	}
 
-	public void setId_discos_servidor(int id_discos_servidor) {
-		this.idDiscosServidor = id_discos_servidor;
+	public void setIdDiscosServidor(int idDiscosServidor) {
+		this.idDiscosServidor = idDiscosServidor;
 	}
 
-	public String getParticao_servidor() {
+	public String getParticaoServidor() {
 		return particaoServidor;
 	}
 
-	public void setParticao_servidor(String particao_servidor) {
-		this.particaoServidor = particao_servidor;
+	public void setParticaoServidor(String particaoServidor) {
+		this.particaoServidor = particaoServidor;
 	}
 
-	public int getTamanho_MB() {
+	public int getTamanhoMB() {
 		return tamanhoMB;
 	}
 
-	public void setTamanho_MB(int tamanho_MB) {
-		this.tamanhoMB = tamanho_MB;
+	public void setTamanhoMB(int tamanhoMB) {
+		this.tamanhoMB = tamanhoMB;
 	}
 
 	public Servidor getServidor() {

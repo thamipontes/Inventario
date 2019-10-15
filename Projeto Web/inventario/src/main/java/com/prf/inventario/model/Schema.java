@@ -26,7 +26,7 @@ public class Schema implements Serializable{
 	private static final long serialVersionUID = 1L;
 	
 	@Id
-	@GeneratedValue(strategy = GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="T009_ID_SCHEMA")
 	private long idSchema;
 	@Column(name="T009_NO_SCHEMA")

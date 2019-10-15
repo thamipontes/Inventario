@@ -14,6 +14,9 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+
 
 @Entity
 @Table(name="T001_SERVIDOR")
@@ -25,12 +28,19 @@ public class Servidor implements Serializable{
 	@Column(name="T001_ID_SERVIDOR")
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idServidor;	
+	
+	@NotBlank(message= "O campo Nome do servidor é obrigatório")
 	@Column(name="T001_NO_SERVIDOR")
 	private String nomeServidor;
+	
+	@NotNull(message= "O campo Data de Criação é obrigatório")
 	@Column(name="T001_DT_CRIACAO")
 	private Date dataCriacao;
+	
+	@NotNull(message= "O campo Data de Inativação é obrigatório")
 	@Column(name="T001_DT_INATIVACAO")
 	private Date dataInativacao;
+	
 	@Column(name="T001_IS_ATIVO")
 	private boolean ativo;
 	@Column(name="T001_IP_HOST")
