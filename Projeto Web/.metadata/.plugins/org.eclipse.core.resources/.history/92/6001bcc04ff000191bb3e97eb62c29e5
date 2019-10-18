@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+
+	<head>
+		<title>SGBD</title>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>  
+      <link href="bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet"/>     
+      <link type="text/css" rel="stylesheet" href="materialize-v0.100.2/materialize/css/materialize.min.css"  media="screen,projection"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>	
+	</head>
+
+<div class="container" th:switch="sgbds">
+    <h2 th:case="null">Ainda não existem SGBD's.</h2>
+        <div th:case="*">
+            <h2>SGBD</h2>
+            <table class="table" id="tblSgbds">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Nome</th>
+                        <th>Editar</th>
+                        <th>Deletar</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr th:each="sgbd : ${sgbds}">
+                    <td th:text="${sgbd.idSgbd}"></td>
+                    <td th:text="${sgbd.nomeSgbd}"></td>
+                    <td>
+                    	<button class="btn btn-sm btn-primary"> <a th:href="'sgbds/editarSgbd/' + ${sgbd.idSgbd}">Edit</a></button>
+                    </td>
+                    <td>
+                    	<form class="form-horizontal" th:object="${sgbd}" th:action="@{/sgbds/deletarSgbd}" method="POST" style="margin: 10px">
+                   			<input type="text" name="idSgbd" th:value="${sgbd.idSgbd}" hidden/>
+                    		<button class="btn btn-sm btn-primary" type="submit"> Delete </button>
+                    	</form>
+                    </td>
+                    
+                </tr>
+            </tbody>
+        </table>
+    </div>      
+    <p><a href="/sgbds/novoSgbd" class="waves-effect waves-light btn"><i class="material-icons left">format_list_bulleted</i>Cadastrar SGBD</a></p>
+</div>
+<script type="text/javascript" src="jquery/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="DataTables/datatables.min.js"></script>
+<script type="text/javascript" src="materialize-v0.100.2/materialize/js/materialize.min.js"></script>
+<script type=text/javascript>
+$(function () {
+    $("#tblSgbd").DataTable({
+        dom: 'Bfrtip',
+        buttons: ['excel'],
+        language: {
+            "sEmptyTable": "Nenhum registro encontrado",
+            "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+            "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
+            "sInfoFiltered": "(Filtrados de _MAX_ registros)",
+            "sInfoPostFix": "",
+            "sInfoThousands": ".",
+            "sLengthMenu": "_MENU_ resultados por página",
+            "sLoadingRecords": "Carregando...",
+            "sProcessing": "Processando...",
+            "sZeroRecords": "Nenhum registro encontrado",
+            "sSearch": "Pesquisar",
+            "oPaginate": {
+                "sNext": "Próximo",
+                "sPrevious": "Anterior",
+                "sFirst": "Primeiro",
+                "sLast": "Último"
+            },
+            "oAria": {
+                "sSortAscending": ": Ordenar colunas de forma ascendente",
+                "sSortDescending": ": Ordenar colunas de forma descendente"
+            }
+        }
+    });
+
+    $(".dt-buttons").addClass("btn btn-primary");
+})
+</script>

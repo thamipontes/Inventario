@@ -28,6 +28,7 @@ public class UsuarioController {
 		ModelAndView mv = new ModelAndView("usuarios/index");
 		Iterable<Usuario> usuarios = usuarioService.listarUsuarios();
 		mv.addObject("usuarios", usuarios); 
+		mv.addObject("thamires", "bomdia");
 		return mv;
 	}
 	

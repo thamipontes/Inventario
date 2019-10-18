@@ -1,5 +1,7 @@
 package com.prf.inventario.service;
 
+import java.util.Optional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,5 +16,17 @@ public class SgbdService {
 	
 	public Iterable<Sgbd> listarSgbds () {
 		return sgbdRepository.findAll();
+	}
+	
+	public Optional <Sgbd> buscarSgbd(int id){
+		return sgbdRepository.findById(id);
+	}	
+	
+	public Sgbd salvarSgbd(Sgbd sgbd) {
+		return sgbdRepository.save(sgbd);
+	}
+			
+	public void deletarSgbd (Sgbd sgbd) {
+		sgbdRepository.delete(sgbd);
 	}
 }

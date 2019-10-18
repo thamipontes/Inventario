@@ -1,0 +1,57 @@
+package com.prf.inventario.controller;
+
+import java.util.Optional;
+
+import javax.validation.Valid;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.prf.inventario.model.Sgbd;
+import com.prf.inventario.service.SgbdService;
+
+@Controller
+public class SgbdController {
+
+	@Autowired
+	private SgbdService ss;
+	
+	@RequestMapping(value="/sgbds", method=RequestMethod.GET)	
+	public ModelAndView listaSgbd() {
+		ModelAndView mv = new ModelAndView("sgbds/index");
+		Iterable<Sgbd> sgbd = ss.listarSgbds();
+		mv.addObject("sgbd", sgbd); 
+		return mv;
+	}
+	
+	@RequestMapping(value="/sgbds/novoSgbd", method=RequestMethod.GET)	
+	public ModelAndView novoSgbd(Sgbd sgbd) {
+		
+		ModelAndView mv = new ModelAndView("/sgbds/novoSgbd");
+		mv.addObject("sgbd", sgbd);		
+		return mv;
+	}
+	
+	@RequestMapping(value="/sgbds/addSgbd", method=RequestMethod.POST)	
+	public ModelAndView addAmbiente(@Valid Sgbd sgbd , BindingResult result) {
+		if(result.hasErrors()) {
+			return novoSgbd(sgbd);
+		}
+		ss.salvarSgbd(sgbd);
+		return listaSgbd();
+	}
+	
+	@RequestMapping(value="/sgbds/detalhesSgbd/{id}", method=RequestMethod.GET)
+	public ModelAndView addAmbiente(@PathVariable("id") int id) {
+		ModelAndView mv = new ModelAndView("/sgbds/detalhesSgbd");
+		Optional <Sgbd> sgbd = ss.buscarSgbd(id);
+		mv.addObject("sgbd", sgbd); 
+		return mv;
+	}
+
+}

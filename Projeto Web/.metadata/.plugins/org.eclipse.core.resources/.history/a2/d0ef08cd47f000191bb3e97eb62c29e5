@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+	  
+<head>
+	<meta charset="UTF-8" />
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
+		<title>Editar Cadastro</title>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>  
+      <link href="bootstrap-4.3.1-dist/css/bootstrap.min.css" rel="stylesheet"/>     
+      <link type="text/css" rel="stylesheet" href="materialize-v0.100.2/materialize/css/materialize.min.css"  media="screen,projection"/>
+      <meta name="viewport" content="width=device-width, initial-scale=1.0"/>	
+<link rel="stylesheet" href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" />
+</head>
+
+<body>
+	<div class="container panel panel-default">
+		<div class="panel-header" align="center">
+			<h2>Cadastro SGBD</h2>
+			<hr/>
+		</div>
+		<div class="panel-body">
+			<form class="form-horizontal" th:object="${sgbd}" th:action="@{/sgbds/salvarSgbd}" method="POST" style="margin: 10px">
+				<div class="form-group">
+ 					<fieldset>
+						<div class="form-group row">
+							<div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
+								<div th:each="detailedError : ${#fields.detailedErrors()}">
+									<span th:text="${detailedError.message}"></span>
+								</div>
+							</div>										
+						</div>
+						<div class="form-group row">
+						    <div class="col-md-4">
+						    	<label>ID</label>
+						        <input type="text" class="form-control input-sm" id="idSgbd" th:field="*{idSgbd}" readOnly="readonly"/>
+						    </div>						
+				                                                    
+							<div class="col-md-4" th:classappend="${#fields.hasErrors('*{nomeSgbd}')}? 'has-error'">
+							    <label>Nome do SGBD</label>
+							    <input type="text" class="form-control input-sm" th:field="*{nomeSgbd}" autofocus="autofocus" placeholder="Informe o nome do SGBD. Ex.:Produção " maxlength="50"/>
+							</div>
+						</div>
+						
+					</fieldset>
+				</div>
+				<div class="row">
+					<button class="waves-effect waves-light btn" type="submit" name="action">Salvar<i class="material-icons">add</i></button>
+					<a th:href="@{/sgbds}" class="waves-effect waves-light btn">Cancelar</a>
+				</div>
+			</form>	
+		</div>
+	</div>
+
+</body>
+<script type="text/javascript" src="/jquery/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="/moment-with-locales/js/moment.js"></script>
+<script type="text/javascript" src="/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/dateTimePicker/js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript" src="materialize-v0.100.2/materialize/js/materialize.min.js"></script>
+</html>
