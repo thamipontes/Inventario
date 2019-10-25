@@ -23,7 +23,7 @@ public class DiscosServidor implements Serializable{
 	@Id 
 	//"Autoincremento"
 	@GeneratedValue(strategy = GenerationType.IDENTITY) 
-	//"Mapeamento, ou seja, qual é a coluna no banco.
+	//"Mapeamento", ou seja, qual é a coluna no banco.
 	@Column(name="T011_ID_DISCOS_SERVIDOR")
 	private int idDiscosServidor; //Campo idDiscosServidor na tabela DiscosServidor.
 	

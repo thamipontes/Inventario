@@ -1,0 +1,5 @@
+package com.prf.inventario.service;
+
+public class SchemaUsuarioService {
+
+}

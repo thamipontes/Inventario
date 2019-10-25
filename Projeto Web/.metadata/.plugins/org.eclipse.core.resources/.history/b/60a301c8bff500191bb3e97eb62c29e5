@@ -1,0 +1,31 @@
+package com.prf.inventario.model;
+
+import java.io.Serializable;
+
+import javax.persistence.Column;
+import javax.persistence.Embeddable;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+	
+	@Embeddable
+	public class IdSchemaUsuario implements Serializable {
+		
+		private static final long serialVersionUID = 1L;		
+		
+		@ManyToOne
+		@JoinColumn(name = "T009_ID_SCHEMA")
+		private Schema schema;
+		
+		@ManyToOne
+		@JoinColumn(name = "T007_ID_USUARIO")
+		private Usuario usuario;
+		
+		//Getter e Setters
+		
+		
+		
+		
+
+	
+		
+	}

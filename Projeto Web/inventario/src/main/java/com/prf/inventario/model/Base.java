@@ -42,7 +42,7 @@ public class Base implements Serializable{
 	private boolean ativo;
 	
 	@ManyToOne
-	@JoinColumn(name = "T005_INSTANCIA")
+	@JoinColumn(name = "T005_ID_INSTANCIA")
 	private Instancia instancia;
 	
 	@OneToMany(mappedBy = "base")

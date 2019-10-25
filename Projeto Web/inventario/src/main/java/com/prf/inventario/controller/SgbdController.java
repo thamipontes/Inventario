@@ -1,5 +1,7 @@
 package com.prf.inventario.controller;
 
+import java.sql.Date;
+import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -13,9 +15,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-
+import com.prf.inventario.model.IdSchemaUsuario;
+import com.prf.inventario.model.Schema;
+import com.prf.inventario.model.SchemaUsuario;
 import com.prf.inventario.model.Sgbd;
+import com.prf.inventario.model.Usuario;
+import com.prf.inventario.repository.SchemaRepository;
+import com.prf.inventario.repository.SchemaUsuarioRepository;
+import com.prf.inventario.repository.UsuarioRepository;
 import com.prf.inventario.service.SgbdService;
+import com.prf.inventario.service.UsuarioService;
 
 @Controller
 @RequestMapping("/sgbds")
@@ -25,6 +34,19 @@ public class SgbdController {
 	@Autowired
 	private SgbdService ss;
 	
+	@Autowired
+	private UsuarioService usuarioService;
+	
+	@Autowired
+	private SchemaRepository schemaRepository;
+	
+	@Autowired
+	private UsuarioRepository usuarioRepository;
+	
+	@Autowired
+	private SchemaUsuarioRepository schemaUsuarioRepository;
+
+	
 	//Parâmetros via URL
 	@GetMapping("")	
 	public ModelAndView listaSgbd() {
@@ -32,6 +54,31 @@ public class SgbdController {
 		ModelAndView mv = new ModelAndView("sgbds/index");
 		//Criando um array (lista)
 		Iterable<Sgbd> sgbds = ss.listarSgbds();
+		
+		
+		
+		Optional <Schema> s = schemaRepository.findById(1);
+		Optional <Usuario> u = usuarioRepository.findById(1);
+		
+		Date date = new Date(9281218);
+		SchemaUsuario su = new SchemaUsuario(s.get(),u.get(),date,null,true,"21928");
+		
+		schemaUsuarioRepository.save(su);
+		
+		List <SchemaUsuario> listas = s.get().getSchemasUsuarios();
+		
+		/*
+		IdSchemaUsuario idschemaUsuario = new IdSchemaUsuario(1,2);
+		java.util.Date data = new java.util.Date();
+		java.sql.Date d = new java.sql.Date(data.getTime());
+		SchemaUsuario schusr = new SchemaUsuario(idschemaUsuario, d, null, true, "123");
+		
+		schemaUsuarioRepository.save(schusr);
+		
+		Iterable<SchemaUsuario> blabla = schemaUsuarioRepository.findAll();	
+		
+		*/
+		
 		//Vai adicionar esse objeto na página.
 		mv.addObject("sgbds", sgbds); //Os parâmetros são: a variável - que recebeu listarSgbds - e nome na view (index).
 		return mv;

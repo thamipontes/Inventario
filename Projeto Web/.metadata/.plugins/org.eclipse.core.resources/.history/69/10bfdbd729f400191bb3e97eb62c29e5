@@ -1,0 +1,130 @@
+package com.prf.inventario.model;
+
+import java.io.Serializable;
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+@Entity
+@Table(name="T009_SCHEMA")
+public class Schema implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="T009_ID_SCHEMA")
+	private long idSchema;
+	@Column(name="T009_NO_SCHEMA")
+	private String nomeSchema;
+	@Column(name="T009_DE_SCHEMA")
+	private Date descricaoSchema;
+	@Column(name="T009_DT_CRIACAO")
+	private Date dataCriacao;
+	
+	@ManyToOne
+	@JoinColumn(name = "T002_BASE")
+	private Base base;
+	
+	@JsonBackReference
+	@ManyToMany
+	@JoinTable(name="T003_SISTEMA_SCHEMA", joinColumns = 
+		{@JoinColumn(name="T009_ID_SCHEMA")},inverseJoinColumns = 
+			{@JoinColumn(name="T004_ID_SISTEMA")})
+	private List<Sistema> sistemas = new ArrayList<>();
+			
+	@OneToMany(mappedBy = "schema")
+	private List<SchemaUsuario> schemasUsuarios = new ArrayList<>();
+	
+	//Contrutores
+	
+	public Schema() {
+		
+	}
+	
+
+	public Schema(long idSchema, String nomeSchema, Date descricaoSchema, Date dataCriacao) {
+		super();
+		this.idSchema = idSchema;
+		this.nomeSchema = nomeSchema;
+		this.descricaoSchema = descricaoSchema;
+		this.dataCriacao = dataCriacao;
+		
+	}
+
+	
+	//Getter e Setters
+
+	public long getIdSchema() {
+		return idSchema;
+	}
+
+	public void setIdSchema(long idSchema) {
+		this.idSchema = idSchema;
+	}
+
+	public String getNomeSchema() {
+		return nomeSchema;
+	}
+
+	public void setNomeSchema(String nomeSchema) {
+		this.nomeSchema = nomeSchema;
+	}
+
+	public Date getDescricaoSchema() {
+		return descricaoSchema;
+	}
+
+	public void setDescricaoSchema(Date descricaoSchema) {
+		this.descricaoSchema = descricaoSchema;
+	}
+
+	public Date getDataCriacao() {
+		return dataCriacao;
+	}
+
+	public void setDataCriacao(Date dataCriacao) {
+		this.dataCriacao = dataCriacao;
+	}
+
+	public Base getBase() {
+		return base;
+	}
+
+	public void setBase(Base base) {
+		this.base = base;
+	}
+
+	public List<Sistema> getSistemas() {
+		return sistemas;
+	}
+
+	public void setSistemas(List<Sistema> sistemas) {
+		this.sistemas = sistemas;
+	}
+
+	public List<SchemaUsuario> getSchemasUsuarios() {
+		return schemasUsuarios;
+	}
+
+	public void setSchemasUsuarios(List<SchemaUsuario> schemasUsuarios) {
+		this.schemasUsuarios = schemasUsuarios;
+	}
+
+	
+	
+}

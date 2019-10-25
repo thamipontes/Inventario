@@ -1,0 +1,5 @@
+package com.prf.inventario.model;
+
+public class IdSchemaPK {
+
+}

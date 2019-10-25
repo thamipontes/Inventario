@@ -1,0 +1,42 @@
+package com.prf.inventario.model;
+
+import java.io.Serializable;
+import javax.persistence.Embeddable;
+	
+	@Embeddable
+	public class IdSchemaUsuario implements Serializable {
+		
+		private static final long serialVersionUID = 1L;		
+		
+		private int idSchema;
+		private int idUsuario;
+	     
+		//Construtores
+		 public IdSchemaUsuario() { }	 
+			     
+		 public IdSchemaUsuario(int idSchema, int idUsuario) {
+			this.idSchema = idSchema;
+			this.idUsuario = idUsuario;
+		}
+		
+		 
+		// Getter e Setter
+			public int getIdSchema() {
+				return idSchema;
+			}
+
+			public void setIdSchema(int idSchema) {
+				this.idSchema = idSchema;
+			}
+
+			public int getIdUsuario() {
+				return idUsuario;
+			}
+
+			public void setIdUsuario(int idUsuario) {
+				this.idUsuario = idUsuario;
+			}		
+		 
+
+		
+	}

@@ -1,0 +1,55 @@
+package com.prf.inventario.model;
+
+import java.io.Serializable;
+import java.sql.Date;
+import java.util.ArrayList;
+import java.util.List;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonBackReference;
+
+@Entity
+@Table(name="T009_SCHEMA")
+public class Schema implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="T009_ID_SCHEMA")
+	private long idSchema;
+	@Column(name="T009_NO_SCHEMA")
+	private String nomeSchema;
+	@Column(name="T009_DE_SCHEMA")
+	private Date descricaoSchema;
+	@Column(name="T009_DT_CRIACAO")
+	private Date dataCriacao;
+	
+	@ManyToOne
+	@JoinColumn(name = "T002_BASE")
+	private Base base;
+	
+	@JsonBackReference
+	@ManyToMany
+	@JoinTable(name="T003_SISTEMA_SCHEMA", joinColumns = 
+		{@JoinColumn(name="T009_ID_SCHEMA")},inverseJoinColumns = 
+			{@JoinColumn(name="T004_ID_SISTEMA")})
+	private List<Sistema> sistemas = new ArrayList<>();
+			
+	//@OneToMany(mappedBy = "schema")
+	//private List<SchemaUsuario> schemasUsuarios = new ArrayList<>();
+
+	
+	
+}

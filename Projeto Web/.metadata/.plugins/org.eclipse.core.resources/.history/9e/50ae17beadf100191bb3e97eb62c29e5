@@ -1,0 +1,23 @@
+package com.prf.inventario.model;
+
+import java.io.Serializable;
+import javax.persistence.Embeddable;
+	
+	@Embeddable
+	public class IdSchemaUsuario implements Serializable {
+		
+		private int idSchema;
+		private int idUsuario;
+	     
+		//Construtor
+		 public IdSchemaUsuario() { }
+		 
+		 
+	     
+		public IdSchemaUsuario(int idSchema, int idUsuario) {
+			this.idSchema = idSchema;
+			this.idUsuario = idUsuario;
+		}
+	     
+		// getter e setter + equal e hasCode
+	}

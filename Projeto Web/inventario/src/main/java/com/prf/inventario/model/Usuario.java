@@ -29,8 +29,11 @@ public class Usuario implements Serializable{
 	@Column(name="T007_LOTACAO_USUARIO")
 	private String lotacaoUsuario;
 	
-	@OneToMany(mappedBy = "usuario")
+	@OneToMany(mappedBy = "id.usuario")
 	private List<SchemaUsuario> schemasUsuarios = new ArrayList<>();
+	
+	
+	//Construtores
 	
 	public Usuario() {
 		
@@ -74,6 +77,7 @@ public class Usuario implements Serializable{
 	public void setSchemasUsuarios(List<SchemaUsuario> schemasUsuarios) {
 		this.schemasUsuarios = schemasUsuarios;
 	}
+	
 
 	@Override
 	public int hashCode() {

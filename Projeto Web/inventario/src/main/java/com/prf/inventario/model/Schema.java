@@ -28,16 +28,16 @@ public class Schema implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="T009_ID_SCHEMA")
-	private long idSchema;
+	private int idSchema;
 	@Column(name="T009_NO_SCHEMA")
 	private String nomeSchema;
 	@Column(name="T009_DE_SCHEMA")
-	private Date descricaoSchema;
+	private String descricaoSchema;
 	@Column(name="T009_DT_CRIACAO")
 	private Date dataCriacao;
 	
 	@ManyToOne
-	@JoinColumn(name = "T002_BASE")
+	@JoinColumn(name = "T002_ID_BASE")
 	private Base base;
 	
 	@JsonBackReference
@@ -47,8 +47,113 @@ public class Schema implements Serializable{
 			{@JoinColumn(name="T004_ID_SISTEMA")})
 	private List<Sistema> sistemas = new ArrayList<>();
 			
-	@OneToMany(mappedBy = "schema")
+	@OneToMany(mappedBy = "id.schema")
 	private List<SchemaUsuario> schemasUsuarios = new ArrayList<>();
+	
+	//Contrutores
+	
+	public Schema() {
+		
+	}
+	
+
+	public Schema(int idSchema, String nomeSchema, String descricaoSchema, Date dataCriacao) {
+		super();
+		this.idSchema = idSchema;
+		this.nomeSchema = nomeSchema;
+		this.descricaoSchema = descricaoSchema;
+		this.dataCriacao = dataCriacao;
+		
+	}
+
+	
+	//Getter e Setters
+
+	public long getIdSchema() {
+		return idSchema;
+	}
+
+	public void setIdSchema(int idSchema) {
+		this.idSchema = idSchema;
+	}
+
+	public String getNomeSchema() {
+		return nomeSchema;
+	}
+
+	public void setNomeSchema(String nomeSchema) {
+		this.nomeSchema = nomeSchema;
+	}
+
+	public String getDescricaoSchema() {
+		return descricaoSchema;
+	}
+
+	public void setDescricaoSchema(String descricaoSchema) {
+		this.descricaoSchema = descricaoSchema;
+	}
+
+	public Date getDataCriacao() {
+		return dataCriacao;
+	}
+
+	public void setDataCriacao(Date dataCriacao) {
+		this.dataCriacao = dataCriacao;
+	}
+
+	public Base getBase() {
+		return base;
+	}
+
+	public void setBase(Base base) {
+		this.base = base;
+	}
+
+	public List<Sistema> getSistemas() {
+		return sistemas;
+	}
+
+	public void setSistemas(List<Sistema> sistemas) {
+		this.sistemas = sistemas;
+	}
+
+	public List<SchemaUsuario> getSchemasUsuarios() {
+		return schemasUsuarios;
+	}
+
+	public void setSchemasUsuarios(List<SchemaUsuario> schemasUsuarios) {
+		this.schemasUsuarios = schemasUsuarios;
+	}
+
+	
+	//HashCode e Equals
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + (int) (idSchema ^ (idSchema >>> 32));
+		return result;
+	}
+
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Schema other = (Schema) obj;
+		if (idSchema != other.idSchema)
+			return false;
+		return true;
+	}
+	
+	
+	
+	
 
 	
 	
