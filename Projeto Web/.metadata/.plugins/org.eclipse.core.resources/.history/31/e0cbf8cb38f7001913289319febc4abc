@@ -12,23 +12,23 @@
     </head>
     
     <body>
-    	<header th:replace="fragments/header :: cabecalho">
+    	<header>
     		<div>header</div>
     	</header>
     	
-    	<div class="Layout-main">
+    	<div>
     		<aside>
-    			<nav th:replace="fragments/sidebar :: nav-sidebar">
+    			<nav>
     				<span>menu</span>
     			</nav>
     		</aside>
     		
-    		<section layout:fragment="corpo">
-    			<div>Conteúdo principal das paginas</div>    		
+    		<section>
+    			<div>Conteudo principal das paginas</div>    		
     		</section>
         </div>
         
-        <footer th:replace="fragments/footer :: rodape">
+        <footer>
         	<div>footer</div>
         </footer>
         
