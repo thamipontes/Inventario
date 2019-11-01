@@ -1,0 +1,23 @@
+
+<!DOCTYPE html>
+<html layout:decorate="~{Layout}">
+    <head> <meta charset="UTF-8" /></head>
+    <body>
+    	<section class="Layout-content" layout:fragment="corpo" >
+        	<div class="row">
+        		<p>TESTE</p>
+        	</div>
+            <div class="row">
+                <div class="col-2" layout:fragment="sidebar">
+                    <h1>Sidebar</h1>
+                    <a href="#">Login</a>
+                </div>
+                <div class="col" layout:fragment="content">
+                    <h1>Welcome to the Index page</h1>
+                    <br>This content is replacing the content of the layout:fragment="content"<br>
+                    placeholder in layout.html</p>
+                </div>
+            </div>
+         </section>
+    </body>
+</html>

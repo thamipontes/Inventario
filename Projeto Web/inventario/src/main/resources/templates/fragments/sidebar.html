@@ -5,17 +5,31 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<header th:fragment="nav-sidebar">
-        	<nav class= "navbar navbar-inverse navbar navbar-dark bg-dark fixed-top">
-        		<div class="container-fluid">
-        			<div class="navbar-header">
-        				<button type="button" class="btn btn-dark navbar-toggle pull-left">
-        					<i class="oi oi-menu"></i>
-        				</button>
-        				<a class="navbar-brand" href="#">Testeeeeee!</a>
-        			</div>        		
-        		</div>
-        	</nav>	
-        </header>   
+        <nav class="navbar navbar-inverse navbar-fixed-top " th:fragment="nav-sidebar">
+	        <div class="container">
+	            <div class="navbar-header">
+	                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+	                    <span class="sr-only">Toggle navigation</span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                    <span class="icon-bar"></span>
+	                </button>
+	                <a class="navbar-brand">Inventário PRF</a>
+	            </div>
+	            <div class="navbar-collapse collapse">
+	                <ul class="nav navbar-nav">
+	                    <li><a href="/ambientes" >Ambientes</a></li>	                    
+	                    <li><a href="/instancias" >Instância</a></li>
+	                    <li><a href="/servidores" >Servidor</a></li>
+	                    <li><a href="/sgbds" >SGBD</a></li>
+	                    <li><a href="/sistemas" >Sistemas</a></li>
+	                    <li><a href="/sistemasOperacionais" >Sistemas Operacionais</a></li>
+	                    <li><a href="/usuarios" >Usuário</a></li>
+	                    
+	                </ul>
+	                
+	            </div>
+	        </div>
+	    </nav>   
 </body>
 </html>

@@ -1,15 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
-<head>
-	<meta charset="UTF-8" />
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-	<meta name="viewport" content="width=device-width" />
-	<title>Cadastro de Ambientes</title>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-</head>
-<body>
-	<div class="panel panel-default">
+<html layout:decorate="~{layouts/layout}">
+    <head> 
+    <meta charset="UTF-8" />
+    <title>Cadastro de Ambientes</title>
+    </head>
+    <body>
+    	<section class="Layout-content" layout:fragment="corpo" >
+    		<div class="panel panel-default">
 		<div class="panel-heading">
 			<strong>Cadastro de Sistema Operacional</strong>
 		</div>
@@ -44,5 +41,6 @@
 			</form>
 		</div>
 	</div>
-</body>
+         </section>
+    </body>
 </html>

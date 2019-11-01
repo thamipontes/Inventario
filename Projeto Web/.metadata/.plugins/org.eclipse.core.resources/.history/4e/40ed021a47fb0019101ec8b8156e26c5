@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layouts/layout}">
+    <head> 
+    <meta charset="UTF-8" />
+    <title>Cadastro de Sistemas</title>
+    	<link rel="stylesheet" href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" />
+    </head>
+    <body>
+    	<section class="Layout-content" layout:fragment="corpo" >
+    		<<div class="container panel panel-default">
+		<div class="panel-header" align="center">
+			<h2>Cadastro de Sistemas</h2>
+			<hr/>
+		</div>
+		<div class="panel-body">
+			<form class="form-horizontal" th:object="${sistema}" th:action="@{/sistemas/salvarSistema}" method="POST" style="margin: 10px">
+				<div class="form-group">
+ 					<fieldset>
+						<div class="form-group row">
+							<div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
+								<div th:each="detailedError : ${#fields.detailedErrors()}">
+									<span th:text="${detailedError.message}"></span>
+								</div>
+							</div>										
+						</div>
+						<div class="form-group row">
+						    <div class="col-md-4">
+						    	<label>ID</label>
+						        <input type="text" class="form-control input-sm" id="idSistema" th:field="*{idSistema}" readOnly="readonly"/>
+						    </div>						
+				                                                    
+							<div class="col-md-4" th:classappend="${#fields.hasErrors('*{nomeSistema}')}? 'has-error'">
+							    <label>Nome do Sistema</label>
+							    <input type="text" class="form-control input-sm" th:field="*{nomeSistema}" autofocus="autofocus" placeholder="Informe o nome do Sistema. Ex.: RH" maxlength="50"/>
+							</div>
+						
+							<div class="col-md-4" th:classappend="${#fields.hasErrors('*{ativo}')}? 'has-error'">
+							    <label>Ativo</label>
+							    <input type="checkbox" class="form-control input-sm" th:field="*{ativo}" autofocus="autofocus"  />
+							</div>
+						</div>						
+						<div class="form-group row">
+							<div class='col-md-4'>
+							<label>Data de Criacao</label>
+				                <div class='input-group date' id='dtPickerCriacao' th:classappend="${#fields.hasErrors('*{dataCriacao}')}? 'has-error'">
+				                   <input type="text" class="form-control input-sm" th:field="*{dataCriacao}" autofocus="autofocus" placeholder="Data de criação do Servidor" maxlength="50"/>
+				                    <span class="input-group-addon">
+				                        <span class="glyphicon glyphicon-calendar"></span>
+				                    </span>
+				                </div>
+							</div>
+							
+							<div class='col-md-4'>
+							<label>Data de Inativacao</label>
+				                <div class='input-group date' id='dtPickerInativacao' th:classappend="${#fields.hasErrors('*{dataInativacao}')}? 'has-error'">
+				                    <input type="text" class="form-control input-sm" th:field="*{dataInativacao}" autofocus="autofocus" placeholder="Data de Inativação do Servidor" maxlength="50"/>
+				                    <span class="input-group-addon">
+				                        <span class="glyphicon glyphicon-calendar"></span>
+				                    </span>
+				                </div>			                	
+			                </div>			               
+					                                                
+							<div class="col-md-4" th:classappend="${#fields.hasErrors('*{descricaoSistema}')}? 'has-error'">
+							    <label>Descrição do Sistema</label>
+							    <input type="text" class="form-control input-sm" th:field="*{descricaoSistema}" autofocus="autofocus" placeholder="Ex.: Sistema Utilizado para X finalidade." maxlength="50"/>
+							</div>
+						</div>	
+					</fieldset>
+				</div>
+				<div class="form-group row">
+					<button type="submit" class="btn btn-sm btn-primary">Salvar</button>
+					<a th:href="@{/servidores}" class="btn btn-sm btn-default">Cancelar</a>
+				</div>
+			</form>
+		</div>
+	</div>
+         </section>
+    </body>    
+  <script type="text/javascript" src="/jquery/jquery-3.4.1.min.js"></script>
+<script type="text/javascript" src="/moment-with-locales/js/moment.js"></script>
+<script type="text/javascript" src="/bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/dateTimePicker/js/bootstrap-datetimepicker.js"></script>
+<script type="text/javascript">
+			$(function () {
+				$('#dtPickerCriacao').datetimepicker({
+					locale: 'pt-br',
+					format: 'YYYY-MM-DD'
+				});
+				$('#dtPickerInativacao').datetimepicker({
+					locale: 'pt-br',	
+					format: 'YYYY-MM-DD',
+					useCurrent: false 
+				});
+		        $("#dtPickerCriacao").on("dp.change", function (e) {
+		            $('#dtPickerInativacao').data("DateTimePicker").minDate(e.date);
+		        });
+		        $("#dtPickerInativacao").on("dp.change", function (e) {
+		            $('#dtPickerCriacao').data("DateTimePicker").maxDate(e.date);
+		        });
+			});
+	</script>
+</html>
+
+
