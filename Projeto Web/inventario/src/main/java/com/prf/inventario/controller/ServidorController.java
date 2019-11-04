@@ -2,6 +2,7 @@ package com.prf.inventario.controller;
 
 import java.util.Optional;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -63,16 +64,20 @@ public class ServidorController {
 	}
 	
 	@PostMapping("salvarDisco")
-	public ModelAndView salvarDisco(@Valid DiscosServidor disco , BindingResult result) {
+	public ModelAndView salvarDisco(@Valid DiscosServidor disco , BindingResult result, HttpSession sessao) {
+		Servidor  servidor = (Servidor) sessao.getAttribute("servidor");
+		disco.setServidor(servidor);
+		
 		if(result.hasErrors()) {
-			return editarServidor(disco.getServidor().getIdServidor());
+			return editarServidor(disco.getServidor().getIdServidor(),sessao);
 		}
-		servidorService.salvarDisco(disco);
-		return editarServidor(disco.getServidor().getIdServidor());
+		
+		servidorService.salvarDisco(disco);		
+		return editarServidor(disco.getServidor().getIdServidor(),sessao);
 	}
 		
 	@GetMapping("editarServidor/{id}")
-	public ModelAndView editarServidor(@PathVariable("id") int id) {
+	public ModelAndView editarServidor(@PathVariable("id") int id ,HttpSession sessao) {
 		ModelAndView mv = new ModelAndView("/servidores/editarServidor");
 		Optional<Servidor> servidor = servidorService.buscarServidor(id);
 		mv.addObject("servidor", servidor); 
@@ -82,6 +87,7 @@ public class ServidorController {
 		mv.addObject("discos",servidor.get().getDiscosServidor());
 		DiscosServidor disco = new DiscosServidor();
 		mv.addObject("discoServidor",disco);
+		sessao.setAttribute("servidor", servidor.get());
 		return mv;
 	}
 }

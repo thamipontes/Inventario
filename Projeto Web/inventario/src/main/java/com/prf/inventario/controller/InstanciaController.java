@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.prf.inventario.model.Instancia;
-import com.prf.inventario.model.Servidor;
 import com.prf.inventario.service.InstanciaService;
 import com.prf.inventario.service.ServidorService;
 import com.prf.inventario.service.SgbdService;
@@ -62,10 +61,12 @@ public class InstanciaController {
 	}
 	
 	@GetMapping("editarInstancia/{id}")
-	public ModelAndView editarServidor(@PathVariable("id") int id) {
-		ModelAndView mv = new ModelAndView("/instancias/editarInstancia");
-		Optional<Servidor> servidor = servidorService.buscarServidor(id);
-		//mv.addObject("instancia", instancia);
+	public ModelAndView editarInstancia(@PathVariable("id") int id) {
+		
+		ModelAndView mv = new ModelAndView("instancias/editarInstancia");
+		
+		Optional<Instancia> instancia = instanciaService.buscarInstancia(id);
+		mv.addObject("instancia", instancia);
 		mv.addObject("sgbds",sgbdService.listarSgbds());
 		mv.addObject("servidores",servidorService.listarServidores());
 		

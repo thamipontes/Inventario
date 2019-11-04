@@ -8,7 +8,7 @@
     </head>
     <body>
     	<section class="Layout-content" layout:fragment="corpo" >
-    		<div class="container panel panel-default">
+<div class="container panel panel-default">
 		<div class="panel-header" align="center">
 			<h2>Cadastro de Servidor</h2>
 			<hr/>
@@ -25,9 +25,6 @@
 							</div>										
 						</div>
 						<div class="form-group row">
-				
-	<title>Cadastro de Servidores</title>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet"/>
 						    <div class="col-md-4">
 						    	<label>ID</label>
 						        <input type="text" class="form-control input-sm" id="idServidor" th:field="*{idServidor}" readOnly="readonly"/>
@@ -127,6 +124,7 @@
 				</div>
 			</form>
 			<div>
+			<hr/>
 				<h2> Discos </h2>
 				    <table class="table" id="tblInstancias">
 				        <thead>
@@ -141,18 +139,15 @@
 								<td th:text="${disco.idDiscosServidor}"></td>		
 								<td th:text="${disco.particaoServidor}"></td>
 								<td th:text="${disco.tamanhoMB}"></td>
-				                <td><a th:href="editar">Edit</a></td>
-				                <td><a th:href="apagar">Delete</a></td>
+				                <td><a th:href="@{/servidores/editarDisco/}+${disco.idDiscosServidor}">Editar</a></td>
 				            </tr>
 				        </tbody>
 				    </table>  
 			</div>
 			<div class="form-group row">
+			<hr/>
 			<form class="form-horizontal" th:object="${discoServidor}" th:action="@{/servidores/salvarDisco}" method="POST" style="margin: 10px">
-				<div class="col-md-4">
-					<label>ID Servidor</label>
-					<input type="text" class="form-control input-sm" th:field="*{servidor}"  maxlength="50">
-				</div>
+				<h3>Adicionar Particao</h3>
 				<div class="col-md-4">
 					<label>Partição</label>
 					<input type="text" class="form-control input-sm" th:field="*{particaoServidor}" autofocus="autofocus"  placeholder="Ex.:/opt" maxlength="50"/>
@@ -168,7 +163,7 @@
 			</form>	
 			</div>
 		</div>
-	</div>
+	</div>  
 
          </section>
     </body>
