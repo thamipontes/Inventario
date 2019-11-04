@@ -29,7 +29,7 @@
 				<td th:text="${sistema.dataCriacao}"></td>
 				<td th:text="${sistema.dataInativacao}"></td>
 				<td th:text="${sistema.ativo}"></td>
-                <td><a th:href="editar">Edit</a></td>
+                <td><a th:href="'/sistemas/editarSistema/'+ ${sistema.idSistema}">Edit</a></td>
                 <td><a th:href="apagar">Delete</a></td>
             </tr>
         </tbody>

@@ -86,8 +86,10 @@ public class ServidorController {
 		mv.addObject("sistemasOperacionais",soService.listarSistemasOperacionais());
 		mv.addObject("discos",servidor.get().getDiscosServidor());
 		DiscosServidor disco = new DiscosServidor();
+		
 		mv.addObject("discoServidor",disco);
 		sessao.setAttribute("servidor", servidor.get());
+		
 		return mv;
 	}
 }

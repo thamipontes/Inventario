@@ -63,14 +63,6 @@ public class UsuarioController {
 		return listaUsuarios();
 	}
 	
-	@GetMapping("editarUsuario/{id}")
-	public ModelAndView editarSistema(@PathVariable("id") int id) {
-		ModelAndView mv = new ModelAndView("/usuarios/editarUsuario");
-		Optional<Usuario> usuario = usuarioService.buscarUsuario(id);
-		mv.addObject("usuario", usuario);
-		
-		return mv;
-	}
 	
 
 	@PostMapping("salvarSchemaUsuario")

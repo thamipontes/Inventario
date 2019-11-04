@@ -47,7 +47,7 @@
 			                <td th:text="${servidor.memoriaMb}"></td>
 			                <td th:text="${servidor.ambiente.nomeAmbiente}"></td>
 			                <td th:text="${servidor.sistemaOperacional.nomeSistemaOperacional}"></td>
-			                <td><a th:href="editar">Edit</a></td>
+			                <td><a th:href="'/servidores/editarServidor/'+${servidor.idServidor}">Edit</a></td>
 			                <td><a th:href="apagar">Delete</a></td>
 			            </tr>
 			        </tbody>

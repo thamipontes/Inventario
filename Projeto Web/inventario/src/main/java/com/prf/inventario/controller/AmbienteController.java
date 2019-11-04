@@ -7,21 +7,23 @@ import javax.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.prf.inventario.model.Ambiente;
 import com.prf.inventario.service.AmbienteService;
 
 @Controller
+@RequestMapping("/ambientes")
 public class AmbienteController {
 
 	@Autowired
 	private AmbienteService ambienteService;
 	
-	@RequestMapping(value="/ambientes", method=RequestMethod.GET)	
+	@GetMapping("")	
 	public ModelAndView listaInventario() {
 		ModelAndView mv = new ModelAndView("ambientes/index");
 		Iterable<Ambiente> ambientes = ambienteService.listarAmbientes();
@@ -29,7 +31,7 @@ public class AmbienteController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/ambientes/novoAmbiente", method=RequestMethod.GET)	
+	@GetMapping("novoAmbiente")
 	public ModelAndView novoAmbiente(Ambiente ambiente) {
 		
 		ModelAndView mv = new ModelAndView("/ambientes/novoAmbiente");
@@ -38,7 +40,7 @@ public class AmbienteController {
 		return mv;
 	}
 	
-	@RequestMapping(value="/ambientes/addAmbiente", method=RequestMethod.POST)	
+	@PostMapping("addAmbiente")	
 	public ModelAndView addAmbiente(@Valid Ambiente ambiente , BindingResult result) {
 		if(result.hasErrors()) {
 			return novoAmbiente(ambiente);
@@ -47,12 +49,18 @@ public class AmbienteController {
 		return listaInventario();
 	}
 	
-	@RequestMapping(value="/ambientes/detalhesAmbiente/{id}", method=RequestMethod.GET)
+	@GetMapping("editarAmbiente/{id}")
 	public ModelAndView addAmbiente(@PathVariable("id") int id) {
-		ModelAndView mv = new ModelAndView("/ambientes/detalhesAmbiente");
+		ModelAndView mv = new ModelAndView("/ambientes/editarAmbiente");
 		Optional <Ambiente> ambiente = ambienteService.buscarAmbiente(id);
 		mv.addObject("ambiente", ambiente); 
 		return mv;
+	}
+	
+	@PostMapping("deletarAmbiente")
+	public String deletarAmbiente(Ambiente ambiente) {
+	    ambienteService.deletarAmbiente(ambiente);
+	    return "redirect:/ambientes";       
 	}
 
 }

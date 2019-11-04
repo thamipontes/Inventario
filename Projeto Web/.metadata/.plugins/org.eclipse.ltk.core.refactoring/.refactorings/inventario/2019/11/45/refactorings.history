@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;inventario/src/main/resources/templates/ambientes/detalhesAmbiente.html&apos; to &apos;editarAmbiente.html&apos;" description="Rename resource &apos;detalhesAmbiente.html&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/resources/templates/ambientes/detalhesAmbiente.html" name="editarAmbiente.html" stamp="1572875430109" updateReferences="true"/>
+</session>

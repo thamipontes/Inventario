@@ -23,7 +23,7 @@
 				<td th:text="${usuario.idUsuario}"></td>	
 				<td th:text="${usuario.nomeUsuario}"></td>
 				<td th:text="${usuario.lotacaoUsuario}"></td>	
-                <td><a th:href="editar">Edit</a></td>
+                <td><a th:href="'/usuarios/editarUsuario/'+${usuario.idUsuario}">Edit</a></td>
                 <td><a th:href="apagar">Delete</a></td>
             </tr>
         </tbody>

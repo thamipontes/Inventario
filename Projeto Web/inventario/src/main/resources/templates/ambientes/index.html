@@ -21,8 +21,15 @@
                 <tr th:each="ambiente : ${ambientes}">
                     <td th:text="${ambiente.idAmbiente}"></td>
                     <td th:text="${ambiente.nomeAmbiente}"></td>
-                    <td><a th:href="editar">Edit</a></td>
-                    <td><a th:href="apagar">Delete</a></td>
+                    <td>
+                    	 <a th:href="'/ambientes/editarAmbiente/'+${ambiente.idAmbiente}"><button class="btn btn-sm btn-primary">Editar</button></a>
+                    </td>
+                    <td>
+                    	<form th:object="${ambientes}" th:action="@{/ambientes/deletarAmbiente}" method="POST" >
+                   			<input type="text" name="idAmbiente" th:value="${ambiente.idAmbiente}" hidden/>
+                    		<button class="btn btn-sm btn-primary" type="submit"> Delete </button>
+                    	</form>
+                    </td>
                 </tr>
             </tbody>
         </table>        	

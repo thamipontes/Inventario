@@ -23,7 +23,7 @@
                 <tr th:each="so : ${sos}">
                     <td th:text="${so.idSistemaOperacional}"></td>
                     <td th:text="${so.nomeSistemaOperacional}"></td>
-                    <td><a th:href="editar">Edit</a></td>
+                    <td><a th:href="'/sistemasOperacionais/editarSo/'+ ${so.idSistemaOperacional}">Edit</a></td>
                     <td><a th:href="apagar">Delete</a></td>
                 </tr>
             </tbody>

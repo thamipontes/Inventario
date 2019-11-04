@@ -37,7 +37,7 @@
 				<td th:text="${instancia.localInstalacao}"></td>
 				<td th:text="${instancia.sgbd.nomeSgbd}"></td>
 				<td th:text="${instancia.servidor.nomeServidor}"></td>
-                <td><a th:href="editar">Edit</a></td>
+                <td><a th:href="'/instancias/editarInstancia/'+${instancia.idInstancia}">Edit</a></td>
                 <td><a th:href="apagar">Delete</a></td>
             </tr>
         </tbody>

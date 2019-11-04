@@ -26,8 +26,8 @@ public class AmbienteService {
 		return ar.save(ambiente);
 	}
 	
-	public void deletarAmbiente (int id) {
-		ar.deleteById(id);
+	public void deletarAmbiente (Ambiente ambiente) {
+		ar.delete(ambiente);
 	}
 	
 }

@@ -15,7 +15,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.prf.inventario.model.IdSchemaUsuario;
 import com.prf.inventario.model.Schema;
 import com.prf.inventario.model.SchemaUsuario;
 import com.prf.inventario.model.Sgbd;
