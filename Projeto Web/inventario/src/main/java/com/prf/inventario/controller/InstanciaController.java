@@ -2,6 +2,7 @@ package com.prf.inventario.controller;
 
 import java.util.Optional;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -69,7 +70,7 @@ public class InstanciaController {
 		mv.addObject("instancia", instancia);
 		mv.addObject("sgbds",sgbdService.listarSgbds());
 		mv.addObject("servidores",servidorService.listarServidores());
-		
+				
 		return mv;
 	}
 	

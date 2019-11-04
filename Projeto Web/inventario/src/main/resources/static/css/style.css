@@ -1,0 +1,13 @@
+.nav-menu-prf{
+	background-color: #150958;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: white;
+    font-size: 18px;
+}
+
+.navbar-inverse .navbar-brand {
+    color: white;
+    font-size: 20px;
+}
