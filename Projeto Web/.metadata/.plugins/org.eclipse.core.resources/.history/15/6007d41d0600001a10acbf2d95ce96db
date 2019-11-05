@@ -8,7 +8,7 @@
 	<section class="Layout-content" layout:fragment="corpo">
 		<div class="container" align="center">
 			<h1>Inventário - Polícia Rodoviária Federal</h1>
-		<img src="/images/prfhome.png"></img>
+		<img src="/images/prfhome.jpeg"></img>
 		</div>
 	</section>
 </body>
