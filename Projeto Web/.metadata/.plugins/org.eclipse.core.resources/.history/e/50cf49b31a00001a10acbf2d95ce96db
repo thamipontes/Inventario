@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layouts/layout}">
+    <head> 
+    <meta charset="UTF-8" />
+    <title>Cadastro SGBD</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+    <link rel="stylesheet" href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" />
+    </head>
+    <body>
+    	<section class="Layout-content" layout:fragment="corpo" >
+    		<div class="panel panel-default">
+		<div class="panel-heading">
+			<strong>Cadastro SGBD</strong>
+		</div>
+		<div class="panel-body">
+			<form class="form-horizontal" th:object="${sgbd}" th:action="@{/sgbds/salvarSgbd}" method="POST" style="margin: 10px">
+				<div class="form-group">
+ 					<fieldset>
+						<div class="form-group row">
+							<div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
+								<div th:each="detailedError : ${#fields.detailedErrors()}">
+									<span th:text="${detailedError.message}"></span>
+								</div>
+							</div>
+						</div> 					
+						<div class="form-group row">
+						    <div class="col-md-1">
+						        <input type="text" class="form-control input-sm" id="idSgbd" th:field="*{idSgbd}" readOnly="readonly"/>
+						    </div>
+						 </div>
+						<div class="form-group row">                                                          
+							<div class="col-md-4" th:classappend="${#fields.hasErrors('*{nomeSgbd}')}? 'has-error'">
+							    <label>Nome Sgbd</label>
+							    <input type="text" class="form-control input-sm" th:field="*{nomeSgbd}" autofocus="autofocus" placeholder="Informe o nome do SGBD" maxlength="50"/>
+							</div>
+						</div>									
+					</fieldset>
+				</div>
+				<div class="form-group row">
+					<button type="submit" class="btn btn-sm btn-primary">Salvar</button>
+					<a th:href="@{/sgbds}" class="btn btn-sm btn-default">Cancelar</a>
+				</div>
+			</form>
+		</div>
+	</div>
+         </section>
+    </body>
+</html>

@@ -10,6 +10,7 @@
 			<h2 th:case="null">Ainda não existem ambientes.</h2>
 			<div th:case="*">
 				<h2>Ambientes</h2>
+				<hr />
 				<table class="table" id="tblAmbientes">
 					<thead>
 						<tr>
@@ -44,7 +45,7 @@
 				</table>
 			</div>
 			<p>
-				<a href="/ambientes/novoAmbiente">Cadastrar Ambiente</a>
+				<a class="btn btn-primary" href="/ambientes/novoAmbiente">Cadastrar Ambiente</a>
 			</p>
 		</div>
 	</section>
@@ -70,7 +71,7 @@
 					.DataTable(
 							{
 								dom : 'frtip',
-								buttons : [ ],
+								buttons : [],
 								language : {
 									"sEmptyTable" : "Nenhum registro encontrado",
 									"sInfo" : "Mostrando de _START_ até _END_ de _TOTAL_ registros",
@@ -97,7 +98,6 @@
 								}
 							});
 
-		
 		})
 	</script>
 </section>

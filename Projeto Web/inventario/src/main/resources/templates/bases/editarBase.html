@@ -3,9 +3,8 @@
 <head>
 <meta charset="UTF-8" />
 <title>Cadastrar Base</title>
-<link
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-	rel="stylesheet"></link>
+<link rel="stylesheet"
+	href="https://cdn.rawgit.com/Eonasdan/bootstrap-datetimepicker/e8bddc60e73c1ec2475f827be36e1957af72e2ea/build/css/bootstrap-datetimepicker.css" />
 </head>
 <body>
 	<section class="Layout-content" layout:fragment="corpo">
@@ -95,13 +94,13 @@
 					</div>
 				</form>
 			</div>
-			
+
 			<!--  Lista de Schemas -->
-			
+
 			<hr />
 			<div class="panel-body">
 				<h3>Schemas</h3>
-				<hr/>
+				<hr />
 				<table class="table" id="tblSchemas">
 					<thead>
 						<tr>
@@ -121,50 +120,61 @@
 						</tr>
 					</tbody>
 				</table>
-				<hr/>
+				<hr />
 			</div>
-			
+
 			<!-- Incluir Schema -->
-			
+
 			<div class="panel-body">
 				<h3>Incluir Schemas</h3>
-				<hr/>
-				<form class="form-horizontal" th:object="${schema}" th:action="@{/bases/salvarSchema}" method="POST" style="margin: 10px">
-				<div class="form-group">
- 					<fieldset>
-						<div class="form-group row">
-							<div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
-								<div th:each="detailedError : ${#fields.detailedErrors()}">
-									<span th:text="${detailedError.message}"></span>
+				<hr />
+				<form class="form-horizontal" th:object="${schema}"
+					th:action="@{/bases/salvarSchema}" method="POST"
+					style="margin: 10px">
+					<div class="form-group">
+						<fieldset>
+							<div class="form-group row">
+								<div class="alert alert-danger"
+									th:if="${#fields.hasAnyErrors()}">
+									<div th:each="detailedError : ${#fields.detailedErrors()}">
+										<span th:text="${detailedError.message}"></span>
+									</div>
 								</div>
 							</div>
-						</div> 				
-						<div class="form-group row">						
-												                                                        
-							<div class="col-md-4" th:classappend="${#fields.hasErrors('*{nomeSchema}')}? 'has-error'">
-							    <label>Nome do Schema</label>
-							   <input type="text" class="form-control input-sm" th:field="*{nomeSchema}" autofocus="autofocus" placeholder="Informe o nome do Schema" maxlength="50"/>
-							</div>      
-							                                               
-							<div class="col-md-4" th:classappend="${#fields.hasErrors('*{descricaoSchema}')}? 'has-error'">
-							    <label>Descrição Schema</label>
-							    <input type="text" class="form-control input-sm" th:field="*{descricaoSchema}" autofocus="autofocus" placeholder="Informe o nome da Base" maxlength="50"/>
-							</div>  
-							                                                   
-							<div class="col-md-4" th:classappend="${#fields.hasErrors('*{dataCriacao}')}? 'has-error'">
-							    <label>Data de criacao</label>
-							    <input type="date" class="form-control input-sm" th:field="*{dataCriacao}" autofocus="autofocus" />
+							<div class="form-group row">
+
+								<div class="col-md-4"
+									th:classappend="${#fields.hasErrors('*{nomeSchema}')}? 'has-error'">
+									<label>Nome do Schema</label> <input type="text"
+										class="form-control input-sm" th:field="*{nomeSchema}"
+										autofocus="autofocus" placeholder="Informe o nome do Schema"
+										maxlength="50" />
+								</div>
+
+								<div class="col-md-4"
+									th:classappend="${#fields.hasErrors('*{descricaoSchema}')}? 'has-error'">
+									<label>Descrição Schema</label> <input type="text"
+										class="form-control input-sm" th:field="*{descricaoSchema}"
+										autofocus="autofocus" placeholder="Informe o nome da Base"
+										maxlength="50" />
+								</div>
+
+								<div class="col-md-4"
+									th:classappend="${#fields.hasErrors('*{dataCriacao}')}? 'has-error'">
+									<label>Data de criacao</label> <input type="date"
+										class="form-control input-sm" th:field="*{dataCriacao}"
+										autofocus="autofocus" />
+								</div>
+
 							</div>
-							
-						</div>		
-														
-					</fieldset>
-				</div>
-				<div class="form-group row">
-					<button type="submit" class="btn btn-sm btn-primary">Salvar</button>
-					<button class="btn btn-sm btn-default">Limpar</button>
-				</div>
-			</form>
+
+						</fieldset>
+					</div>
+					<div class="form-group row">
+						<button type="submit" class="btn btn-sm btn-primary">Salvar</button>
+						<button class="btn btn-sm btn-default">Limpar</button>
+					</div>
+				</form>
 			</div>
 		</div>
 	</section>

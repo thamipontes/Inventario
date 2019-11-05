@@ -4,7 +4,6 @@
     <meta charset="UTF-8" />
     	<title>Bases</title>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"/>       
-      	<link type="text/css" rel="stylesheet" href="materialize-v0.100.2/materialize/css/materialize.min.css"  media="screen,projection"/>
       	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>	    
     </head>
     <body>
@@ -17,40 +16,46 @@
             <table class="table" id="tblBase">
                 <thead>
                     <tr>
+                    	<!-- 
                         <th>Id</th>
-                        <th>Instancia</th>
+                         -->
+                        <th>Instância</th>
                         <th>Nome</th>
                         <th>Descrição</th>
-                        <th>Data de Criação</th>
-                        <th>Data de Inativação</th>
+                        <th>Data Criação</th>
+                        <th>Data Inativação</th>
                         <th>Ativo</th>
                         <th>Editar</th>
+                        <!-- 
                         <th>Deletar</th>
+                         -->
                     </tr>
                 </thead>
                 <tbody>
                 <tr th:each="base : ${bases}">
-                    <td th:text="${base.idBase}"></td>
+                    <td th:text="${base.idBase}" hidden/>
                     <td th:text="${base.instancia.nomeInstancia}"></td>
                     <td th:text="${base.nomeBase}"></td>
                     <td th:text="${base.descricaoBase}"></td>
                     <td th:text="${base.dataCriacao}"></td>
                     <td th:text="${base.dataInativacao}"></td>
                     <td th:text="${base.ativo ? 'Sim' : 'Não'}"></td>
-                    <td>
-                    	 <a th:href="'/bases/editarBase/' + ${base.idBase}"><button class="btn btn-sm btn-primary">Editar</button></a>
-                    </td>
+                    <td><a
+								th:href="'/bases/editarBase/' + ${base.idBase}">
+									<span class="glyphicon glyphicon-pencil"></span>
+							</a></td>
+                    <!-- 
                     <td>
                     	<form th:object="${base}" th:action="@{/sgbds/deletarBase}" method="POST" >
                    			<input type="text" name="idSgbd" th:value="${base.idBase}" hidden/>
                     		<button class="btn btn-sm btn-primary" type="submit"> Deletar </button>
                     	</form>
                     </td>
-                    
+                    --> 
                 </tr>
             </tbody>
         </table>
-        	<p><a href="/bases/novaBase" class="waves-effect waves-light btn"><i class="material-icons left">format_list_bulleted</i>Cadastrar Base</a></p>
+        	<p><a class="btn btn-primary" href="/bases/novaBase">Cadastrar Base</a></p>
     </div>      
     </section>
     <section layout:fragment="scriptsPagina">
@@ -60,7 +65,7 @@
 			$(function () {
 			    $("#tblBase").DataTable({
 			        dom: 'Bfrtip',
-			        buttons: ['excel'],
+			        buttons: [],
 			        language: {
 			            "sEmptyTable": "Nenhum registro encontrado",
 			            "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
