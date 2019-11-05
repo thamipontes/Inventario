@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.prf.inventario.model.Ambiente;
 import com.prf.inventario.model.Instancia;
 import com.prf.inventario.service.InstanciaService;
 import com.prf.inventario.service.ServidorService;
@@ -72,6 +73,12 @@ public class InstanciaController {
 		mv.addObject("servidores",servidorService.listarServidores());
 				
 		return mv;
+	}
+	
+	@PostMapping("deletarInstancia")
+	public String deletarInstancia(Instancia instancia) {
+	    instanciaService.deletarInstancia(instancia);
+	    return "redirect:/instancias";       
 	}
 	
 }

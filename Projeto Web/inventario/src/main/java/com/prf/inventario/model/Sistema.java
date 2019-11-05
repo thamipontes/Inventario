@@ -26,7 +26,7 @@ public class Sistema implements Serializable{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@Column(name="T004_ID_SISTEMA", nullable = false, length = 100)
+	@Column(name="T004_ID_SISTEMA")
 	private int idSistema;	
 	
 	@NotBlank(message = "O campo nome do sistema não pode ser vazio.")
@@ -67,7 +67,7 @@ public class Sistema implements Serializable{
 		this.ativo = ativo;
 	}
 
-	public long getIdSistema() {
+	public int getIdSistema() {
 		return idSistema;
 	}
 

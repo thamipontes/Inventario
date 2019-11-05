@@ -37,8 +37,15 @@
 				<td th:text="${instancia.localInstalacao}"></td>
 				<td th:text="${instancia.sgbd.nomeSgbd}"></td>
 				<td th:text="${instancia.servidor.nomeServidor}"></td>
-                <td><a th:href="'/instancias/editarInstancia/'+${instancia.idInstancia}">Edit</a></td>
-                <td><a th:href="apagar">Delete</a></td>
+				<td>
+                    	 <a th:href="'/instancias/editarInstancia/'+${instancia.idInstancia}"><button class="btn btn-sm btn-primary">EDITAR</button></a>
+                    </td>
+                    <td>
+                    	<form th:object="${instancia}" th:action="@{/instancias/deletarInstancia}" method="POST" >
+                   			<input type="text" name="idInstancia" th:value="${instancia.idInstancia}" hidden/>
+                    		<button class="btn btn-sm btn-primary" type="submit"> Delete </button>
+                    	</form>
+                    </td>
             </tr>
         </tbody>
     </table>    
