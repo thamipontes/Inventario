@@ -15,8 +15,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.prf.inventario.model.Base;
+import com.prf.inventario.model.Schema;
 import com.prf.inventario.service.BaseService;
 import com.prf.inventario.service.InstanciaService;
+import com.prf.inventario.service.SchemaService;
 
 @Controller
 @RequestMapping("/bases")
@@ -27,6 +29,9 @@ public class BaseController {
 	
 	@Autowired
 	private InstanciaService instanciaService;
+	
+	@Autowired
+	private SchemaService schemaService;
 	
 	@GetMapping("")
 	public ModelAndView listaBases() {
@@ -59,19 +64,40 @@ public class BaseController {
 	}
 	
 	@GetMapping("editarBase/{id}")
-	public ModelAndView editarInstancia(@PathVariable("id") int id,HttpSession sessao) {
+	public ModelAndView editarBase(@PathVariable("id") int id, HttpSession sessao) {
 		
 		ModelAndView mv = new ModelAndView("bases/editarBase");
 		
 		Optional<Base> base = baseService.buscarBase(id);
 		
 		// Salva a base na sessao
-		sessao.setAttribute("base", base);
+		sessao.setAttribute("base", base.get());
 		mv.addObject("base", base);
 		mv.addObject("instancias",instanciaService.listarInstancias());
 		
 		mv.addObject("schemas",base.get().getSchemas());
+		
+		// Instancia Schema para adicionar um novo
+		Schema schema = new Schema();
+		mv.addObject("schema",schema);
 				
 		return mv;
+	}
+	
+	@PostMapping("salvarSchema")
+	public ModelAndView salvarSchema(@Valid Schema schema , BindingResult result, HttpSession sessao) {
+		
+		// Busca a base na sessão
+		Base base = (Base) sessao.getAttribute("base");
+		
+		// Seta a Base como a base sa sessão
+		schema.setBase(base);
+		
+		if(result.hasErrors()) {
+			return editarBase(base.getIdBase(),sessao);
+		}
+		
+		schemaService.salvarSchema(schema);
+		return editarBase(base.getIdBase(),sessao);
 	}
 }
