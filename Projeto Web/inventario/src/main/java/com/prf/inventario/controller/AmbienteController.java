@@ -2,6 +2,7 @@ package com.prf.inventario.controller;
 
 import java.util.Optional;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -49,10 +50,22 @@ public class AmbienteController {
 		return listaInventario();
 	}
 	
+	@PostMapping("salvarAmbiente")	
+	public ModelAndView salvarAmbiente(@Valid Ambiente ambiente , BindingResult result,HttpSession sessao) {
+		Ambiente ambienteSessao = (Ambiente) sessao.getAttribute("ambiente");
+		ambiente.setIdAmbiente(ambienteSessao.getIdAmbiente());
+		if(result.hasErrors()) {
+			return editarAmbiente(ambiente.getIdAmbiente(),sessao);
+		}
+		ambienteService.salvarAmbiente(ambiente);
+		return listaInventario();
+	}
+	
 	@GetMapping("editarAmbiente/{id}")
-	public ModelAndView addAmbiente(@PathVariable("id") int id) {
+	public ModelAndView editarAmbiente(@PathVariable("id") int id, HttpSession sessao) {
 		ModelAndView mv = new ModelAndView("/ambientes/editarAmbiente");
 		Optional <Ambiente> ambiente = ambienteService.buscarAmbiente(id);
+		sessao.setAttribute("ambiente", ambiente.get());
 		mv.addObject("ambiente", ambiente); 
 		return mv;
 	}

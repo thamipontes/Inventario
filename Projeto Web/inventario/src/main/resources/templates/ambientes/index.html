@@ -14,7 +14,9 @@
 				<table class="table" id="tblAmbientes">
 					<thead>
 						<tr>
+							<!-- 
 							<th>Id</th>
+							 -->
 							<th>Nome</th>
 							<th>Editar</th>
 							<!-- 
@@ -24,7 +26,7 @@
 					</thead>
 					<tbody>
 						<tr th:each="ambiente : ${ambientes}">
-							<td th:text="${ambiente.idAmbiente}"></td>
+							<td th:text="${ambiente.idAmbiente}" hidden/>
 							<td th:text="${ambiente.nomeAmbiente}"></td>
 							<td><a
 								th:href="'/ambientes/editarAmbiente/'+${ambiente.idAmbiente}">
