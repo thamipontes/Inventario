@@ -55,29 +55,6 @@ public class SgbdController {
 		Iterable<Sgbd> sgbds = ss.listarSgbds();
 		
 		
-		
-		Optional <Schema> s = schemaRepository.findById(1);
-		Optional <Usuario> u = usuarioRepository.findById(1);
-		
-		Date date = new Date(9281218);
-		SchemaUsuario su = new SchemaUsuario(s.get(),u.get(),date,null,true,"21928");
-		
-		schemaUsuarioRepository.save(su);
-		
-		List <SchemaUsuario> listas = s.get().getSchemasUsuarios();
-		
-		/*
-		IdSchemaUsuario idschemaUsuario = new IdSchemaUsuario(1,2);
-		java.util.Date data = new java.util.Date();
-		java.sql.Date d = new java.sql.Date(data.getTime());
-		SchemaUsuario schusr = new SchemaUsuario(idschemaUsuario, d, null, true, "123");
-		
-		schemaUsuarioRepository.save(schusr);
-		
-		Iterable<SchemaUsuario> blabla = schemaUsuarioRepository.findAll();	
-		
-		*/
-		
 		//Vai adicionar esse objeto na página.
 		mv.addObject("sgbds", sgbds); //Os parâmetros são: a variável - que recebeu listarSgbds - e nome na view (index).
 		return mv;
