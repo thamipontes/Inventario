@@ -1,0 +1,5 @@
+package com.prf.inventario.config;
+
+public class JdbcSecurityConfig {
+
+}

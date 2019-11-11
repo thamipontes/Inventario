@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
@@ -18,14 +18,14 @@
 	            </div>
 	            <div class="navbar-collapse collapse">
 	                <ul class="nav navbar-nav">
-	                    <li><a href="/ambientes" >Ambientes</a></li>	                    
-	                    <li><a href="/instancias" >Instância</a></li>
-	                    <li><a href="/bases">Bases</a></li>
-	                    <li><a href="/servidores" >Servidor</a></li>
-	                    <li><a href="/sgbds" >SGBD</a></li>
-	                    <li><a href="/sistemas" >Sistemas</a></li>
-	                    <li><a href="/sistemasOperacionais" >Sistemas Operacionais</a></li>
-	                    <li><a href="/usuarios" >Usuário</a></li>
+	                    <li sec:authorize="hasRole('PG_AMBIENTES)"><a href="/ambientes" >Ambientes</a></li>	                    
+	                    <li sec:authorize="hasRole('PG_INSTANCIAS')"><a href="/instancias" >Instância</a></li>
+	                    <li sec:authorize="hasRole('PG_BASES')"><a href="/bases">Bases</a></li>
+	                    <li sec:authorize="hasRole('PG_SERVIDORES')"><a href="/servidores" >Servidor</a></li>
+	                    <li sec:authorize="hasRole('PG_SGBDS')"><a href="/sgbds" >SGBD</a></li>
+	                    <li sec:authorize="hasRole('PG_SISTEMAS')"><a href="/sistemas" >Sistemas</a></li>
+	                    <li sec:authorize="hasRole('PG_SISTEMASOPERACIONAIS')"><a href="/sistemasOperacionais" >Sistemas Operacionais</a></li>
+	                    <li sec:authorize="hasRole('PG_USUARIOS')"><a href="/usuarios" >Usuário</a></li>
 	                    
 	                </ul>
 	                
