@@ -8,33 +8,43 @@
     	<section class="Layout-content" layout:fragment="corpo" >
     		<div class="container">
     <h2>Sistemas</h2>
+    <hr/>
     <table class="table" id="tblSistemas">
         <thead>
             <tr>
-				<th>idSistema</th>	
-				<th>nomeSistema</th>
-				<th>descricaoSistema</th>	
-				<th>dataCriacao</th>
-				<th>dataInativacao</th>
-				<th>ativo</th>
+            	<!-- 
+				<th>idSistema</th>
+				 -->	
+				<th>Nome</th>
+				<th>Descrição</th>	
+				<th>Data Criação</th>
+				<th>Data Inativação</th>
+				<th>Ativo</th>
                 <th>Editar</th>
+                <!-- 
                 <th>Deletar</th>
+                 -->
             </tr>
         </thead>
         <tbody>
             <tr th:each="sistema : ${sistemas}">
-				<td th:text="${sistema.idSistema}"></td>	
+				<td th:text="${sistema.idSistema}" hidden/>	
 				<td th:text="${sistema.nomeSistema}"></td>
 				<td th:text="${sistema.descricaoSistema}"></td>	
 				<td th:text="${sistema.dataCriacao}"></td>
 				<td th:text="${sistema.dataInativacao}"></td>
 				<td th:text="${sistema.ativo}"></td>
-                <td><a th:href="editar">Edit</a></td>
+				<td><a
+								th:href="'/sistemas/editarSistema/'+ ${sistema.idSistema}">
+									<span class="glyphicon glyphicon-pencil"></span>
+							</a></td>
+                <!-- 
                 <td><a th:href="apagar">Delete</a></td>
+                 -->
             </tr>
         </tbody>
     </table>    
-    <p><a href="/sistemas/novoSistema">Cadastrar Sistemas</a></p>
+    <p><a class="btn btn-primary" href="/sistemas/novoSistema">Cadastrar Sistemas</a></p>
 </div>
          </section>
     </body>
@@ -44,7 +54,7 @@
 		$(function () {
 		    $("#tblSistemas").DataTable({
 		        dom: 'Bfrtip',
-		        buttons: ['excel'],
+		        buttons: [],
 		        language: {
 		            "sEmptyTable": "Nenhum registro encontrado",
 		            "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",

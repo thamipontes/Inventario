@@ -1,20 +1,18 @@
-
 <!DOCTYPE html>
 <html layout:decorate="~{layouts/layout}">
-    <head>
+    <head> 
     <meta charset="UTF-8" />
-    <title>Cadastro de Ambientes</title>
-	<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	</head>
+    <title>Editar Sistema Operacional</title>
+    </head>
     <body>
     	<section class="Layout-content" layout:fragment="corpo" >
+    <div class="container">
     		<div class="panel panel-default">
-		<div class="panel-heading">
-			<strong>Cadastro de Ambientes</strong>
-		</div>
+		<div class="panel-header" align="center">
+			<h2>Editar Sistema Operacional</h2>
+			<hr/>
 		<div class="panel-body">
-			<form class="form-horizontal" th:object="${ambiente}" th:action="@{/ambientes/addAmbiente}" method="POST" style="margin: 10px">
+			<form class="form-horizontal" th:object="${so}" th:action="@{/sistemasOperacionais/salvarSo}" method="POST" style="margin: 10px">
 				<div class="form-group">
  					<fieldset>
 						<div class="form-group row">
@@ -26,24 +24,25 @@
 						</div> 					
 						<div class="form-group row">
 						    <div class="col-md-1">
-						        <input type="text" class="form-control input-sm" id="idAmbiente" th:field="*{idAmbiente}" readOnly="readonly"/>
+						        <input type="text" class="form-control input-sm" id="idSistemaOperacional" th:field="*{idSistemaOperacional}" readOnly="readonly"/>
 						    </div>
 						 </div>
 						<div class="form-group row">                                                          
-							<div class="col-md-4" th:classappend="${#fields.hasErrors('*{nomeAmbiente}')}? 'has-error'">
+							<div class="col-md-4" th:classappend="${#fields.hasErrors('*{nomeSistemaOperacional}')}? 'has-error'">
 							    <label>nomeAmbiente</label>
-							    <input type="text" class="form-control input-sm" th:field="*{nomeAmbiente}" autofocus="autofocus" placeholder="Informe o autor" maxlength="50"/>
+							    <input type="text" class="form-control input-sm" th:field="*{nomeSistemaOperacional}" autofocus="autofocus" placeholder="Informe o nome do SO" maxlength="50"/>
 							</div>
 						</div>									
 					</fieldset>
 				</div>
 				<div class="form-group row">
 					<button type="submit" class="btn btn-sm btn-primary">Salvar</button>
-					<a th:href="@{/}" class="btn btn-sm btn-default">Cancelar</a>
+					<a th:href="@{/sistemasOperacionais}" class="btn btn-sm btn-default">Cancelar</a>
 				</div>
 			</form>
 		</div>
 	</div>
+</div>
          </section>
     </body>
 </html>

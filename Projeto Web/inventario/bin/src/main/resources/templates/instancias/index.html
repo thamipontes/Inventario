@@ -1,85 +1,109 @@
 <!DOCTYPE html>
 <html layout:decorate="~{layouts/layout}">
-    <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" type="text/css" href="DataTables/datatables.min.css"/>
-    </head>
-    <body>
-    	<section class="Layout-content" layout:fragment="corpo" >
-    		<div class="container">
-    <h2>Instancias</h2>
-    <table class="table" id="tblInstancias">
-        <thead>
-			 <tr>
-				<th>idInstancia</th>		
-				<th>nomeInstancia</th>
-				<th>descricaoInstancia</th>
-				<th>dataCriacao</th>
-				<th>dataInativacao</th>
-				<th>ativo</th>
-				<th>versaoSgbd</th>
-				<th>porta</th>
-				<th>localInstalacao</th>
-				<th>Editar</th>
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" type="text/css"
+	href="DataTables/datatables.min.css" />
+<title>Instância</title>
+</head>
+<body>
+	<section class="Layout-content" layout:fragment="corpo">
+		<div class="container">
+			<h2>Instâncias</h2>
+			<hr />
+			<table class="table" id="tblInstancias">
+				<thead>
+					<tr>
+						<!-- 
+				<th>idInstancia</th>
+				 -->
+						<th>Nome</th>
+						<th>Descrição</th>
+						<th>Data Criação</th>
+						<th>Data Inativação</th>
+						<th>Ativo</th>
+						<th>Versão SGBD</th>
+						<th>Porta</th>
+						<th>Local Instalação</th>
+						<th>Nome Sgbd</th>
+						<th>Nome Servidor</th>
+						<th>Editar</th>
+						<!-- 
 			    <th>Deletar</th>
-			</tr>
-        </thead>
-        <tbody>
-            <tr th:each="instancia : ${instancias}">
-				<td th:text="${instancia.idInstancia}"></td>		
-				<td th:text="${instancia.nomeInstancia}"></td>
-				<td th:text="${instancia.descricaoInstancia}"></td>
-				<td th:text="${instancia.dataCriacao}"></td>
-				<td th:text="${instancia.dataInativacao}"></td>
-				<td th:text="${instancia.ativo}"></td>
-				<td th:text="${instancia.versaoSgbd}"></td>
-				<td th:text="${instancia.porta}"></td>
-				<td th:text="${instancia.localInstalacao}"></td>
-				<td th:text="${instancia.sgbd.nomeSgbd}"></td>
-				<td th:text="${instancia.servidor.nomeServidor}"></td>
-                <td><a th:href="editar">Edit</a></td>
-                <td><a th:href="apagar">Delete</a></td>
-            </tr>
-        </tbody>
-    </table>    
-    <p><a href="/instancias/novaInstancia">Cadastrar Instancia</a></p>
-</div>
-         </section>
-    </body>    
-    <script type="text/javascript" src="DataTables/datatables.min.js"></script>
-	<script type=text/javascript>
-			$(function () {
-			    $("#tblInstancias").DataTable({
-			        dom: 'Bfrtip',
-			        buttons: ['excel'],
-			        language: {
-			            "sEmptyTable": "Nenhum registro encontrado",
-			            "sInfo": "Mostrando de _START_ até _END_ de _TOTAL_ registros",
-			            "sInfoEmpty": "Mostrando 0 até 0 de 0 registros",
-			            "sInfoFiltered": "(Filtrados de _MAX_ registros)",
-			            "sInfoPostFix": "",
-			            "sInfoThousands": ".",
-			            "sLengthMenu": "_MENU_ resultados por página",
-			            "sLoadingRecords": "Carregando...",
-			            "sProcessing": "Processando...",
-			            "sZeroRecords": "Nenhum registro encontrado",
-			            "sSearch": "Pesquisar",
-			            "oPaginate": {
-			                "sNext": "Próximo",
-			                "sPrevious": "Anterior",
-			                "sFirst": "Primeiro",
-			                "sLast": "Último"
-			            },
-			            "oAria": {
-			                "sSortAscending": ": Ordenar colunas de forma ascendente",
-			                "sSortDescending": ": Ordenar colunas de forma descendente"
-			            }
-			        }
-			    });
-			
-			    $(".dt-buttons").addClass("btn btn-primary");
-			})
-	</script>
+				 -->
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="instancia : ${instancias}">
+						<td th:text="${instancia.idInstancia}" hidden />
+						<td th:text="${instancia.nomeInstancia}"></td>
+						<td th:text="${instancia.descricaoInstancia}"></td>
+						<td th:text="${instancia.dataCriacao}"></td>
+						<td th:text="${instancia.dataInativacao}"></td>
+						<td th:text="${instancia.ativo}"></td>
+						<td th:text="${instancia.versaoSgbd}"></td>
+						<td th:text="${instancia.porta}"></td>
+						<td th:text="${instancia.localInstalacao}"></td>
+						<td th:text="${instancia.sgbd.nomeSgbd}"></td>
+						<td th:text="${instancia.servidor.nomeServidor}"></td>
+						<td><a
+							th:href="'/instancias/editarInstancia/'+${instancia.idInstancia}">
+								<span class="glyphicon glyphicon-pencil"></span>
+						</a></td>
+						<!-- 
+                    <td>
+                    	<form th:object="${instancia}" th:action="@{/instancias/deletarInstancia}" method="POST" >
+                   			<input type="text" name="idInstancia" th:value="${instancia.idInstancia}" hidden/>
+                    		<button class="btn btn-sm btn-primary" type="submit"> Delete </button>
+                    	</form>
+                    </td>
+ 					 -->
+					</tr>
+				</tbody>
+			</table>
+			<p>
+				<a class="btn btn-primary" href="/instancias/novaInstancia">Cadastrar
+					Instância</a>
+			</p>
+		</div>
+	</section>
+</body>
+<script type="text/javascript" src="DataTables/datatables.min.js"></script>
+<script type=text/javascript>
+	$(function() {
+		$("#tblInstancias")
+				.DataTable(
+						{
+							dom : 'Bfrtip',
+							buttons : [],
+							language : {
+								"sEmptyTable" : "Nenhum registro encontrado",
+								"sInfo" : "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+								"sInfoEmpty" : "Mostrando 0 até 0 de 0 registros",
+								"sInfoFiltered" : "(Filtrados de _MAX_ registros)",
+								"sInfoPostFix" : "",
+								"sInfoThousands" : ".",
+								"sLengthMenu" : "_MENU_ resultados por página",
+								"sLoadingRecords" : "Carregando...",
+								"sProcessing" : "Processando...",
+								"sZeroRecords" : "Nenhum registro encontrado",
+								"sSearch" : "Pesquisar",
+								"oPaginate" : {
+									"sNext" : "Próximo",
+									"sPrevious" : "Anterior",
+									"sFirst" : "Primeiro",
+									"sLast" : "Último"
+								},
+								"oAria" : {
+									"sSortAscending" : ": Ordenar colunas de forma ascendente",
+									"sSortDescending" : ": Ordenar colunas de forma descendente"
+								}
+							}
+						});
+
+		$(".dt-buttons").addClass("btn btn-primary");
+	})
+</script>
 </html>
 
 

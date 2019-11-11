@@ -41,8 +41,8 @@
 					<tr th:each="servidor : ${servidores}">
 						<td th:text="${servidor.idServidor}" hidden />
 						<td th:text="${servidor.nomeServidor}"></td>
-						<td th:text="${servidor.dataCriacao}"></td>
-						<td th:text="${servidor.dataInativacao}"></td>
+						<td th:text="${#dates.format(servidor.dataCriacao, 'dd/MM/yyyy')}"></td>
+						<td th:text="${#dates.format(servidor.dataInativacao, 'dd/MM/yyyy')}"></td>
 						<td th:text="${servidor.ativo ? 'Sim' : 'Não'}"></td>
 						<td th:text="${servidor.ipHost}"></td>
 						<td th:text="${servidor.versaoSo}"></td>
