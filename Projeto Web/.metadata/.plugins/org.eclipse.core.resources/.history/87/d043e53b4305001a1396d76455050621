@@ -1,0 +1,13 @@
+package com.prf.inventario.service;
+
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.prf.inventario.model.LoginUsuario;
+import com.prf.inventario.repository.LoginUsuarioRepository;
+
+public class LoginUsuarioService {
+	
+
+}

@@ -1,0 +1,5 @@
+package com.prf.inventario.repository;
+
+public interface LoginUsuarioRepository {
+
+}
