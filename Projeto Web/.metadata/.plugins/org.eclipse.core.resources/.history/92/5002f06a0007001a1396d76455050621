@@ -10,6 +10,6 @@ import com.prf.inventario.model.LoginUsuario;
 @Repository
 public interface LoginUsuarioRepository extends CrudRepository <LoginUsuario, String>{
 	
-	//LoginUsuario findByLogin(String login);
+	LoginUsuario findByLogin(String login);
 
 }

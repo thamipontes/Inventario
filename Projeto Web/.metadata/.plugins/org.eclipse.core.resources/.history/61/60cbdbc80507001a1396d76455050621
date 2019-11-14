@@ -41,9 +41,9 @@ public class LoginUsuario implements UserDetails, Serializable {
 	@JoinTable( 
 	        name = "T015_LOGIN_USUARIO_PERMISSAO", 
 	        joinColumns = @JoinColumn(
-	          name = "T013_NO_LOGIN_USUARIO"), 
+	          name = "T013_NO_LOGIN_USUARIO", referencedColumnName = "nomeLogin"), 
 	        inverseJoinColumns = @JoinColumn(
-	          name = "T014_NO_PERMISSAO"))
+	          name = "T014_NO_PERMISSAO", referencedColumnName = "nomePermissao"))
 	
 	private List <Permissao> permissoes;
 
@@ -107,7 +107,7 @@ public class LoginUsuario implements UserDetails, Serializable {
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
-		return (Collection<? extends GrantedAuthority>) this.permissoes;
+		return null;
 	}
 
 	@Override

@@ -1,14 +1,18 @@
 package com.prf.inventario.service;
 
+import java.util.ArrayList;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.userdetails.User.UserBuilder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.prf.inventario.model.LoginUsuario;
+import com.prf.inventario.model.Permissoes;
 import com.prf.inventario.repository.LoginUsuarioRepository;
 
 @Service
@@ -33,14 +37,6 @@ public class LoginUsuarioService implements UserDetailsService {
 		loginUsuarioRepository.deleteById(nomeUsuario);
 	}
 
-	@Override
-	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		// TODO Auto-generated method stub
-		return null;
-	}
-	
-	/*
-
 	@Transactional(readOnly = true)
 	@Override
 	public UserDetails loadUserByUsername(String nomeLoginUsuario) throws UsernameNotFoundException {
@@ -64,5 +60,4 @@ public class LoginUsuarioService implements UserDetailsService {
 		}
 		return builder.build();
 	}
-	*/
 }

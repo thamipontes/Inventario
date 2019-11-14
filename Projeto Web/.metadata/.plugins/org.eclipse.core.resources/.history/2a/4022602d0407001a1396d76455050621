@@ -7,8 +7,6 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
@@ -38,14 +36,7 @@ public class LoginUsuario implements UserDetails, Serializable {
 	*/
 	
 	@ManyToMany
-	@JoinTable( 
-	        name = "T015_LOGIN_USUARIO_PERMISSAO", 
-	        joinColumns = @JoinColumn(
-	          name = "T013_NO_LOGIN_USUARIO"), 
-	        inverseJoinColumns = @JoinColumn(
-	          name = "T014_NO_PERMISSAO"))
-	
-	private List <Permissao> permissoes;
+	private List <Permissoes> permissoes;
 
 	public String getNomeLogin() {
 		return nomeLogin;
@@ -71,11 +62,11 @@ public class LoginUsuario implements UserDetails, Serializable {
 		this.ativo = ativo;
 	}	
 
-	public List<Permissao> getPermissoes() {
+	public List<Permissoes> getPermissoes() {
 		return permissoes;
 	}
 
-	public void setPermissoes(List<Permissao> permissoes) {
+	public void setPermissoes(List<Permissoes> permissoes) {
 		this.permissoes = permissoes;
 	}
 
@@ -107,7 +98,7 @@ public class LoginUsuario implements UserDetails, Serializable {
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
-		return (Collection<? extends GrantedAuthority>) this.permissoes;
+		return null;
 	}
 
 	@Override

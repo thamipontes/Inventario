@@ -107,7 +107,7 @@ public class LoginUsuario implements UserDetails, Serializable {
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
-		return (Collection<? extends GrantedAuthority>) this.permissoes;
+		return null;
 	}
 
 	@Override

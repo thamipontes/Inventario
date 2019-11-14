@@ -2,14 +2,10 @@ package com.prf.inventario.model;
 
 import java.io.Serializable;
 import java.util.Collection;
-import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -36,16 +32,6 @@ public class LoginUsuario implements UserDetails, Serializable {
 	@OneToMany(mappedBy = "loginUsuario")
 	private List<Permissoes> permissoes = new ArrayList<>();
 	*/
-	
-	@ManyToMany
-	@JoinTable( 
-	        name = "T015_LOGIN_USUARIO_PERMISSAO", 
-	        joinColumns = @JoinColumn(
-	          name = "T013_NO_LOGIN_USUARIO"), 
-	        inverseJoinColumns = @JoinColumn(
-	          name = "T014_NO_PERMISSAO"))
-	
-	private List <Permissao> permissoes;
 
 	public String getNomeLogin() {
 		return nomeLogin;
@@ -69,15 +55,8 @@ public class LoginUsuario implements UserDetails, Serializable {
 
 	public void setAtivo(boolean ativo) {
 		this.ativo = ativo;
-	}	
-
-	public List<Permissao> getPermissoes() {
-		return permissoes;
 	}
 
-	public void setPermissoes(List<Permissao> permissoes) {
-		this.permissoes = permissoes;
-	}
 
 	@Override
 	public int hashCode() {
@@ -107,7 +86,7 @@ public class LoginUsuario implements UserDetails, Serializable {
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		// TODO Auto-generated method stub
-		return (Collection<? extends GrantedAuthority>) this.permissoes;
+		return null;
 	}
 
 	@Override
