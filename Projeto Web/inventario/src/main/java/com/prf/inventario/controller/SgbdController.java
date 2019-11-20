@@ -1,7 +1,5 @@
 package com.prf.inventario.controller;
 
-import java.sql.Date;
-import java.util.List;
 import java.util.Optional;
 
 import javax.validation.Valid;
@@ -15,35 +13,19 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.prf.inventario.model.Schema;
-import com.prf.inventario.model.SchemaUsuario;
 import com.prf.inventario.model.Sgbd;
-import com.prf.inventario.model.Usuario;
-import com.prf.inventario.repository.SchemaRepository;
-import com.prf.inventario.repository.SchemaUsuarioRepository;
-import com.prf.inventario.repository.UsuarioRepository;
 import com.prf.inventario.service.SgbdService;
-import com.prf.inventario.service.UsuarioService;
 
 @Controller
 @RequestMapping("/sgbds")
 public class SgbdController {
 	
+	
+	
+	
 	//"Instanciar" automaticamente.
 	@Autowired
 	private SgbdService ss;
-	
-	@Autowired
-	private UsuarioService usuarioService;
-	
-	@Autowired
-	private SchemaRepository schemaRepository;
-	
-	@Autowired
-	private UsuarioRepository usuarioRepository;
-	
-	@Autowired
-	private SchemaUsuarioRepository schemaUsuarioRepository;
 
 	
 	//Parâmetros via URL

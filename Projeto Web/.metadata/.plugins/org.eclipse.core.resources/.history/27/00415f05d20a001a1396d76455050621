@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layouts/layout}">
+<head>
+<meta charset="UTF-8" />
+<link rel="stylesheet" type="text/css"
+	href="DataTables/datatables.min.css" />
+</head>
+<body>
+	<section class="Layout-content" layout:fragment="corpo">
+		<div class="container">
+			<h2>Login Usuário</h2>
+			<hr />
+			<table class="table" id="tblLoginUsuarios">
+				<thead>
+					<tr>
+						<!-- 
+				<th>idUsuario</th>
+				 -->
+						<th>Login</th>
+						<th>Editar</th>
+						<!-- 
+                <th>Deletar</th>
+                 -->
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="loginUsuario : ${loginUsuarios}">
+						<td th:text="${loginUsuario.nomeLogin}"></td>
+						
+						<!-- 
+                colocar a senha hidden, é preciso?
+            	 -->
+					</tr>
+				</tbody>
+			</table>
+			<p>
+				<a class="btn btn-primary" href="/login/novoLoginUsuario">Cadastrar Login</a>
+			</p>
+		</div>
+	</section>
+</body>
+<script type="text/javascript" src="jquery/jquery-3.4.1.min.js"></script>
+<script type="text/javascript"
+	src="bootstrap-4.3.1-dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="DataTables/datatables.min.js"></script>
+<script type=text/javascript>
+	$(function() {
+		$("#tblLoginUsuarios")
+				.DataTable(
+						{
+							dom : 'Bfrtip',
+							buttons : [],
+							language : {
+								"sEmptyTable" : "Nenhum registro encontrado",
+								"sInfo" : "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+								"sInfoEmpty" : "Mostrando 0 até 0 de 0 registros",
+								"sInfoFiltered" : "(Filtrados de _MAX_ registros)",
+								"sInfoPostFix" : "",
+								"sInfoThousands" : ".",
+								"sLengthMenu" : "_MENU_ resultados por página",
+								"sLoadingRecords" : "Carregando...",
+								"sProcessing" : "Processando...",
+								"sZeroRecords" : "Nenhum registro encontrado",
+								"sSearch" : "Pesquisar",
+								"oPaginate" : {
+									"sNext" : "Próximo",
+									"sPrevious" : "Anterior",
+									"sFirst" : "Primeiro",
+									"sLast" : "Último"
+								},
+								"oAria" : {
+									"sSortAscending" : ": Ordenar colunas de forma ascendente",
+									"sSortDescending" : ": Ordenar colunas de forma descendente"
+								}
+							}
+						});
+
+		$(".dt-buttons").addClass("btn btn-primary");
+	})
+</script>
+
+</html>
+
+
+
+
+

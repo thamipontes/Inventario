@@ -3299,3 +3299,148 @@ org.eclipse.core.runtime.CoreException: Launch configuration InventarioApplicati
 2019-11-14 15:59:15,707 [Worker-197: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 400 resources
 2019-11-14 15:59:15,712 [Worker-197: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
 2019-11-14 15:59:15,712 [Worker-197: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/thamiresdepontesdasilva/Documentos/Projeto Web/inventario/src/test/resources
+2019-11-18 11:51:33,528 [Worker-205: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-18 11:51:33,532 [Worker-205: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-18 11:51:33,539 [Worker-205: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 400 resources
+2019-11-18 11:51:33,544 [Worker-205: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-18 11:51:33,557 [Worker-205: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/thamiresdepontesdasilva/Documentos/Projeto Web/inventario/src/test/resources
+2019-11-18 12:15:38,018 [Worker-213: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-18 12:15:38,044 [Worker-213: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-18 12:15:38,050 [Worker-213: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 400 resources
+2019-11-18 12:15:38,056 [Worker-213: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-18 12:15:38,056 [Worker-213: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/thamiresdepontesdasilva/Documentos/Projeto Web/inventario/src/test/resources
+2019-11-18 13:03:30,054 [Worker-217: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-18 13:03:30,059 [Worker-217: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-18 13:03:30,067 [Worker-217: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 402 resources
+2019-11-18 13:03:30,076 [Worker-217: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-18 13:03:30,077 [Worker-217: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/thamiresdepontesdasilva/Documentos/Projeto Web/inventario/src/test/resources
+2019-11-18 13:04:18,037 [Worker-234: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-18 13:04:18,038 [Worker-234: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-18 13:04:18,038 [Worker-234: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-18 13:04:18,040 [Worker-234: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-18 13:04:18,040 [Worker-234: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/thamiresdepontesdasilva/Documentos/Projeto Web/inventario/src/test/resources
+2019-11-18 13:08:22,211 [Worker-241: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-18 13:08:22,211 [Worker-241: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-18 13:08:22,211 [Worker-241: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-18 13:08:22,216 [Worker-241: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-18 13:08:22,216 [Worker-241: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/thamiresdepontesdasilva/Documentos/Projeto Web/inventario/src/test/resources
+2019-11-19 11:02:41,410 [Worker-245: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-19 11:02:41,425 [Worker-245: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-19 11:02:41,430 [Worker-245: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 402 resources
+2019-11-19 11:02:41,441 [Worker-245: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-19 11:02:41,443 [Worker-245: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/thamiresdepontesdasilva/Documentos/Projeto Web/inventario/src/test/resources
+2019-11-19 11:06:17,504 [Worker-250: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-19 11:06:17,505 [Worker-250: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-19 11:06:17,505 [Worker-250: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-19 11:06:17,507 [Worker-250: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-19 11:06:17,507 [Worker-250: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/thamiresdepontesdasilva/Documentos/Projeto Web/inventario/src/test/resources
+2019-11-19 11:17:40,946 [Worker-247: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-19 11:17:40,961 [Worker-247: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-19 11:17:40,970 [Worker-247: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 402 resources
+2019-11-19 11:17:40,977 [Worker-247: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-19 11:17:41,008 [Worker-247: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/thamiresdepontesdasilva/Documentos/Projeto Web/inventario/src/test/resources
+2019-11-19 11:20:02,616 [Worker-256: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-19 11:20:02,622 [Worker-256: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-19 11:20:02,629 [Worker-256: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 402 resources
+2019-11-19 11:20:02,638 [Worker-256: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-19 11:20:02,638 [Worker-256: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/thamiresdepontesdasilva/Documentos/Projeto Web/inventario/src/test/resources
+2019-11-19 11:27:43,670 [Worker-258: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-19 11:27:43,677 [Worker-258: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-19 11:27:43,681 [Worker-258: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 402 resources
+2019-11-19 11:27:43,686 [Worker-258: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-19 11:27:43,687 [Worker-258: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/thamiresdepontesdasilva/Documentos/Projeto Web/inventario/src/test/resources
+2019-11-19 11:28:25,796 [Worker-259: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-19 11:28:25,796 [Worker-259: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-19 11:28:25,796 [Worker-259: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-19 11:28:25,798 [Worker-259: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-19 11:28:25,798 [Worker-259: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/thamiresdepontesdasilva/Documentos/Projeto Web/inventario/src/test/resources
+2019-11-19 11:30:59,026 [Worker-247: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-19 11:30:59,029 [Worker-247: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-19 11:30:59,034 [Worker-247: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 402 resources
+2019-11-19 11:30:59,038 [Worker-247: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-19 11:30:59,038 [Worker-247: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/thamiresdepontesdasilva/Documentos/Projeto Web/inventario/src/test/resources
+2019-11-19 11:39:40,615 [Worker-247: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-19 11:39:40,658 [Worker-247: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-19 11:39:40,660 [Worker-247: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 2 resources
+2019-11-19 11:39:40,686 [Worker-247: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-19 11:39:40,686 [Worker-247: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/thamiresdepontesdasilva/Documentos/Projeto Web/inventario/src/test/resources
+2019-11-19 11:47:54,842 [Worker-261: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-19 11:47:54,847 [Worker-261: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-19 11:47:54,863 [Worker-261: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 402 resources
+2019-11-19 11:47:54,869 [Worker-261: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-19 11:47:54,869 [Worker-261: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/thamiresdepontesdasilva/Documentos/Projeto Web/inventario/src/test/resources
+2019-11-19 14:24:23,160 [Worker-293: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-19 14:24:23,192 [Worker-293: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-19 14:24:23,208 [Worker-293: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 402 resources
+2019-11-19 14:24:23,217 [Worker-293: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-19 14:24:23,217 [Worker-293: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/thamiresdepontesdasilva/Documentos/Projeto Web/inventario/src/test/resources
+2019-11-19 14:30:46,605 [Worker-302: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-19 14:30:46,619 [Worker-302: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-19 14:30:46,632 [Worker-302: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 402 resources
+2019-11-19 14:30:46,638 [Worker-302: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-19 14:30:46,638 [Worker-302: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/thamiresdepontesdasilva/Documentos/Projeto Web/inventario/src/test/resources
+2019-11-20 11:01:35,023 [Worker-724: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-20 11:01:35,113 [Worker-724: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-20 11:01:35,123 [Worker-724: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 402 resources
+2019-11-20 11:01:35,127 [Worker-724: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-20 11:01:35,127 [Worker-724: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/thamiresdepontesdasilva/Documentos/Projeto Web/inventario/src/test/resources
+2019-11-20 11:05:49,450 [Worker-729: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-20 11:05:49,477 [Worker-729: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-20 11:05:49,494 [Worker-729: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 402 resources
+2019-11-20 11:05:49,499 [Worker-729: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-20 11:05:49,499 [Worker-729: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/thamiresdepontesdasilva/Documentos/Projeto Web/inventario/src/test/resources
+2019-11-20 11:10:05,515 [Worker-729: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-20 11:10:05,547 [Worker-729: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-20 11:10:05,566 [Worker-729: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 402 resources
+2019-11-20 11:10:05,575 [Worker-729: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-20 11:10:05,575 [Worker-729: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/thamiresdepontesdasilva/Documentos/Projeto Web/inventario/src/test/resources
+2019-11-20 11:14:04,643 [Worker-733: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-20 11:14:04,649 [Worker-733: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-20 11:14:04,655 [Worker-733: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 402 resources
+2019-11-20 11:14:04,659 [Worker-733: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-20 11:14:04,659 [Worker-733: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/thamiresdepontesdasilva/Documentos/Projeto Web/inventario/src/test/resources
+2019-11-20 11:43:24,008 [Worker-741: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-20 11:43:24,114 [Worker-741: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-20 11:43:24,125 [Worker-741: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 402 resources
+2019-11-20 11:43:24,133 [Worker-741: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-20 11:43:24,134 [Worker-741: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/thamiresdepontesdasilva/Documentos/Projeto Web/inventario/src/test/resources
+2019-11-20 11:46:43,455 [Worker-742: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-20 11:46:43,455 [Worker-742: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 0 resource
+2019-11-20 11:46:43,456 [Worker-742: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-20 11:46:43,465 [Worker-742: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-20 11:46:43,465 [Worker-742: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/thamiresdepontesdasilva/Documentos/Projeto Web/inventario/src/test/resources
+2019-11-20 11:57:49,187 [Worker-745: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-20 11:57:49,196 [Worker-745: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-20 11:57:49,237 [Worker-745: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 402 resources
+2019-11-20 11:57:49,249 [Worker-745: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-20 11:57:49,249 [Worker-745: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/thamiresdepontesdasilva/Documentos/Projeto Web/inventario/src/test/resources
+2019-11-20 11:58:25,672 [Worker-746: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-20 11:58:25,677 [Worker-746: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-20 11:58:25,683 [Worker-746: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 402 resources
+2019-11-20 11:58:25,688 [Worker-746: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-20 11:58:25,688 [Worker-746: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/thamiresdepontesdasilva/Documentos/Projeto Web/inventario/src/test/resources
+2019-11-20 12:02:23,767 [Worker-747: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-20 12:02:23,770 [Worker-747: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-20 12:02:23,774 [Worker-747: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 402 resources
+2019-11-20 12:02:23,783 [Worker-747: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-20 12:02:23,784 [Worker-747: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/thamiresdepontesdasilva/Documentos/Projeto Web/inventario/src/test/resources
+2019-11-20 12:03:02,448 [Worker-741: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-20 12:03:02,453 [Worker-741: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-20 12:03:02,458 [Worker-741: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 402 resources
+2019-11-20 12:03:02,468 [Worker-741: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-20 12:03:02,468 [Worker-741: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/thamiresdepontesdasilva/Documentos/Projeto Web/inventario/src/test/resources
+2019-11-20 12:12:24,345 [Worker-755: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-20 12:12:24,363 [Worker-755: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-20 12:12:24,368 [Worker-755: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 402 resources
+2019-11-20 12:12:24,376 [Worker-755: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-20 12:12:24,376 [Worker-755: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/thamiresdepontesdasilva/Documentos/Projeto Web/inventario/src/test/resources
+2019-11-20 12:23:54,170 [Worker-761: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-20 12:23:54,231 [Worker-761: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-20 12:23:54,244 [Worker-761: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 402 resources
+2019-11-20 12:23:54,254 [Worker-761: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-20 12:23:54,254 [Worker-761: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/thamiresdepontesdasilva/Documentos/Projeto Web/inventario/src/test/resources
+2019-11-20 12:29:47,134 [Worker-760: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-20 12:29:47,213 [Worker-760: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 1 resource
+2019-11-20 12:29:47,241 [Worker-760: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Copying 402 resources
+2019-11-20 12:29:47,255 [Worker-760: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - Using 'UTF-8' encoding to copy filtered resources.
+2019-11-20 12:29:47,255 [Worker-760: Launching InventarioApplication] INFO  o.e.m.c.i.embedder.EclipseLogger - skip non existing resourceDirectory /home/thamiresdepontesdasilva/Documentos/Projeto Web/inventario/src/test/resources

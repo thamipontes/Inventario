@@ -1,6 +1,7 @@
 package com.prf.inventario.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Column;
@@ -21,16 +22,18 @@ public class Permissao implements GrantedAuthority, Serializable {
 	@Column(name = "T014_NO_PERMISSAO")
 	private String nomePermissao;
 
-	/*
-	@ManyToOne
-	@JsonBackReference	
-	@JoinColumn(name = "T013_NO_LOGIN_USUARIO")
-	private LoginUsuario loginUsuario;
-	*/
 	
-	@ManyToMany
-	private List <LoginUsuario> loginUsuarios;
+	@ManyToMany(mappedBy = "permissoes")
+	private List <LoginUsuario> loginUsuarios = new ArrayList<LoginUsuario> ();
 	
+	public Permissao () {
+		
+	}
+	
+	public Permissao(String nomePermissao) {
+		super();
+		this.nomePermissao = nomePermissao;
+	}
 
 	// Getter e Setters
 	public String getNomePermissao() {

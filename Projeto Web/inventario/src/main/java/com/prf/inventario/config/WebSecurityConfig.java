@@ -22,8 +22,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(HttpSecurity http) throws Exception{
 		http.csrf().disable().authorizeRequests()
-		.antMatchers(HttpMethod.GET, "/").permitAll()
-		.antMatchers(HttpMethod.GET, "/ambientes").hasRole("ADMIN")
+		//.antMatchers(HttpMethod.GET, "/index").permitAll()
+		//.antMatchers(HttpMethod.GET, "/sistemas/index").access("hasRole('ROLE_CONSULTA')")
+		.antMatchers("/").permitAll()
+		.antMatchers("/ambientes/").hasAnyRole("ADMIN")
 		.anyRequest().authenticated()
 		.and().formLogin().permitAll()
 		.and().logout().logoutRequestMatcher(new AntPathRequestMatcher("/logout"));
@@ -34,52 +36,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		auth.userDetailsService(userDetailsService)
 		.passwordEncoder(new BCryptPasswordEncoder()); //gerar senha criptografada.
 	}
-
+	
+	//Permite que essas pastas não precisem da autenticação para funcionarem
 	@Override
 	public void configure(WebSecurity web) throws Exception{
-		web.ignoring().antMatchers("/materialize/**", "/style/**");
+		web.ignoring().antMatchers("/bootstrap-4.3.1-dist/**", "/images/**", "/css/**");
 	}
 	
-	
-	
-
-	/*
-	@Autowired
-	private LoginUsuarioService loginUsuarioService;
-
-	@Bean
-	public BCryptPasswordEncoder passwordEncoder() {
-		return new BCryptPasswordEncoder();
-	};
-
-	@Override
-	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-		auth.userDetailsService(loginUsuarioService).passwordEncoder(passwordEncoder());
-	}
-
-	@Override
-	protected void configure(HttpSecurity http) throws Exception {
-		http.authorizeRequests()
-		.anyRequest().hasAnyRole("PG_AMBIENTES","ADMIN")
-		.and()
-		.authorizeRequests().antMatchers("/**").permitAll()
-		.and()		
-	    .authorizeRequests().antMatchers("/entrar").permitAll()
-	    .and().formLogin().loginPage("/entrar").permitAll()
-	    .and()
-	    .csrf().disable();
-		
-		.antMatchers("/ambientes").hasAnyRole("PG_AMBIENTES")
-		.antMatchers("/bases").hasAnyRole("PG_BASES")
-		.antMatchers("/instancias").hasAnyRole("PG_INSTANCIAS")
-		.antMatchers("/servidores").hasAnyRole("PG_SERVIDORES")
-		.antMatchers("/sgbds").hasAnyRole("PG_SGBDS")
-				.antMatchers("/sistemas").hasAnyRole("PG_SISTEMAS").antMatchers("/sistemasOperacionais")
-				.hasAnyRole("PG_SISTEMASOPERACIONAIS").antMatchers("/usuarios").hasAnyRole("PG_USUARIOS").anyRequest()
-				.hasAnyRole("ADMIN", "LOGINUSUARIO").and().authorizeRequests().antMatchers("/entrar**").permitAll()
-				.and().formLogin().loginPage("/entrar").permitAll();
-				
-	}
-*/
 
 }

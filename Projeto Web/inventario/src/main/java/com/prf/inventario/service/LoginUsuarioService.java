@@ -9,28 +9,41 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import com.prf.inventario.model.LoginUsuario;
+import com.prf.inventario.model.Permissao;
 import com.prf.inventario.repository.LoginUsuarioRepository;
+import com.prf.inventario.repository.PermissaoLoginUsuarioRepository;
 
 @Service
 public class LoginUsuarioService implements UserDetailsService {
 
 	@Autowired
 	private LoginUsuarioRepository loginUsuarioRepository;
+	
+	@Autowired
+	private PermissaoLoginUsuarioRepository PLR;
 
 	public Iterable<LoginUsuario> listarLoginUsuarios() {
 		return loginUsuarioRepository.findAll();
 	}
 
-	public Optional<LoginUsuario> buscarLoginUsuario(String nomeUsuario) {
-		return loginUsuarioRepository.findById(nomeUsuario);
+	public Optional<LoginUsuario> buscarLoginUsuario(String nomeLoginUsuario) {
+		return loginUsuarioRepository.findById(nomeLoginUsuario);
 	}
 
 	public LoginUsuario salvarLoginUsuario(LoginUsuario loginUsuario) {
 		return loginUsuarioRepository.save(loginUsuario);
 	}
 
-	public void deletarLoginUsuario(String nomeUsuario) {
-		loginUsuarioRepository.deleteById(nomeUsuario);
+	public void deletarLoginUsuario(String nomeLoginUsuario) {
+		loginUsuarioRepository.deleteById(nomeLoginUsuario);
+	}
+	
+	public Iterable<Permissao> listarPermissao() {
+		return PLR.findAll();
+	}
+	
+	public Permissao salvarPermissao(Permissao permissao) {
+		return PLR.save(permissao);
 	}
 
 	@Override
@@ -39,30 +52,4 @@ public class LoginUsuarioService implements UserDetailsService {
 		return null;
 	}
 	
-	/*
-
-	@Transactional(readOnly = true)
-	@Override
-	public UserDetails loadUserByUsername(String nomeLoginUsuario) throws UsernameNotFoundException {
-
-		Optional<LoginUsuario> loginUsuariOptional = loginUsuarioRepository.findById(nomeLoginUsuario);
-
-		UserBuilder builder = null;
-		if (loginUsuariOptional != null) {
-			LoginUsuario loginUsuario = loginUsuariOptional.get();
-			builder = org.springframework.security.core.userdetails.User.withUsername(nomeLoginUsuario);
-			builder.disabled(!loginUsuario.isAtivo());
-			builder.password(loginUsuario.getSenhaLogin());
-			ArrayList <String> listaPermissoes = new ArrayList<>(); 
-			for (Permissoes p : loginUsuario.getPermissoes()) {
-				listaPermissoes.add(p.getNomePermissao());
-			}
-
-			builder.authorities(listaPermissoes.toArray(new String[0]));
-		} else {
-			throw new UsernameNotFoundException("User not found.");
-		}
-		return builder.build();
-	}
-	*/
 }

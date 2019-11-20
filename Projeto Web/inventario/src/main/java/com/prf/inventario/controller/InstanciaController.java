@@ -2,7 +2,6 @@ package com.prf.inventario.controller;
 
 import java.util.Optional;
 
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,7 +13,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.prf.inventario.model.Ambiente;
 import com.prf.inventario.model.Instancia;
 import com.prf.inventario.service.InstanciaService;
 import com.prf.inventario.service.ServidorService;

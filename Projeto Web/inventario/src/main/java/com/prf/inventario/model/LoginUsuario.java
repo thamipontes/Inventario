@@ -1,11 +1,13 @@
 package com.prf.inventario.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -18,7 +20,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 @Entity
 @Table(name = "T013_LOGIN_USUARIO")
 public class LoginUsuario implements UserDetails, Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
 
 	@Id
@@ -30,22 +32,25 @@ public class LoginUsuario implements UserDetails, Serializable {
 
 	@Column(name = "T013_ATIVO", nullable = false)
 	private boolean ativo;
+
+	@ManyToMany(fetch = FetchType.EAGER)
+	@JoinTable(name = "T015_LOGIN_USUARIO_PERMISSAO", joinColumns = @JoinColumn(name = "T013_NO_LOGIN_USUARIO"), inverseJoinColumns = @JoinColumn(name = "T014_NO_PERMISSAO"))
+	private List<Permissao> permissoes = new ArrayList<Permissao>();
 	
-	/*
-	@JsonManagedReference
-	@OneToMany(mappedBy = "loginUsuario")
-	private List<Permissoes> permissoes = new ArrayList<>();
-	*/
+	public LoginUsuario () {
+		
+	}
 	
-	@ManyToMany
-	@JoinTable( 
-	        name = "T015_LOGIN_USUARIO_PERMISSAO", 
-	        joinColumns = @JoinColumn(
-	          name = "T013_NO_LOGIN_USUARIO"), 
-	        inverseJoinColumns = @JoinColumn(
-	          name = "T014_NO_PERMISSAO"))
 	
-	private List <Permissao> permissoes;
+
+	public LoginUsuario(String nomeLogin, String senhaLogin, boolean ativo) {
+		super();
+		this.nomeLogin = nomeLogin;
+		this.senhaLogin = senhaLogin;
+		this.ativo = ativo;
+	}
+
+
 
 	public String getNomeLogin() {
 		return nomeLogin;
@@ -69,7 +74,7 @@ public class LoginUsuario implements UserDetails, Serializable {
 
 	public void setAtivo(boolean ativo) {
 		this.ativo = ativo;
-	}	
+	}
 
 	public List<Permissao> getPermissoes() {
 		return permissoes;
@@ -120,6 +125,7 @@ public class LoginUsuario implements UserDetails, Serializable {
 	public String getUsername() {
 		// TODO Auto-generated method stub
 		return this.nomeLogin;
+
 	}
 
 	@Override
