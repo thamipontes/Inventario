@@ -51,30 +51,18 @@
 								</div>
 							</div>
 							<div class="form-group row">
-								<div class='col-md-4'>
-									<label>Data de Criacao</label>
-									<div class='input-group date' id='dtPickerCriacao'
-										th:classappend="${#fields.hasErrors('*{dataCriacao}')}? 'has-error'">
-										<input type="text" class="form-control input-sm"
-											th:field="*{dataCriacao}" autofocus="autofocus"
-											placeholder="Data de criação do Servidor" maxlength="50" /> <span
-											class="input-group-addon"> <span
-											class="glyphicon glyphicon-calendar"></span>
-										</span>
-									</div>
+								<div class='col-md-4'
+									th:classappend="${#fields.hasErrors('*{dataCriacao}')}? 'has-error'">
+									<label>Data de Criacao</label> <input type="date"
+										class="form-control input-sm" th:field="*{dataCriacao}"
+										autofocus="autofocus" />
 								</div>
 
-								<div class='col-md-4'>
-									<label>Data de Inativacao</label>
-									<div class='input-group date' id='dtPickerInativacao'
-										th:classappend="${#fields.hasErrors('*{dataInativacao}')}? 'has-error'">
-										<input type="text" class="form-control input-sm"
-											th:field="*{dataInativacao}" autofocus="autofocus"
-											placeholder="Data de Inativação do Servidor" maxlength="50" />
-										<span class="input-group-addon"> <span
-											class="glyphicon glyphicon-calendar"></span>
-										</span>
-									</div>
+								<div class='col-md-4'
+									th:classappend="${#fields.hasErrors('*{dataInativacao}')}? 'has-error'">
+									<label>Data de Inativacao</label> <input type="date"
+										class="form-control input-sm" th:field="*{dataInativacao}"
+										autofocus="autofocus" />
 								</div>
 
 								<div class="col-md-4"

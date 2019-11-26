@@ -17,8 +17,6 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 
 @Entity
 @Table(name="T001_SERVIDOR")
@@ -40,7 +38,6 @@ public class Servidor implements Serializable{
 	private Date dataCriacao;
 	
 	@Column(name="T001_DT_INATIVACAO")
-	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private Date dataInativacao;
 	
 	@Column(name="T001_IS_ATIVO")

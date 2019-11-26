@@ -17,8 +17,6 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotNull;
 
-import org.springframework.format.annotation.DateTimeFormat;
-
 
 @Entity
 @Table(name="T001_SERVIDOR")
@@ -39,8 +37,8 @@ public class Servidor implements Serializable{
 	@Column(name="T001_DT_CRIACAO")
 	private Date dataCriacao;
 	
+	@NotNull(message= "O campo Data de Inativação é obrigatório")
 	@Column(name="T001_DT_INATIVACAO")
-	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private Date dataInativacao;
 	
 	@Column(name="T001_IS_ATIVO")

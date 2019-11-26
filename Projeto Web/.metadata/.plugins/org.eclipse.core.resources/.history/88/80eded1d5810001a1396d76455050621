@@ -92,7 +92,7 @@
 
 								<div class="col-md-4"
 									th:classappend="${#fields.hasErrors('*{localInstalacao}')}? 'has-error'">
-									<label>Local da Instalação</label> <input type="text"
+									<label>Local da Instalação</label> <input type="number"
 										class="form-control input-sm" th:field="*{localInstalacao}"
 										autofocus="autofocus" placeholder="/opt/mydata" maxlength="50" />
 								</div>
