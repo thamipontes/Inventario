@@ -15,6 +15,7 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotBlank;
 
 import org.hibernate.validator.constraints.Length;
+import org.springframework.format.annotation.DateTimeFormat;
 
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 
@@ -43,6 +44,7 @@ public class Sistema implements Serializable{
 	private Date dataCriacao;
 	
 	@Column(name="T004_DT_DESATIVACAO")
+	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private Date dataInativacao;
 	
 	@Column(name="T004_IS_ATIVO")

@@ -8,9 +8,10 @@
 </head>
 <body>
 	<section class="Layout-content" layout:fragment="corpo">
-		<div class="panel panel-default container">
-			<div class="panel-heading">
-				<strong>Cadastrar Base</strong>
+			<div class="container panel panel-default">
+			<div class="panel-heading" align="center">
+				<h2>Cadastro de Bases</h2>
+				<hr />
 			</div>
 			<div class="panel-body">
 				<form class="form-horizontal" th:object="${base}"
@@ -26,9 +27,18 @@
 								</div>
 							</div>
 							<div class="form-group row">
+							<!-- 
 								<div class="col-md-1">
 									<input type="text" class="form-control input-sm" id="idBase"
 										th:field="*{idBase}" readOnly="readonly" />
+								</div>
+								 -->
+								 	<div class="col-md-4"
+									th:classappend="${#fields.hasErrors('*{nomeBase}')}? 'has-error'">
+									<label>Nome Base</label> <input type="text"
+										class="form-control input-sm" th:field="*{nomeBase}"
+										autofocus="autofocus" placeholder="Informe o nome da Base"
+										maxlength="50" />
 								</div>
 							</div>
 							<div class="form-group row">
@@ -41,17 +51,7 @@
 											th:utext="${instancia.nomeInstancia}" />
 									</select>
 								</div>
-							</div>
-							<div class="form-group row">
-								<div class="col-md-4"
-									th:classappend="${#fields.hasErrors('*{nomeBase}')}? 'has-error'">
-									<label>Nome Base</label> <input type="text"
-										class="form-control input-sm" th:field="*{nomeBase}"
-										autofocus="autofocus" placeholder="Informe o nome da Base"
-										maxlength="50" />
-								</div>
-							</div>
-							<div class="form-group row">
+								
 								<div class="col-md-4"
 									th:classappend="${#fields.hasErrors('*{descricaoBase}')}? 'has-error'">
 									<label>Descricao</label> <input type="text"
@@ -59,15 +59,16 @@
 										autofocus="autofocus" placeholder="Descreva a Base"
 										maxlength="50" />
 								</div>
-							</div>
-							<div class="form-group row">
-								<div class="col-md-4"
+								
+									<div class="col-md-4"
 									th:classappend="${#fields.hasErrors('*{dataCriacao}')}? 'has-error'">
 									<label>Data Criação</label> <input type="date"
 										class="form-control input-sm" th:field="*{dataCriacao}"
 										autofocus="autofocus" />
 								</div>
+								
 							</div>
+							
 							<div class="form-group row">
 								<div class="col-md-4"
 									th:classappend="${#fields.hasErrors('*{dataInativacao}')}? 'has-error'">
@@ -75,8 +76,7 @@
 										class="form-control input-sm" th:field="*{dataInativacao}"
 										autofocus="autofocus" />
 								</div>
-							</div>
-							<div class="form-group row">
+							
 								<div class="col-md-4"
 									th:classappend="${#fields.hasErrors('*{ativo}')}? 'has-error'">
 									<label>Ativo</label> <input type="checkbox"

@@ -28,11 +28,13 @@
 								</div>
 							</div>
 							<div class="form-group row">
+								<!-- 
 								<div class="col-md-4">
 									<label>ID</label> <input type="text"
 										class="form-control input-sm" id="idInstancia"
 										th:field="*{idInstancia}" readOnly="readonly" />
 								</div>
+								 -->
 
 								<div class="col-md-4"
 									th:classappend="${#fields.hasErrors('*{nomeInstancia}')}? 'has-error'">
@@ -41,13 +43,7 @@
 										autofocus="autofocus" placeholder="Ex.: posProducaoq"
 										maxlength="50" />
 								</div>
-
-								<div class="col-md-4"
-									th:classappend="${#fields.hasErrors('*{ativo}')}? 'has-error'">
-									<label>Ativo</label> <input type="checkbox"
-										class="form-control input-sm" th:field="*{ativo}"
-										autofocus="autofocus" />
-								</div>
+								
 							</div>
 							<div class="form-group row">
 								<div class='col-md-4'
@@ -115,6 +111,13 @@
 											th:each="servidor : ${servidores}"
 											th:utext="${servidor.nomeServidor}+' - '+${servidor.ambiente.nomeAmbiente}+' - '+${servidor.ipHost}" />
 									</select>
+								</div>
+								
+								<div class="col-md-4"
+									th:classappend="${#fields.hasErrors('*{ativo}')}? 'has-error'">
+									<label>Ativo</label> <input type="checkbox"
+										class="form-control input-sm" th:field="*{ativo}"
+										autofocus="autofocus" />
 								</div>
 							</div>
 

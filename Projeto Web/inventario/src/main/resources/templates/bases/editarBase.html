@@ -27,31 +27,33 @@
 								</div>
 							</div>
 							<div class="form-group row">
+								<!-- 
 								<div class="col-md-4">
 									<label>ID</label> <input type="text"
 										class="form-control input-sm" id="idBase" th:field="*{idBase}"
 										readOnly="readonly" />
 								</div>
-
-								<div class="col-md-4"
+								 -->
+								 
+								 <div class="col-md-4"
+									th:classappend="${#fields.hasErrors('*{nomeBase}')}? 'has-error'">
+									<label>Nome da Base</label> <input type="text"
+										class="form-control input-sm" th:field="*{nomeBase}"
+										autofocus="autofocus" placeholder="Informe o nome da Base"
+										maxlength="50" />
+								</div>								
+							</div>
+							<div class="form-group row">
+							
+									<div class="col-md-4"
 									th:classappend="${#fields.hasErrors('*{instancia}')}? 'has-error'">
-									<label>Instancia</label> <select class="form-control input-sm"
+									<label>Instância</label> <select class="form-control input-sm"
 										th:field="*{instancia}">
 										<option th:value="${instancia.idInstancia}"
 											th:each="instancia : ${instancias}"
 											th:utext="${instancia.nomeInstancia}" />
 									</select>
 								</div>
-
-								<div class="col-md-4"
-									th:classappend="${#fields.hasErrors('*{nomeBase}')}? 'has-error'">
-									<label>Nome Base</label> <input type="text"
-										class="form-control input-sm" th:field="*{nomeBase}"
-										autofocus="autofocus" placeholder="Informe o nome da Base"
-										maxlength="50" />
-								</div>
-							</div>
-							<div class="form-group row">
 
 								<div class="col-md-4"
 									th:classappend="${#fields.hasErrors('*{dataCriacao}')}? 'has-error'">
@@ -65,14 +67,7 @@
 									<label>Data Inativação</label> <input type="date"
 										class="form-control input-sm" th:field="*{dataInativacao}"
 										autofocus="autofocus" />
-								</div>
-
-								<div class="col-md-4"
-									th:classappend="${#fields.hasErrors('*{ativo}')}? 'has-error'">
-									<label>Ativo</label> <input type="checkbox"
-										class="form-control input-sm" th:field="*{ativo}"
-										autofocus="autofocus" />
-								</div>
+								</div>								
 							</div>
 
 							<div class="form-group row">
@@ -83,6 +78,13 @@
 									<textarea class="form-control input-sm"
 										th:field="*{descricaoBase}" autofocus="autofocus"
 										placeholder="Descreva a Base" maxlength="50"></textarea>
+								</div>
+								
+								<div class="col-md-4"
+									th:classappend="${#fields.hasErrors('*{ativo}')}? 'has-error'">
+									<label>Ativo</label> <input type="checkbox"
+										class="form-control input-sm" th:field="*{ativo}"
+										autofocus="autofocus" />
 								</div>
 
 							</div>
@@ -104,16 +106,17 @@
 				<table class="table" id="tblSchemas">
 					<thead>
 						<tr>
+							<!-- 
 							<th>idSchema</th>
+							 -->
 							<th>Nome do Schema</th>
 							<th>Descrição</th>
 							<th>Data de criação</th>
-							<th>Apagar</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr th:each="schema : ${schemas}">
-							<td th:text="${schema.idSchema}"></td>
+							<td th:text="${schema.idSchema}" hidden />
 							<td th:text="${schema.nomeSchema}"></td>
 							<td th:text="${schema.descricaoSchema}"></td>
 							<td th:text="${schema.dataCriacao}"></td>

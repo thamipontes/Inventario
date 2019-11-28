@@ -15,6 +15,8 @@ import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 @Entity
 @Table(name="T002_BASE")
 public class Base implements Serializable{
@@ -36,6 +38,7 @@ public class Base implements Serializable{
 	private Date dataCriacao;
 	
 	@Column(name="T002_DT_INATIVACAO")
+	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private Date dataInativacao;
 	
 	@Column(name="T002_IS_ATIVO")
