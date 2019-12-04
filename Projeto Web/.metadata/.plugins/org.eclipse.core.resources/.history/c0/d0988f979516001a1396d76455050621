@@ -163,7 +163,6 @@
 								 -->
 								<th>Partição Servidor</th>
 								<th>Tamanho em MB</th>
-								<th>Tamanho em GB</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -171,7 +170,6 @@
 								<td th:text="${disco.idDiscosServidor}" hidden/>
 								<td th:text="${disco.particaoServidor}"></td>
 								<td th:text="${disco.tamanhoMB}"></td>
-								<td th:text="${disco.tamanhoMB}/1024"></td>
 								<td>								 
 								<form id="formDelDisco" th:object="${discos}"
 									th:action="@{/servidores/deletarDisco}" method="POST">
@@ -185,7 +183,7 @@
 					</table>
 				</div>
 				<div class="form-group row">
-					<hr />getAttribute
+					<hr />
 					<form class="form-horizontal" th:object="${discoServidor}"
 						th:action="@{/servidores/salvarDisco}" method="POST"
 						style="margin: 10px">

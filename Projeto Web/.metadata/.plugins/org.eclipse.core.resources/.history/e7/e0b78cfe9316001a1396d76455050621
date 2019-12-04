@@ -42,8 +42,4 @@ public class ServidorService {
 	public DiscosServidor salvarDisco(DiscosServidor disco) {
 		return discosRepository.save(disco);
 	}
-	
-	public void deletarDisco(int id) {
-		discosRepository.deleteById(id);
-	}
 }

@@ -43,35 +43,22 @@ public class ServidorController {
 	}
 	
 	@GetMapping("novoServidor")
-	public ModelAndView novoServidor(Servidor srv, HttpSession sessao) {
+	public ModelAndView novoServidor(Servidor srv) {
 		
 		ModelAndView mv = new ModelAndView("/servidores/novoServidor");
 		mv.addObject("servidor", srv);
 		Iterable<Ambiente> ambientes = ambienteService.listarAmbientes();
 		mv.addObject("ambientes",ambientes);
 		mv.addObject("sistemasOperacionais",soService.listarSistemasOperacionais());
-		sessao.setAttribute("servidor", null);
+		
 		return mv;
 	}
 	
 	@PostMapping("salvarServidor")
-	public ModelAndView salvarServidor(@Valid Servidor srv , BindingResult result, HttpSession sessao) {
-		Servidor  servidorOld = (Servidor) sessao.getAttribute("servidor");
-		// Se for null significa que é um novo servidor.
-		// Se já existe, está alterando um existente.
-		if(servidorOld != null) {
-			srv.setIdServidor(servidorOld.getIdServidor());
-			// Se der erro ao alterar um servidor existente
-			if(result.hasErrors()) {
-				return editarServidor(srv.getIdServidor(),sessao);
-			}
-		} else {
-			// Se der erro ao alterar um novo servidor
-			if(result.hasErrors()) {
-				return novoServidor(srv,sessao);
-			}
+	public ModelAndView salvarServidor(@Valid Servidor srv , BindingResult result) {
+		if(result.hasErrors()) {
+			return novoServidor(srv);
 		}
-
 		servidorService.salvarServidor(srv);
 		return listaServidores();
 	}
@@ -113,9 +100,8 @@ public class ServidorController {
 			return editarServidor(disco.getServidor().getIdServidor(),sessao);
 		}
 		
-		servidorService.deletarDisco(disco.getIdDiscosServidor());	
-		Servidor  servidor = (Servidor) sessao.getAttribute("servidor");
-		return editarServidor(servidor.getIdServidor(),sessao);
+		servidorService.deletarDisco(disco.getIdDiscosServidor());		
+		return editarServidor(disco.getServidor().getIdServidor(),sessao);
 	}
 	
 }

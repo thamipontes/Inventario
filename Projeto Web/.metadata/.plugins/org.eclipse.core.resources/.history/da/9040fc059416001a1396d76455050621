@@ -44,6 +44,6 @@ public class ServidorService {
 	}
 	
 	public void deletarDisco(int id) {
-		discosRepository.deleteById(id);
+		servidorRepository.deleteById(id);
 	}
 }

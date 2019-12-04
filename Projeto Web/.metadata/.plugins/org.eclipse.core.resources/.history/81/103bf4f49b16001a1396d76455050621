@@ -61,12 +61,10 @@ public class ServidorController {
 		// Se já existe, está alterando um existente.
 		if(servidorOld != null) {
 			srv.setIdServidor(servidorOld.getIdServidor());
-			// Se der erro ao alterar um servidor existente
 			if(result.hasErrors()) {
 				return editarServidor(srv.getIdServidor(),sessao);
 			}
 		} else {
-			// Se der erro ao alterar um novo servidor
 			if(result.hasErrors()) {
 				return novoServidor(srv,sessao);
 			}

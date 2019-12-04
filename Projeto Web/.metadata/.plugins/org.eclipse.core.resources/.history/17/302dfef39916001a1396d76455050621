@@ -57,21 +57,12 @@ public class ServidorController {
 	@PostMapping("salvarServidor")
 	public ModelAndView salvarServidor(@Valid Servidor srv , BindingResult result, HttpSession sessao) {
 		Servidor  servidorOld = (Servidor) sessao.getAttribute("servidor");
-		// Se for null significa que é um novo servidor.
-		// Se já existe, está alterando um existente.
 		if(servidorOld != null) {
 			srv.setIdServidor(servidorOld.getIdServidor());
-			// Se der erro ao alterar um servidor existente
-			if(result.hasErrors()) {
-				return editarServidor(srv.getIdServidor(),sessao);
-			}
-		} else {
-			// Se der erro ao alterar um novo servidor
-			if(result.hasErrors()) {
-				return novoServidor(srv,sessao);
-			}
 		}
-
+		if(result.hasErrors()) {
+			return novoServidor(srv);
+		}
 		servidorService.salvarServidor(srv);
 		return listaServidores();
 	}

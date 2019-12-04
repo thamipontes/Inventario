@@ -10342,3 +10342,98 @@ java.lang.NullPointerException
 
 !ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-11-28 10:20:37.058
 !MESSAGE ClasspathListenerHandler removeClasspathListener sts4.classpath.TpxRzHsg => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-12-04 09:18:29.549
+!MESSAGE Entering DelegatingStreamConnectionProvider()
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-12-04 09:18:29.559
+!MESSAGE DelegatingStreamConnectionProvider classloader = org.eclipse.osgi.internal.loader.EquinoxClassLoader@6198c5bd[org.springframework.tooling.boot.ls:1.11.0.201909171347(id=625)]
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-12-04 09:18:29.560
+!MESSAGE SpringBootLanguageServer exists!
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-12-04 09:18:36.294
+!MESSAGE Boot LS startup time from start to initialized: 6711ms
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-12-04 09:18:36.364
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.LKYSGByrisBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-12-04 09:18:36.365
+!MESSAGE subscribing to classpath changes: sts4.classpath.LKYSGByr isBatched = true
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-12-04 09:18:36.365
+!MESSAGE Setting up ClasspathListenerManager
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-12-04 09:18:36.365
+!MESSAGE subsribers = {sts4.classpath.LKYSGByr=Send Classpath Notifications(43521)}
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-12-04 09:18:36.365
+!MESSAGE Sending initial event for all projects ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-12-04 09:18:36.365
+!MESSAGE project inventario ...
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-12-04 09:18:36.366
+!MESSAGE Sending initial event for all projects DONE
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-12-04 09:18:36.366
+!MESSAGE Preparing classpath changed notification inventario
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-12-04 09:18:36.366
+!MESSAGE ClasspathListenerHandler addClasspathListener sts4.classpath.LKYSGByr => OK
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-12-04 09:18:36.366
+!MESSAGE exists = true open = true => deleted = false
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-12-04 09:18:36.664
+!MESSAGE classpath=127 entries
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-12-04 09:18:36.667
+!MESSAGE buffering callback sts4.classpath.LKYSGByr inventario false 127
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-12-04 09:18:36.667
+!MESSAGE executing callback sts4.classpath.LKYSGByr 1 batched events
+
+!ENTRY org.springframework.tooling.ls.eclipse.commons 1 0 2019-12-04 09:18:36.748
+!MESSAGE executing callback sts4.classpath.LKYSGByr SUCCESS [done]
+
+!ENTRY org.eclipse.wst.jsdt.chromium.debug.core 4 0 2019-12-04 10:30:15.710
+!MESSAGE Failed to get tabs for debugging
+!STACK 0
+java.net.ConnectException: Connection refused (Connection refused)
+	at java.net.PlainSocketImpl.socketConnect(Native Method)
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350)
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206)
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188)
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392)
+	at java.net.Socket.connect(Socket.java:589)
+	at org.eclipse.wst.jsdt.chromium.internal.transport.AbstractSocketWrapper.<init>(AbstractSocketWrapper.java:35)
+	at org.eclipse.wst.jsdt.chromium.internal.transport.SocketWrapper.<init>(SocketWrapper.java:29)
+	at org.eclipse.wst.jsdt.chromium.internal.wip.WipBackendImpl.readHttpResponseContent(WipBackendImpl.java:136)
+	at org.eclipse.wst.jsdt.chromium.internal.wip.WipBackendImpl.getTabs(WipBackendImpl.java:55)
+	at org.eclipse.wst.jsdt.chromium.internal.wip.WipBrowserImpl.getTabs(WipBrowserImpl.java:35)
+	at org.eclipse.wst.jsdt.chromium.debug.ui.DialogBasedTabSelector$Wip.getTabs(DialogBasedTabSelector.java:127)
+	at org.eclipse.wst.jsdt.chromium.debug.ui.DialogBasedTabSelector$Wip.getTabs(DialogBasedTabSelector.java:1)
+	at org.eclipse.wst.jsdt.chromium.debug.ui.DialogBasedTabSelector$Base.selectTab(DialogBasedTabSelector.java:39)
+	at org.eclipse.wst.jsdt.chromium.debug.ui.DialogBasedTabSelector$Wip.selectTab(DialogBasedTabSelector.java:1)
+	at org.eclipse.wst.jsdt.chromium.debug.core.model.JavascriptVmEmbedderFactory$3.selectVm(JavascriptVmEmbedderFactory.java:79)
+	at org.eclipse.wst.jsdt.chromium.debug.core.model.DebugTargetImpl.attach(DebugTargetImpl.java:59)
+	at org.eclipse.wst.jsdt.chromium.debug.ui.launcher.LaunchTypeBase.launch(LaunchTypeBase.java:101)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:860)
+	at org.eclipse.debug.internal.core.LaunchConfiguration.launch(LaunchConfiguration.java:719)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin.buildAndLaunch(DebugUIPlugin.java:1017)
+	at org.eclipse.debug.internal.ui.DebugUIPlugin$2.run(DebugUIPlugin.java:1220)
+	at org.eclipse.core.internal.jobs.Worker.run(Worker.java:63)
+
+!ENTRY org.eclipse.lsp4e 4 0 2019-12-04 10:44:21.280
+!MESSAGE 
+!STACK 0
+java.lang.InterruptedException
+	at java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:347)
+	at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:1915)
+	at org.springframework.tooling.boot.ls.jdt.LSPTextHover.getHoverInfo(LSPTextHover.java:109)
+	at org.springframework.tooling.boot.ls.jdt.SpringBootJavaHoverProvider.getHoverInfo2(SpringBootJavaHoverProvider.java:42)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:167)
+	at org.eclipse.jdt.internal.ui.text.java.hover.BestMatchHover.getHoverInfo2(BestMatchHover.java:133)
+	at org.eclipse.jdt.internal.ui.text.java.hover.JavaEditorTextHoverProxy.getHoverInfo2(JavaEditorTextHoverProxy.java:89)
+	at org.eclipse.jface.text.TextViewerHoverManager$4.run(TextViewerHoverManager.java:169)
