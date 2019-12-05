@@ -118,4 +118,12 @@ public class ServidorController {
 		return editarServidor(servidor.getIdServidor(),sessao);
 	}
 	
+	@GetMapping("exibirServidor/{id}")
+	public ModelAndView exibirServidor(@PathVariable("id") int id) {
+		ModelAndView mv = new ModelAndView("/servidores/exibirServidor");
+		Optional<Servidor> servidor = servidorService.buscarServidor(id);
+		mv.addObject("servidor", servidor.get()); 
+		return mv;
+	}
+	
 }

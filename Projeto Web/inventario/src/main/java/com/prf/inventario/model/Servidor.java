@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -60,18 +61,22 @@ public class Servidor implements Serializable{
 	@Column(name="T001_NU_MEMORIA_MB")
 	private int memoriaMb;	
 	
+
 	@ManyToOne
 	@JoinColumn(name = "T010_ID_SISTEMA_OPERACIONAL")
 	private SistemaOperacional sistemaOperacional;
-		
+	
+
 	@ManyToOne
 	@JoinColumn(name = "T012_ID_AMBIENTE")
 	private Ambiente ambiente;
 	
-	@OneToMany(mappedBy = "servidor")
+
+	@OneToMany(mappedBy = "servidor",fetch = FetchType.LAZY)
 	private List <Instancia> instancias = new ArrayList<>();
 	
-	@OneToMany(mappedBy = "servidor")
+
+	@OneToMany(mappedBy = "servidor",fetch = FetchType.EAGER)
 	private List <DiscosServidor> discosServidor=new ArrayList<>();
 	
 	public Servidor () {

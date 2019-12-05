@@ -3,7 +3,6 @@
 	xmlns:th="http://www.thymeleaf.org"
 	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/Layout"
 	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
-<head>
 <title>Inventário PRF</title>
 <meta http-equiv="X-UA-Compatible" content="IE-edge" />
 <meta charset="UTF-8" />
@@ -14,7 +13,8 @@
 	<header th:replace="fragments/header :: cabecalho">
 		<div>header</div>
 	</header>
-
+	
+	<section layout:fragment="estiloPagina"></section>
 	<div>
 		<aside>
 			<nav th:replace="fragments/sidebar :: nav-sidebar">
@@ -31,9 +31,9 @@
 		<div>footer</div>
 	</footer>
 
-	<div th:replace="fragments/scripts :: scriptsDefault">
-	
-	</div>
+	<div th:replace="fragments/scripts :: scriptsDefault"></div>
+
+	<section layout:fragment="scriptPagina"></section>
 
 	<section layout:fragment="scriptsPagina"></section>
 </body>

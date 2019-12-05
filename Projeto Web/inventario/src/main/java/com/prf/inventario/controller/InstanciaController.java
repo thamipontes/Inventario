@@ -79,4 +79,15 @@ public class InstanciaController {
 	    return "redirect:/instancias";       
 	}
 	
+	@GetMapping("exibirInstancia/{id}")
+	public ModelAndView exibirInstancia(@PathVariable("id") int id) {
+		
+		ModelAndView mv = new ModelAndView("instancias/exibirInstancia");
+		
+		Optional<Instancia> instancia = instanciaService.buscarInstancia(id);
+		mv.addObject("instancia", instancia.get());
+				
+		return mv;
+	}
+	
 }

@@ -49,6 +49,7 @@ public class Instancia implements Serializable{
 	@JoinColumn(name = "T006_ID_SGBD")
 	private Sgbd sgbd;
 	
+	
 	@ManyToOne
 	@JoinColumn(name = "T001_ID_SERVIDOR")
 	private Servidor servidor;

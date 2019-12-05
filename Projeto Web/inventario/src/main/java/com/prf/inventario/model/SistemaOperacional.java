@@ -26,6 +26,7 @@ public class SistemaOperacional implements Serializable{
 	@Column(name="T010_NO_SISTEMA_OPERACIONAL")
 	private String nomeSistemaOperacional;
 	
+	
 	@OneToMany(mappedBy = "sistemaOperacional")
 	private List <Servidor> servidores = new ArrayList<>();
 

@@ -33,6 +33,7 @@ public class DiscosServidor implements Serializable{
 	@Column(name="T011_TAMANHO_MB")
 	private int tamanhoMB; //Campo tamanhoMb na tabela DiscosServidor.
 	
+
 	//Vários servidores para "um" valor de disco.
 	@ManyToOne
 	//"Chave estrangeira"

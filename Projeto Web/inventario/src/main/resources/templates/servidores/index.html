@@ -2,35 +2,37 @@
 <html layout:decorate="~{layouts/layout}">
 <head>
 <meta charset="UTF-8" />
-<link rel="stylesheet" type="text/css"
-	href="DataTables/datatables.min.css" />
 <title>Servidores</title>
+
 </head>
 
 <body>
+	<section layout:fragment="estiloPagina">
+		<link rel="stylesheet" type="text/css" href="/DataTables/datatables.min.css" />
+	</section>
 	<section class="Layout-content" layout:fragment="corpo">
 		<div class="container">
 			<h2>Servidores</h2>
 			<hr />
-			<table class="table" id="tblServidores">
+			<table class="table table-striped" id="tblServidores">
 				<thead>
 					<tr>
 						<!-- 
 						<th>idServidor</th>
 						 -->
 						<th>Nome</th>
-						<th>Data Criação</th>
-						<th>Data Inativação</th>
+						<th>Ambiente</th>
+						<!--<th>Data Criação</th>  -->
+						<!--<th>Data Inativação</th>  -->
 						<th>Ativo</th>
 						<th>IP Host</th>
-						<th>Versão S.O</th>
-						<th>Versão Kernel</th>
+						<!--<th>Versão Kernel</th> -->
 						<th>CPU's</th>
 						<th>Núcleos</th>
 						<th>Cores</th>
 						<th>Memória Mb</th>
-						<th>Ambiente</th>
 						<th>S.O</th>
+						<th>Versão S.O</th>
 						<th>Editar</th>
 						<!-- 
 			                <th>Deletar</th>
@@ -38,22 +40,44 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="servidor : ${servidores}">
-						<td th:text="${servidor.idServidor}" hidden />
+					<tr th:each="servidor : ${servidores}"
+						th:attr="onclick=|detalhaServidor(${servidor.idServidor})|">
 						<td th:text="${servidor.nomeServidor}"></td>
-						<td th:text="${#dates.format(servidor.dataCriacao, 'dd/MM/yyyy')}"></td>
-						<td th:text="${#dates.format(servidor.dataInativacao, 'dd/MM/yyyy')}"></td>
-						<td th:text="${servidor.ativo ? 'Sim' : 'Não'}"></td>
+						<td th:switch="${servidor.ambiente.idAmbiente}"><span
+							class="td-producao" th:case="1"
+							th:text="${servidor.ambiente.nomeAmbiente}"></span> <span
+							class="td-replicacao" th:case="2"
+							th:text="${servidor.ambiente.nomeAmbiente}"></span> <span
+							class="td-desenvolvimento" th:case="3"
+							th:text="${servidor.ambiente.nomeAmbiente}"></span> <span
+							class="td-homologacao" th:case="4"
+							th:text="${servidor.ambiente.nomeAmbiente}"></span> <span
+							class="td-mix" th:case="5"
+							th:text="${servidor.ambiente.nomeAmbiente}"></span> <span
+							class="td-legado" th:case="6"
+							th:text="${servidor.ambiente.nomeAmbiente}"></span> <span
+							class="td-tools" th:case="7"
+							th:text="${servidor.ambiente.nomeAmbiente}"></span> <span
+							th:case="*" th:text="${servidor.ambiente.nomeAmbiente}"></span>
+						</td>
+						<!--<td th:text="${#dates.format(servidor.dataCriacao, 'dd/MM/yyyy')}"></td> -->
+						<!--<td th:text="${#dates.format(servidor.dataInativacao, 'dd/MM/yyyy')}"></td> -->
+						<td th:switch="${servidor.ativo}"><span
+							class="glyphicon glyphicon-circle-arrow-up text-success"
+							th:case="true">up</span> <span
+							class="glyphicon glyphicon-off text-danger" th:case="false">down</span>
+						</td>
 						<td th:text="${servidor.ipHost}"></td>
-						<td th:text="${servidor.versaoSo}"></td>
-						<td th:text="${servidor.versaoKernel}"></td>
+
+						<!--<td th:text="${servidor.versaoKernel}"></td> -->
 						<td th:text="${servidor.cpus}"></td>
 						<td th:text="${servidor.nucleos}"></td>
 						<td th:text="${servidor.cores}"></td>
 						<td th:text="${servidor.memoriaMb}"></td>
-						<td th:text="${servidor.ambiente.nomeAmbiente}"></td>
 						<td
-							th:text="${servidor.sistemaOperacional.nomeSistemaOperacional}"></td>
+							th:text="${servidor.sistemaOperacional.nomeSistemaOperacional}">
+						</td>
+						<td th:text="${servidor.versaoSo}"></td>
 						<td><a
 							th:href="'/servidores/editarServidor/'+${servidor.idServidor}">
 								<span class="glyphicon glyphicon-pencil"></span>
@@ -70,45 +94,81 @@
 					Servidor</a>
 			</p>
 		</div>
+		<div class="modal fade" id="modalDetalhaServidor" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+			<div class="modal-dialog modal-lg" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+						<h2 class="modal-title">Detalhes do servidor</h2>
+						<button type="button" class="close" data-dismiss="modal"
+							aria-label="Fechar">
+							<span aria-hidden="true">&times;</span>
+						</button>
+					</div>
+					<div class="modal-body" id="modalDadosServidor">
+						
+					</div>
+					<div class="modal-footer">
+						<button type="button" class="btn btn-primary"
+							data-dismiss="modal">Fechar</button>
+					</div>
+				</div>
+			</div>
+		</div>
 	</section>
 </body>
+<section class="Layout-content" layout:fragment="scriptPagina">
 
-<script type="text/javascript" src="DataTables/datatables.min.js"></script>
-<script type=text/javascript>
-	$(function() {
-		$("#tblServidores")
-				.DataTable(
-						{
-							dom : 'Bfrtip',
-							buttons : [],
-							language : {
-								"sEmptyTable" : "Nenhum registro encontrado",
-								"sInfo" : "Mostrando de _START_ até _END_ de _TOTAL_ registros",
-								"sInfoEmpty" : "Mostrando 0 até 0 de 0 registros",
-								"sInfoFiltered" : "(Filtrados de _MAX_ registros)",
-								"sInfoPostFix" : "",
-								"sInfoThousands" : ".",
-								"sLengthMenu" : "_MENU_ resultados por página",
-								"sLoadingRecords" : "Carregando...",
-								"sProcessing" : "Processando...",
-								"sZeroRecords" : "Nenhum registro encontrado",
-								"sSearch" : "Pesquisar",
-								"oPaginate" : {
-									"sNext" : "Próximo",
-									"sPrevious" : "Anterior",
-									"sFirst" : "Primeiro",
-									"sLast" : "Último"
-								},
-								"oAria" : {
-									"sSortAscending" : ": Ordenar colunas de forma ascendente",
-									"sSortDescending" : ": Ordenar colunas de forma descendente"
+	<script type="text/javascript" src="/DataTables/datatables.min.js"></script>
+
+	<script type=text/javascript>
+		$(function() {
+			$("#tblServidores")
+					.DataTable(
+							{
+								dom : 'frtip',
+								buttons : [ 'excel' ],
+								language : {
+									"sEmptyTable" : "Nenhum registro encontrado",
+									"sInfo" : "Mostrando de _START_ até _END_ de _TOTAL_ registros",
+									"sInfoEmpty" : "Mostrando 0 até 0 de 0 registros",
+									"sInfoFiltered" : "(Filtrados de _MAX_ registros)",
+									"sInfoPostFix" : "",
+									"sInfoThousands" : ".",
+									"sLengthMenu" : "_MENU_ resultados por página",
+									"sLoadingRecords" : "Carregando...",
+									"sProcessing" : "Processando...",
+									"sZeroRecords" : "Nenhum registro encontrado",
+									"sSearch" : "Pesquisar",
+									"oPaginate" : {
+										"sNext" : "Próximo",
+										"sPrevious" : "Anterior",
+										"sFirst" : "Primeiro",
+										"sLast" : "Último"
+									},
+									"oAria" : {
+										"sSortAscending" : ": Ordenar colunas de forma ascendente",
+										"sSortDescending" : ": Ordenar colunas de forma descendente"
+									}
 								}
-							}
-						});
+							});
 
-		$(".dt-buttons").addClass("btn btn-primary");
-	})
-</script>
+			$(".dt-buttons").addClass("btn btn-primary");
+		});
+
+		function detalhaServidor(id) {
+			$.ajax({
+				type : "GET",
+				url : "/servidores/exibirServidor/" + id,
+				success : function(data) {
+					//alert( data );
+					$('#modalDadosServidor').html(data);
+					$('#modalDetalhaServidor').modal("show");
+					// $.unblockUI();
+				}
+			});
+		};
+	</script>
+</section>
 </html>
 
 

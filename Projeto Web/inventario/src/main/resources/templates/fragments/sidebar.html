@@ -1,11 +1,64 @@
 <!DOCTYPE html>
-<html xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<html
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-        <nav class="navbar navbar-inverse fixed-top nav-menu-prf" th:fragment="nav-sidebar">
+	<nav class="navbar navbar-inverse fixed-top nav-menu-prf"
+		th:fragment="nav-sidebar">
+		<div class="container">
+			<!-- Brand and toggle get grouped for better mobile display -->
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle collapsed"
+					data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+					aria-expanded="false">
+					<span class="sr-only">Toggle navigation</span> <span
+						class="icon-bar"></span> <span class="icon-bar"></span> <span
+						class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="/">PRF</a>
+			</div>
+
+			<!-- Collect the nav links, forms, and other content for toggling -->
+			<div class="collapse navbar-collapse"
+				id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li><a href="/instancias">Instância</a></li>
+					<li><a href="/bases">Bases</a></li>
+					<li><a href="/servidores">Servidor</a></li>
+					<li><a href="/sistemas">Sistemas</a></li>
+					<li><a href="/usuarios">Usuário</a></li>
+					<li class="dropdown"><a href="#" class="dropdown-toggle"
+						data-toggle="dropdown" role="button" aria-haspopup="true"
+						aria-expanded="false">Administração <span class="caret"></span></a>
+						<ul class="dropdown-menu">
+							<li><a href="/ambientes">Ambiente</a></li>
+							<li><a href="/sgbds">SGBD</a></li>
+							<li><a href="/sistemasOperacionais">Sistemas
+									Operacioanais</a></li>
+							<li role="separator" class="divider"></li>
+							<li><a href="/login/index">Usuários</a></li>
+						</ul></li>
+				</ul>
+				<ul class="nav navbar-nav navbar-right">
+					<li><a href="href=logout">Sair</a></li>
+				</ul>
+				<form class="navbar-form navbar-right">
+					<div class="form-group">
+						<input type="text" class="form-control" placeholder="Buscar...">
+					</div>
+					<button type="submit" class="btn btn-default">Buscar!</button>
+				</form>
+
+			</div>
+			<!-- /.navbar-collapse -->
+		</div>
+		<!-- /.container-fluid -->
+	</nav>
+	<!-- 
+        <nav class="navbar navbar-inverse fixed-top " th:fragment="nav-sidebar">
 	        <div class="container">
 	            <div class="navbar-header">
 	                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -34,5 +87,6 @@
 	            </div>
 	        </div>
 	    </nav>   
+	     -->
 </body>
 </html>

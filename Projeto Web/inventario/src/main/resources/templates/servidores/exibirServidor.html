@@ -1,0 +1,116 @@
+
+<div class="panel-body">
+	<div th:object="${servidor}">
+
+		<div class="row">
+			<div class="col-md-4">
+				<label>Nome do Servidor</label>
+				<p th:text="*{nomeServidor}"></p>
+			</div>
+			<div class="col-md-4">
+				<label>Data de Criacao</label>
+				<p th:text="${#dates.format(servidor.dataCriacao, 'dd/MM/yyyy')}"></p>
+			</div>
+			<div class="col-md-4">
+				<label>Data de Inativação</label>
+				<p
+					th:text="${servidor.dataInativacao} ? ${#dates.format(servidor.dataInativacao, 'dd/MM/yyyy')} : 'nulo' "></p>
+			</div>
+
+			<div class="col-md-4">
+				<label>IP</label>
+				<p th:text="*{ipHost}"></p>
+			</div>
+			<div class="col-md-4">
+				<label>Sistema Operacional</label>
+				<p th:text="*{sistemaOperacional.nomeSistemaOperacional}"></p>
+			</div>
+			<div class="col-md-4">
+				<label>Versão SO</label>
+				<p th:text="*{versaoSo}"></p>
+			</div>
+			<div class="col-md-4">
+				<label>Versão Kernel</label>
+				<p th:text="*{versaoKernel}"></p>
+			</div>
+
+
+			<div class="col-md-4">
+				<label>CPUS</label>
+				<p th:text="*{cpus}"></p>
+			</div>
+			<div class="col-md-4">
+				<label>Núcleos</label>
+				<p th:text="*{nucleos}"></p>
+			</div>
+			<div class="col-md-4">
+				<label>Cores</label>
+				<p th:text="*{cores}"></p>
+			</div>
+
+			<div class="col-md-4">
+				<label>Memória em MB</label>
+				<p th:text="*{memoriaMb}"></p>
+			</div>
+			<div class="col-md-4">
+				<label>Memória em GB</label>
+				<p th:text="*{memoriaMb / 1024}"></p>
+			</div>
+			<div class="col-md-4">
+				<label>Ativo</label>
+				<p th:text="*{ativo}"></p>
+			</div>
+			<div class="col-md-4">
+				<label>Ambiente</label>
+				<p th:text="*{ambiente.nomeAmbiente}"></p>
+			</div>
+		</div>
+		<!--  Instâncias  -->
+		<div>
+			<hr />
+			<h2>Instâncias</h2>
+			<table class="table" id="tblDiscosServidor">
+				<thead>
+					<tr>
+						<th>Nome Instância</th>
+						<th>Descrição</th>
+						<th>SGBD</th>
+						<th>Versão SGBD</th>
+						<th>Porta</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="instancia : *{instancias}">
+						<td th:text="${instancia.nomeInstancia}"></td>
+						<td th:text="${instancia.descricaoInstancia}"></td>
+						<td th:text="${instancia.sgbd.nomeSgbd}"></td>
+						<td th:text="${instancia.versaoSgbd}"></td>
+						<td th:text="${instancia.porta}"></td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<!--  Discos  -->
+		<div>
+			<hr />
+			<h2>Discos</h2>
+			<table class="table" id="tblDiscosServidor">
+				<thead>
+					<tr>
+						<th>Partição Servidor</th>
+						<th>Tamanho em MB</th>
+						<th>Tamanho em GB</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="disco : *{discosServidor}">
+						<td th:text="${disco.particaoServidor}"></td>
+						<td th:text="${disco.tamanhoMB}"></td>
+						<td th:text="${T(Math).floor(disco.tamanhoMB/1024)}"></td>
+						
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
