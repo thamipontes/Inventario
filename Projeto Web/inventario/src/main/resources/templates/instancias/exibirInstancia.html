@@ -8,7 +8,78 @@
 				<p th:text="*{nomeInstancia}"></p>
 			</div>
 
+			<div class="col-md-4">
+				<label>Descrição da Instancia</label>
+				<p th:text="*{descricaoInstancia}"></p>
+			</div>
+			<div class="col-md-4">
+				<label>Data de Criacao</label>
+				<p th:text="${#dates.format(instancia.dataCriacao, 'dd/MM/yyyy')}"></p>
+			</div>
+			<div class="col-md-4">
+				<label>Data de Inativação</label>
+				<p
+					th:text="${instancia.dataInativacao} ? ${#dates.format(instancia.dataInativacao, 'dd/MM/yyyy')} : 'nulo' "></p>
+			</div>
+			<div class="col-md-4">
+				<label>Ativo</label>
+				<p th:text="*{ativo ? 'Sim':'Não'}"></p>
+			</div>
+			<div class="col-md-4">
+				<label>SGBD</label>
+				<p th:text="*{sgbd.nomeSgbd}"></p>
+			</div>
+			<div class="col-md-4">
+				<label>Versão do SGBD</label>
+				<p th:text="*{versaoSgbd}"></p>
+			</div>
+			<div class="col-md-4">
+				<label>IP do servidor</label>
+				<p th:text="*{servidor.ipHost}"></p>
+			</div>
+			<div class="col-md-4">
+				<label>Porta</label>
+				<p th:text="*{porta}"></p>
+			</div>
+			<div class="col-md-4">
+				<label>Local de Instalação</label>
+				<p th:text="*{localInstalacao}"></p>
+			</div>
 		</div>
-	
+		<!--  Bases  -->
+		<div>
+			<hr />
+			<h2>Bases</h2>
+			<table class="table" id="tblBasesInstancia">
+				<thead>
+					<tr>
+						<th>Nome da base</th>
+						<th>Descrição</th>
+						<th>Ativo</th>
+						<th>Data de Criação</th>
+						<th>Data de Inativação</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="base : *{bases}">
+						<td th:text="${base.nomeBase}"></td>
+						<td th:text="${base.descricaoBase}"></td>
+												<td th:switch="${base.ativo}"><span
+							class="glyphicon glyphicon-circle-arrow-up text-success"
+							th:case="true">up</span> <span
+							class="glyphicon glyphicon-off text-danger" th:case="false">down</span>
+						</td>
+						<td th:text="${#dates.format(base.dataCriacao, 'dd/MM/yyyy')}"></td> 
+						<td th:text="${#dates.format(base.dataInativacao, 'dd/MM/yyyy')}"></td>
+						
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		 
+		 
+
 	</div>
 </div>
+
+

@@ -100,4 +100,15 @@ public class BaseController {
 		schemaService.salvarSchema(schema);
 		return editarBase(base.getIdBase(),sessao);
 	}
+	
+	@GetMapping("exibirBase/{id}")
+	public ModelAndView exibirBase(@PathVariable("id") int id) {
+		
+		ModelAndView mv = new ModelAndView("bases/exibirBase");
+		
+		Optional<Base> base = baseService.buscarBase(id);
+		mv.addObject("base", base.get());
+				
+		return mv;
+	}
 }
