@@ -24,11 +24,11 @@
 						<th>Porta</th>
 						<th>Local Instalação</th>
 						<th>Editar</th>
+						<th>Info</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr th:each="instancia : ${instancias}"
-					th:attr="onclick=|detalhaInstancia(${instancia.idInstancia})|">
+					<tr th:each="instancia : ${instancias}">
 						<td th:text="${instancia.nomeInstancia}"></td>
 						<td th:switch="${instancia.ativo}"><span
 							class="glyphicon glyphicon-circle-arrow-up text-success"
@@ -44,6 +44,8 @@
 							th:href="'/instancias/editarInstancia/'+${instancia.idInstancia}">
 								<span class="glyphicon glyphicon-pencil"></span>
 						</a></td>
+						<td><a th:attr="onclick=|detalhaInstancia(${instancia.idInstancia})|"><span
+								class="glyphicon glyphicon-eye-open"></span></a></td>
 						<!-- 
                     <td>
                     	<form th:object="${instancia}" th:action="@{/instancias/deletarInstancia}" method="POST" >

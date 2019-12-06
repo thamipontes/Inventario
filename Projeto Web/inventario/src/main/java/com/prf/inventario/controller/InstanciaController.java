@@ -2,6 +2,7 @@ package com.prf.inventario.controller;
 
 import java.util.Optional;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.prf.inventario.model.Instancia;
+import com.prf.inventario.model.Sgbd;
 import com.prf.inventario.service.InstanciaService;
 import com.prf.inventario.service.ServidorService;
 import com.prf.inventario.service.SgbdService;
@@ -39,7 +41,7 @@ public class InstanciaController {
 		return mv;
 	}
 	
-	
+	/*
 	@GetMapping("novaInstancia")
 	public ModelAndView novaInstancia(Instancia instancia) {
 		
@@ -51,6 +53,10 @@ public class InstanciaController {
 		return mv;
 	}
 	
+	*/
+	
+	
+	/*
 	@PostMapping("salvarInstancia")
 	public ModelAndView salvarInstancia(@Valid Instancia instancia , BindingResult result) {
 		if(result.hasErrors()) {
@@ -59,7 +65,43 @@ public class InstanciaController {
 		instanciaService.salvarInstancia(instancia);
 		return listaInstancias();
 	}
+	*/
 	
+	@GetMapping("novaInstancia")
+	public ModelAndView novaInstancia(Instancia srv, HttpSession sessao) {
+		
+		ModelAndView mv = new ModelAndView("/servidores/novaInstancia");
+		mv.addObject("instancia", srv);
+		Iterable<Sgbd> sgbds = sgbdService.listarSgbds();
+		mv.addObject("sgbds",sgbds);
+		mv.addObject("servidores",servidorService.listarServidores());
+		sessao.setAttribute("instancia", null);
+		return mv;
+	}
+	
+	@PostMapping("salvarInstancia")
+	public ModelAndView salvarInstancia(@Valid Instancia srv , BindingResult result, HttpSession sessao) {
+		Instancia  instanciaOld = (Instancia) sessao.getAttribute("instancia");
+		// Se for null significa que é um novo servidor.
+		// Se já existe, está alterando um existente.
+		if(instanciaOld != null) {
+			srv.setIdInstancia(instanciaOld.getIdInstancia());
+			// Se der erro ao alterar um servidor existente
+			if(result.hasErrors()) {
+				return editarInstancia(srv.getIdInstancia(),sessao);
+			}
+		} else {
+			// Se der erro ao alterar um novo servidor
+			if(result.hasErrors()) {
+				return novaInstancia(srv,sessao);
+			}
+		}
+
+		instanciaService.salvarInstancia(srv);
+		return listaInstancias();
+	}
+	
+	/*
 	@GetMapping("editarInstancia/{id}")
 	public ModelAndView editarInstancia(@PathVariable("id") int id) {
 		
@@ -70,6 +112,20 @@ public class InstanciaController {
 		mv.addObject("sgbds",sgbdService.listarSgbds());
 		mv.addObject("servidores",servidorService.listarServidores());
 				
+		return mv;
+	}
+	*/
+	
+	@GetMapping("editarInstancia/{id}")
+	public ModelAndView editarInstancia(@PathVariable("id") int id ,HttpSession sessao) {
+		ModelAndView mv = new ModelAndView("/instancias/editarInstancia");
+		Optional<Instancia> instancia = instanciaService.buscarInstancia(id);
+		mv.addObject("instancia", instancia); 
+		Iterable<Sgbd> sgbds = sgbdService.listarSgbds();
+		mv.addObject("sgbds",sgbds);
+		mv.addObject("servidores",servidorService.listarServidores());
+		sessao.setAttribute("instancia", instancia.get());
+		
 		return mv;
 	}
 	

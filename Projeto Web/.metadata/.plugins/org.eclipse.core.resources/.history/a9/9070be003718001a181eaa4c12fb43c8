@@ -1,0 +1,86 @@
+<div class="panel-body">
+	<div th:object="${base}">
+
+		<div class="row">
+		<div class="col-md-4">
+				<label>Nome da Instância</label>
+				<p th:text="*{instancia.nomeInstancia}"></p>
+			</div>
+			<div class="col-md-4">
+				<label>Nome da Base</label>
+				<p th:text="*{nomeBase}"></p>
+			</div>
+			<div class="col-md-4">
+				<label>Descrição da Base</label>
+				<p th:text="*{descricaoBase}"></p>
+			</div>
+			<div class="col-md-4">
+				<label>Data de Criação</label>
+				<p th:text="${#dates.format(base.dataCriacao, 'dd/MM/yyyy')}"></p>
+			</div>
+			<div class="col-md-4">
+				<label>Data de Inativação</label>
+				<p
+					th:text="${base.dataInativacao} ? ${#dates.format(base.dataInativacao, 'dd/MM/yyyy')} : 'nulo' "></p>
+			</div>
+
+			<div class="col-md-4">
+				<label>Ativo</label>
+				<p th:text="*{ativo}"></p>
+			</div>
+			
+		<!--  Schemas  -->
+		<div>
+			<hr />
+			<h2>Schemas</h2>
+			<table class="table" id="tblSchemas">
+				<thead>
+					<tr>
+						<th>Nome Schema</th>
+						<th>Descrição</th>
+						<th>Data de Criação</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="schema : ${schemas}">
+							<td th:text="${schema.nomeSchema}"></td>
+							<td th:text="${schema.descricaoSchema}"></td>
+							<td th:text="${schema.dataCriacao}"></td>
+						</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>
+
+
+<!-- 
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="T002_ID_BASE")
+	private int idBase;	
+	
+	@Column(name="T002_NO_BASE")
+	private String nomeBase;
+	
+	@Column(name="T002_DE_BASE")
+	private String descricaoBase;
+	
+	@Column(name="T002_DT_CRIACAO")
+	private Date dataCriacao;
+	
+	@Column(name="T002_DT_INATIVACAO")
+	@DateTimeFormat(pattern = "dd-MM-yyyy")
+	private Date dataInativacao;
+	
+	@Column(name="T002_IS_ATIVO")
+	private boolean ativo;
+	
+	@ManyToOne
+	@JoinColumn(name = "T005_ID_INSTANCIA")
+	private Instancia instancia;
+	
+	@OneToMany(mappedBy = "base")
+	private List <Schema> schemas=new ArrayList<>();
+ -->

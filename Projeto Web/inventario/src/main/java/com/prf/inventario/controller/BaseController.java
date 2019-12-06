@@ -43,7 +43,7 @@ public class BaseController {
 	
 	
 	@GetMapping("novaBase")
-	public ModelAndView novaBase(Base base) {
+	public ModelAndView novaBase(Base base, HttpSession sessao) {
 		
 		ModelAndView mv = new ModelAndView("bases/novaBase");
 		mv.addObject("base", base);
@@ -51,15 +51,41 @@ public class BaseController {
 		// Lista as intancias para selecionar
 		mv.addObject("instancias",instanciaService.listarInstancias());
 		
+		sessao.setAttribute("base", null);
+		
 		return mv;
 	}
 	
+	/*
 	@PostMapping("salvarBase")
 	public ModelAndView salvarBase(@Valid Base base , BindingResult result) {
 		if(result.hasErrors()) {
 			return novaBase(base);
 		}
 		baseService.salvarBase(base);
+		return listaBases();
+	}
+	*/
+	
+	@PostMapping("salvarBase")
+	public ModelAndView salvarServidor(@Valid Base srv , BindingResult result, HttpSession sessao) {
+		Base  baseOld = (Base) sessao.getAttribute("base");
+		// Se for null significa que é um novo servidor.
+		// Se já existe, está alterando um existente.
+		if(baseOld != null) {
+			srv.setIdBase(baseOld.getIdBase());
+			// Se der erro ao alterar um servidor existente
+			if(result.hasErrors()) {
+				return editarBase(srv.getIdBase(),sessao);
+			}
+		} else {
+			// Se der erro ao alterar um novo servidor
+			if(result.hasErrors()) {
+				return novaBase(srv,sessao);
+			}
+		}
+
+		baseService.salvarBase(srv);
 		return listaBases();
 	}
 	
