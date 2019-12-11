@@ -1,6 +1,0 @@
-package com.prf.inventario.config;
-
-public class SecurityWebApplicationInitializer 
-extends AbstractSecurityWebApplicationInitializer {
-
-}

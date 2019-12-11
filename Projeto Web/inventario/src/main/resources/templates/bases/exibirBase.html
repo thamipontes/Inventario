@@ -46,7 +46,7 @@
 					<tr th:each="schema : *{schemas}">
 							<td th:text="${schema.nomeSchema}"></td>
 							<td th:text="${schema.descricaoSchema}"></td>
-							<td th:text="${schema.dataCriacao}"></td>
+							<td th:text="${#dates.format(schema.dataCriacao, 'dd/MM/yyyy')}"></td>
 						</tr>
 				</tbody>
 			</table>

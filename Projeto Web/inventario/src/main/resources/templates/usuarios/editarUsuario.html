@@ -65,7 +65,7 @@
 				</form>
 				<div>
 					<hr />
-					<h2>Esquemas</h2>
+					<h2>Schemas</h2>
 					<table class="table" id="tblSchemasUsuario">
 						<thead>
 							<tr>
@@ -95,7 +95,7 @@
 					<form class="form-horizontal" th:object="${schemaUsuario}"
 						th:action="@{/usuarios/salvarSchemaUsuario}" method="POST"
 						style="margin: 10px">
-						<h3>Vincular a esquema</h3>
+						<h3>Vincular Schema</h3>
 						<div class="form-group row">
 							<div class="alert alert-danger" th:if="${#fields.hasAnyErrors()}">
 								<div th:each="detailedError : ${#fields.detailedErrors()}">

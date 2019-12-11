@@ -89,6 +89,7 @@ public class BaseController {
 		return listaBases();
 	}
 	
+	
 	@GetMapping("editarBase/{id}")
 	public ModelAndView editarBase(@PathVariable("id") int id, HttpSession sessao) {
 		
@@ -106,9 +107,12 @@ public class BaseController {
 		// Instancia Schema para adicionar um novo
 		Schema schema = new Schema();
 		mv.addObject("schema",schema);
+		
+		sessao.setAttribute("base", base.get());
 				
 		return mv;
 	}
+	
 	
 	@PostMapping("salvarSchema")
 	public ModelAndView salvarSchema(@Valid Schema schema , BindingResult result, HttpSession sessao) {
@@ -126,6 +130,7 @@ public class BaseController {
 		schemaService.salvarSchema(schema);
 		return editarBase(base.getIdBase(),sessao);
 	}
+	
 	
 	@GetMapping("exibirBase/{id}")
 	public ModelAndView exibirBase(@PathVariable("id") int id) {

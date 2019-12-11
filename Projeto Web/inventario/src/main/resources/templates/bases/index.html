@@ -23,7 +23,7 @@
 						<th>Data Inativação</th>
 						<th>Ativo</th>
 						<th>Editar</th>
-						<th>Detalhes</th>
+						<th>Info</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -31,15 +31,18 @@
 						<td th:text="${base.instancia.nomeInstancia}"></td>
 						<td th:text="${base.nomeBase}"></td>
 						<td th:text="${base.descricaoBase}"></td>
-						<td th:text="${base.dataCriacao}"></td>
+						<td th:text="${#dates.format(base.dataCriacao, 'dd/MM/yyyy')}"></td>
 						<td th:text="${base.dataInativacao}"></td>
-						<td th:text="${base.ativo ? 'Sim' : 'Não'}"></td>
-						<td align="center"><a th:href="'/bases/editarBase/' + ${base.idBase}"> <span
+						<td th:switch="${base.ativo}"><span
+							class="glyphicon glyphicon-circle-arrow-up text-success"
+							th:case="true">up</span> <span
+							class="glyphicon glyphicon-off text-danger" th:case="false">down</span>
+						</td>
+						<td><a th:href="'/bases/editarBase/' + ${base.idBase}"> <span
 								class="glyphicon glyphicon-pencil"></span>
-						<td align="center"> <a href="#" th:attr="onclick=|detalhaBase(${base.idBase})|"><span
-									class="glyphicon glyphicon-eye-open"></span></a></td>
-
-
+						<td><a href="#"
+							th:attr="onclick=|detalhaBase(${base.idBase})|"><span
+								class="glyphicon glyphicon-eye-open"></span></a></td>
 					</tr>
 				</tbody>
 			</table>

@@ -1,0 +1,51 @@
+<div class="panel-body">
+	<div th:object="${sistema}">
+
+		<div class="row">
+		<div class="col-md-4">
+				<label>Nome do Sistema</label>
+				<p th:text="*{sistema.nomeSistema}"></p>
+			</div>
+			<div class="col-md-4">
+				<label>Descrição do Sistema</label>
+				<p th:text="*{sistema.descricaoSistema}"></p>
+			</div>
+			<div class="col-md-4">
+				<label>Data de Criação</label>
+				<p th:text="${#dates.format(sistema.dataCriacao, 'dd/MM/yyyy')}"></p>
+			</div>
+			<div class="col-md-4">
+				<label>Data de Inativação</label>
+				<p
+					th:text="${sistema.dataInativacao} ? ${#dates.format(sistema.dataInativacao, 'dd/MM/yyyy')} : 'Nulo' "></p>
+			</div>
+
+			<div class="col-md-4">
+				<label>Ativo</label>
+				<p th:text="*{sistema.ativo}"></p>
+			</div>
+		</div>
+			
+		<!--  Schemas  -->
+		<div>
+			<hr />
+			<h2>Schemas</h2>
+			<table class="table" id="tblSchemas">
+				<thead>
+					<tr>
+						<th>Nome Schema</th>
+						<th>Descrição</th>
+						<th>Data de Criação</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="schema : *{schemas}">
+							<td th:text="${schema.nomeSchema}"></td>
+							<td th:text="${schema.descricaoSchema}"></td>
+							<td th:text="${#dates.format(schema.dataCriacao, 'dd/MM/yyyy')}"></td>
+						</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

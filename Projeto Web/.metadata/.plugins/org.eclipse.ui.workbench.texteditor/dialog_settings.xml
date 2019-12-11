@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
-		<item key="selection" value="InventarioRepo"/>
+		<item key="selection" value="long"/>
 		<item key="wrap" value="true"/>
 		<item key="casesensitive" value="false"/>
 		<item key="wholeword" value="false"/>
 		<item key="incremental" value="false"/>
 		<item key="isRegEx" value="false"/>
 		<list key="findhistory">
+			<item value="long"/>
 			<item value="inventarioRepo"/>
 			<item value="property"/>
 		</list>
@@ -19,6 +20,6 @@
 		<item key="DIALOG_Y_ORIGIN" value="23"/>
 		<item key="DIALOG_WIDTH" value="347"/>
 		<item key="DIALOG_HEIGHT" value="451"/>
-		<item key="DIALOG_FONT_NAME" value="1|Cantarell|11.0|0|GTK|1|"/>
+		<item key="DIALOG_FONT_NAME" value="1|Cantarell|9.330358|0|GTK|1|"/>
 	</section>
 </section>

@@ -7,6 +7,7 @@ import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -51,7 +52,7 @@ public class Sistema implements Serializable{
 	private boolean ativo;
 	
 	@JsonManagedReference
-	@ManyToMany(mappedBy = "sistemas")
+	@ManyToMany(mappedBy = "sistemas",fetch = FetchType.EAGER)
 	private List<Schema> schemas = new ArrayList<>();
 	
 	public Sistema () {
