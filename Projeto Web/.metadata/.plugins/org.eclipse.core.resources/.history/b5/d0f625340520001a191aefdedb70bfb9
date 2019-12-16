@@ -70,7 +70,7 @@ public class InstanciaController {
 	@GetMapping("novaInstancia")
 	public ModelAndView novaInstancia(Instancia srv, HttpSession sessao) {
 		
-		ModelAndView mv = new ModelAndView("/instancias/novaInstancia");
+		ModelAndView mv = new ModelAndView("/servidores/novaInstancia");
 		mv.addObject("instancia", srv);
 		Iterable<Sgbd> sgbds = sgbdService.listarSgbds();
 		mv.addObject("sgbds",sgbds);
