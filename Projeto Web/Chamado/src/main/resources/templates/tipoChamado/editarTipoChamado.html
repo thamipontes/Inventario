@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html layout:decorate="~{layouts/layout}">
+<head>
+<meta charset="UTF-8" />
+<title>Editar Tipo de Chamado</title>
+</head>
+<body>
+	<section class="Layout-content" layout:fragment="corpo">
+		<div class="container">
+			<div class="panel panel-default">
+				<div class="panel-header" align="center">
+					<h2>Editar Tipo do Chamado</h2>
+					<hr />
+				</div>
+
+				<div class="panel-body">
+					<form class="form-horizontal" th:object="${tipoChamado}"
+						th:action="@{/tipoChamado/salvarTipoChamado}" method="POST"
+						style="margin: 10px">
+						<div class="form-group">
+							<fieldset>
+								<div class="form-group row">
+									<div class="alert alert-danger"
+										th:if="${#fields.hasAnyErrors()}">
+										<div th:each="detailedError : ${#fields.detailedErrors()}">
+											<span th:text="${detailedError.message}"></span>
+										</div>
+									</div>
+								</div>
+								<div class="form-group row">
+									<div class="col-md-4"
+										th:classappend="${#fields.hasErrors('*{nomeTipoChamado}')}? 'has-error'">
+										<label>Nome do Tipo do Chamado</label> <input type="text"
+											class="form-control input-sm" th:field="*{nomeTipoChamado}"
+											autofocus="autofocus" placeholder="Informe o autor"
+											maxlength="50" />
+									</div>
+								</div>
+							</fieldset>
+						</div>
+						<div class="form-group row">
+							<button type="submit" class="btn btn-sm btn-primary">Salvar</button>
+							<a th:href="@{/tipoChamado}" class="btn btn-sm btn-default">Cancelar</a>
+						</div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>
+

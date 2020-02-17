@@ -1,0 +1,54 @@
+.nav-menu-prf{
+	background-color: #293999;
+}
+
+.navbar-inverse .navbar-nav>li>a {
+    color: white;
+    font-size: 18px;
+}
+
+.navbar-inverse .navbar-nav>.open>a {
+
+    background-color: #293888 !important;
+}
+
+.navbar-inverse .navbar-brand {
+    color: white;
+    font-size: 20px;
+}
+
+/* Esse estilo é para as tds de tabelas */
+.td-producao{
+	color: #a40000;
+	font-weight: bold;
+}
+
+.td-replicacao{
+	color: #ef2929;
+	font-weight: bold;
+}
+
+.td-desenvolvimento{
+	color: #008000;
+	font-weight: bold;
+}
+
+.td-homologacao{
+	color: #edd400;
+	font-weight: bold;
+}
+
+.td-mix{
+	color: #5c3566;
+	font-weight: bold;
+}
+
+.td-legado{
+	color: #555753;
+	font-weight: bold;
+}
+
+.td-tools{
+	color: #8f5902;
+	font-weight: bold;
+}

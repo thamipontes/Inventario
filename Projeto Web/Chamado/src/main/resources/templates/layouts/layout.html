@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="pt" xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/Layout"
+	xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity4">
+<title>Chamados PRF</title>
+<meta http-equiv="X-UA-Compatible" content="IE-edge" />
+<meta charset="UTF-8" />
+
+</head>
+
+<body>
+	<header th:replace="fragments/header :: cabecalho">
+		<div>header</div>
+	</header>
+	
+	<section layout:fragment="estiloPagina"></section>
+	<div>
+		<aside>
+			<nav th:replace="fragments/sidebar :: nav-sidebar">
+				<span>menu</span>
+			</nav>
+		</aside>
+
+		<section layout:fragment="corpo">
+			<div>Conteúdo principal das paginas</div>
+		</section>
+	</div>
+
+	<footer th:replace="fragments/footer :: rodape">
+		<div>footer</div>
+	</footer>
+
+	<div th:replace="fragments/scripts :: scriptsDefault"></div>
+
+	<section layout:fragment="scriptPagina"></section>
+
+	<section layout:fragment="scriptsPagina"></section>
+</body>
+</html>
