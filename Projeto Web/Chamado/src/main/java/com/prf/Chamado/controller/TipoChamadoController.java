@@ -6,18 +6,19 @@ import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.prf.Chamado.model.TipoChamado;
 import com.prf.Chamado.service.TipoChamadoService;
 
-@Controller
+//@Controller
+@RestController
 @RequestMapping("/tipoChamado")
 public class TipoChamadoController {
 
