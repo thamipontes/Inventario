@@ -14,6 +14,7 @@ public class ChamadoApplication extends SpringBootServletInitializer {
 
 	public static void main(String[] args) {
 		SpringApplication.run(ChamadoApplication.class, args);
+		//System.out.println(new BCryptPasswordEncoder().encode("benspassword"));
 	}
 
 }
