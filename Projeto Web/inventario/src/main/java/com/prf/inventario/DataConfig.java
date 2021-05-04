@@ -18,9 +18,9 @@ public class DataConfig {
 	public DataSource dataSource() {
 		DriverManagerDataSource dataSource = new DriverManagerDataSource();
 		dataSource.setDriverClassName("com.mysql.jdbc.Driver");
-		dataSource.setUrl("jdbc:mysql://10.0.12.83:3306/dbInventarioPrfH");
-		dataSource.setUsername("inventarioH_app");
-		dataSource.setPassword("C3WKg1w4");
+		dataSource.setUrl("");
+		dataSource.setUsername("");
+		dataSource.setPassword("");
 		return dataSource;
 	}
 	
